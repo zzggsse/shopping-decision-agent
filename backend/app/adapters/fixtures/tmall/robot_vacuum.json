@@ -1,0 +1,394 @@
+[
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-roborock-s8-maxv-ultra",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO100",
+      "title": "Roborock S8 MaxV Ultra",
+      "list_price": 5712.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5712.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -343.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 5369.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 800,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/roborock-s8-maxv-ultra",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Roborock",
+      "model": "S8 MaxV Ultra",
+      "attributes": {
+        "suction_pa": 10000,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 60,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "双光三维 + AI",
+        "climb_mm": 40,
+        "noise_db": 60,
+        "height_mm": 96
+      }
+    },
+    "vendor_group_hint": "roborock-s8-maxv-ultra"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-dreame-x30-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO101",
+      "title": "Dreame X30 Pro",
+      "list_price": 4629.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 4629.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -278.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 4351.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 1490,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/dreame-x30-pro",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Dreame",
+      "model": "X30 Pro",
+      "attributes": {
+        "suction_pa": 8300,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 75,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "3D 结构光",
+        "climb_mm": 60,
+        "noise_db": 62,
+        "height_mm": 98
+      }
+    },
+    "vendor_group_hint": "dreame-x30-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-ecovacs-t30-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO102",
+      "title": "Ecovacs T30 Pro",
+      "list_price": 3447.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3447.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -207.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3240.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2180,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/ecovacs-t30-pro",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Ecovacs",
+      "model": "T30 Pro",
+      "attributes": {
+        "suction_pa": 11000,
+        "mop_type": "spin",
+        "base_station": "wash",
+        "dust_bag_days": 60,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "AI 视觉",
+        "climb_mm": 22,
+        "noise_db": 65,
+        "height_mm": 103
+      }
+    },
+    "vendor_group_hint": "ecovacs-t30-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-narwal-freo-x-ultra",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO103",
+      "title": "Narwal Freo X Ultra",
+      "list_price": 5220.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5220.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -313.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 4907.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2870,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/narwal-freo-x-ultra",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Narwal",
+      "model": "Freo X Ultra",
+      "attributes": {
+        "suction_pa": 8200,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 60,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "双目视觉",
+        "climb_mm": 30,
+        "noise_db": 58,
+        "height_mm": 104
+      }
+    },
+    "vendor_group_hint": "narwal-freo-x-ultra"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-xiaomi-robot-vacuum-x20",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO104",
+      "title": "Xiaomi Robot Vacuum X20",
+      "list_price": 2265.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2265.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -136.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 2129.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 3560,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/xiaomi-robot-vacuum-x20",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum X20",
+      "attributes": {
+        "suction_pa": 6000,
+        "mop_type": "spin",
+        "base_station": "wash",
+        "dust_bag_days": 45,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光测距",
+        "climb_mm": 20,
+        "noise_db": 66,
+        "height_mm": 97
+      }
+    },
+    "vendor_group_hint": "xiaomi-robot-vacuum-x20"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-roborock-q7-max+",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO105",
+      "title": "Roborock Q7 Max+",
+      "list_price": 1871.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1871.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -112.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1759.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 4250,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/roborock-q7-max+",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Roborock",
+      "model": "Q7 Max+",
+      "attributes": {
+        "suction_pa": 4200,
+        "mop_type": "basic",
+        "base_station": "dust_only",
+        "dust_bag_days": 30,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光测距",
+        "climb_mm": 20,
+        "noise_db": 67,
+        "height_mm": 96
+      }
+    },
+    "vendor_group_hint": "roborock-q7-max+"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-dreame-l10s-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO106",
+      "title": "Dreame L10s Pro",
+      "list_price": 2659.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2659.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -160.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 2499.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 4940,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/dreame-l10s-pro",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Dreame",
+      "model": "L10s Pro",
+      "attributes": {
+        "suction_pa": 5300,
+        "mop_type": "vibrate",
+        "base_station": "dust_only",
+        "dust_bag_days": 30,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "3D 结构光",
+        "climb_mm": 20,
+        "noise_db": 65,
+        "height_mm": 97
+      }
+    },
+    "vendor_group_hint": "dreame-l10s-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-robot_vacuum-ecovacs-n10",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLRO107",
+      "title": "Ecovacs N10",
+      "list_price": 1378.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1378.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -83.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1295.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 5630,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/ecovacs-n10",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Ecovacs",
+      "model": "N10",
+      "attributes": {
+        "suction_pa": 4300,
+        "mop_type": "basic",
+        "base_station": "none",
+        "dust_bag_days": 0,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光测距",
+        "climb_mm": 18,
+        "noise_db": 68,
+        "height_mm": 98
+      }
+    },
+    "vendor_group_hint": "ecovacs-n10"
+  }
+]

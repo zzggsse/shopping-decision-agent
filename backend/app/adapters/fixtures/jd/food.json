@@ -1,0 +1,378 @@
+[
+  {
+    "offer": {
+      "offer_id": "jd-food-旺旺-仙贝-咸味米饼",
+      "platform": "jd",
+      "platform_sku_id": "JDFO200",
+      "title": "旺旺 仙贝 咸味米饼",
+      "list_price": 19.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 19.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 18.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 600,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/旺旺-仙贝-咸味米饼",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "旺旺",
+      "model": "仙贝 咸味米饼",
+      "attributes": {
+        "sugar_g": 2,
+        "sodium_mg": 680,
+        "protein_g": 6,
+        "fiber_g": 1,
+        "calories_kcal": 180,
+        "sugar_level": "low",
+        "nutrition": "大米、植物油、食盐(氯化钠/钠)、酱油粉、白砂糖(添加糖)、味精"
+      }
+    },
+    "vendor_group_hint": "旺旺-仙贝-咸味米饼"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-乐事-原味薯片",
+      "platform": "jd",
+      "platform_sku_id": "JDFO201",
+      "title": "乐事 原味薯片",
+      "list_price": 12.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 12.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 11.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 1140,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/乐事-原味薯片",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "乐事",
+      "model": "原味薯片",
+      "attributes": {
+        "sugar_g": 1,
+        "sodium_mg": 520,
+        "protein_g": 7,
+        "fiber_g": 2,
+        "calories_kcal": 540,
+        "sugar_level": "low",
+        "nutrition": "马铃薯、植物油、食盐(氯化钠/钠)、饱和脂肪、葡萄糖(添加糖)、乳化剂"
+      }
+    },
+    "vendor_group_hint": "乐事-原味薯片"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-三只松鼠-每日坚果-750g",
+      "platform": "jd",
+      "platform_sku_id": "JDFO202",
+      "title": "三只松鼠 每日坚果 750g",
+      "list_price": 99.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 99.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -4.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 95.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 1680,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/三只松鼠-每日坚果-750g",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "三只松鼠",
+      "model": "每日坚果 750g",
+      "attributes": {
+        "sugar_g": 6,
+        "sodium_mg": 80,
+        "protein_g": 18,
+        "fiber_g": 8,
+        "calories_kcal": 600,
+        "sugar_level": "medium",
+        "nutrition": "坚果(腰果、杏仁、核桃、榛子)、蔓越莓干、葡萄干、白砂糖(添加糖)"
+      }
+    },
+    "vendor_group_hint": "三只松鼠-每日坚果-750g"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-ffit8-乳清蛋白棒-巧克力味",
+      "platform": "jd",
+      "platform_sku_id": "JDFO203",
+      "title": "ffit8 乳清蛋白棒 巧克力味",
+      "list_price": 69.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 69.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -3.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 66.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 2220,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/ffit8-乳清蛋白棒-巧克力味",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "ffit8",
+      "model": "乳清蛋白棒 巧克力味",
+      "attributes": {
+        "sugar_g": 3,
+        "sodium_mg": 140,
+        "protein_g": 20,
+        "fiber_g": 8,
+        "calories_kcal": 220,
+        "sugar_level": "low",
+        "nutrition": "乳清蛋白(蛋白质)、聚葡萄糖(膳食纤维)、赤藓糖醇(代糖/糖醇)、可可粉、坚果(花生)、MCT 油"
+      }
+    },
+    "vendor_group_hint": "ffit8-乳清蛋白棒-巧克力味"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-趣园-无糖粗粮饼干",
+      "platform": "jd",
+      "platform_sku_id": "JDFO204",
+      "title": "趣园 无糖粗粮饼干",
+      "list_price": 29.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 29.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 28.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 2760,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/趣园-无糖粗粮饼干",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "趣园",
+      "model": "无糖粗粮饼干",
+      "attributes": {
+        "sugar_g": 0,
+        "sodium_mg": 220,
+        "protein_g": 9,
+        "fiber_g": 12,
+        "calories_kcal": 420,
+        "sugar_level": "free",
+        "nutrition": "全麦粉、燕麦、聚葡萄糖(膳食纤维)、麦芽糖醇(代糖/糖醇)、植物油、食盐(钠)"
+      }
+    },
+    "vendor_group_hint": "趣园-无糖粗粮饼干"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-士力架-花生夹心巧克力",
+      "platform": "jd",
+      "platform_sku_id": "JDFO205",
+      "title": "士力架 花生夹心巧克力",
+      "list_price": 39.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 39.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -2.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 37.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 3300,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/士力架-花生夹心巧克力",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "士力架",
+      "model": "花生夹心巧克力",
+      "attributes": {
+        "sugar_g": 30,
+        "sodium_mg": 180,
+        "protein_g": 8,
+        "fiber_g": 2,
+        "calories_kcal": 490,
+        "sugar_level": "high",
+        "nutrition": "牛奶巧克力、白砂糖(添加糖)、葡萄糖浆(添加糖)、花生(坚果)、植脂末(反式脂肪/饱和脂肪)、可可脂"
+      }
+    },
+    "vendor_group_hint": "士力架-花生夹心巧克力"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-良品铺子-低脂鸡胸肉肠",
+      "platform": "jd",
+      "platform_sku_id": "JDFO206",
+      "title": "良品铺子 低脂鸡胸肉肠",
+      "list_price": 35.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 35.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -2.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 33.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 3840,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/良品铺子-低脂鸡胸肉肠",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "良品铺子",
+      "model": "低脂鸡胸肉肠",
+      "attributes": {
+        "sugar_g": 1,
+        "sodium_mg": 560,
+        "protein_g": 22,
+        "fiber_g": 0,
+        "calories_kcal": 150,
+        "sugar_level": "low",
+        "nutrition": "鸡胸肉、水、食盐(氯化钠/钠)、香辛料、赤藓糖醇(代糖/糖醇)、大豆蛋白(蛋白质)"
+      }
+    },
+    "vendor_group_hint": "良品铺子-低脂鸡胸肉肠"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-百草味-海盐坚果混合",
+      "platform": "jd",
+      "platform_sku_id": "JDFO207",
+      "title": "百草味 海盐坚果混合",
+      "list_price": 79.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 79.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -4.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 75.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 4380,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/百草味-海盐坚果混合",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "百草味",
+      "model": "海盐坚果混合",
+      "attributes": {
+        "sugar_g": 2,
+        "sodium_mg": 320,
+        "protein_g": 16,
+        "fiber_g": 7,
+        "calories_kcal": 580,
+        "sugar_level": "low",
+        "nutrition": "坚果(杏仁、腰果、开心果)、海盐(钠)、植物油"
+      }
+    },
+    "vendor_group_hint": "百草味-海盐坚果混合"
+  }
+]

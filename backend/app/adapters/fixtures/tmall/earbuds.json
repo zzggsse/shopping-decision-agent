@@ -1,0 +1,394 @@
+[
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-apple-airpods-pro-2",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA100",
+      "title": "Apple AirPods Pro 2",
+      "list_price": 1871.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1871.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -112.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1759.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 800,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/apple-airpods-pro-2",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Apple",
+      "model": "AirPods Pro 2",
+      "attributes": {
+        "anc_grade": "flagship",
+        "anc_db": 48,
+        "sound_grade": "excellent",
+        "battery_hours": 6.0,
+        "case_hours": 30,
+        "latency_ms": 90,
+        "weight_g": 5.3,
+        "wear_style": "in_ear",
+        "waterproof": "IPX4"
+      }
+    },
+    "vendor_group_hint": "apple-airpods-pro-2"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-sony-wf-1000xm5",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA101",
+      "title": "Sony WF-1000XM5",
+      "list_price": 1674.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1674.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -100.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1574.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 1490,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/sony-wf-1000xm5",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Sony",
+      "model": "WF-1000XM5",
+      "attributes": {
+        "anc_grade": "flagship",
+        "anc_db": 50,
+        "sound_grade": "audiophile",
+        "battery_hours": 8.0,
+        "case_hours": 24,
+        "latency_ms": 120,
+        "weight_g": 5.9,
+        "wear_style": "in_ear",
+        "waterproof": "IPX4"
+      }
+    },
+    "vendor_group_hint": "sony-wf-1000xm5"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-huawei-freebuds-pro-3",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA102",
+      "title": "Huawei FreeBuds Pro 3",
+      "list_price": 1083.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1083.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -65.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1018.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2180,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/huawei-freebuds-pro-3",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Huawei",
+      "model": "FreeBuds Pro 3",
+      "attributes": {
+        "anc_grade": "excellent",
+        "anc_db": 45,
+        "sound_grade": "excellent",
+        "battery_hours": 6.5,
+        "case_hours": 31,
+        "latency_ms": 90,
+        "weight_g": 5.8,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "huawei-freebuds-pro-3"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-redmi-redmi-buds-5-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA103",
+      "title": "Redmi Redmi Buds 5 Pro",
+      "list_price": 295.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 295.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -18.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 277.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2870,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/redmi-redmi-buds-5-pro",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Redmi",
+      "model": "Redmi Buds 5 Pro",
+      "attributes": {
+        "anc_grade": "good",
+        "anc_db": 52,
+        "sound_grade": "good",
+        "battery_hours": 8.0,
+        "case_hours": 38,
+        "latency_ms": 59,
+        "weight_g": 5.0,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "redmi-redmi-buds-5-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-edifier-neobuds-pro-2",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA104",
+      "title": "Edifier NeoBuds Pro 2",
+      "list_price": 639.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 639.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -38.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 601.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 3560,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/edifier-neobuds-pro-2",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Edifier",
+      "model": "NeoBuds Pro 2",
+      "attributes": {
+        "anc_grade": "good",
+        "anc_db": 42,
+        "sound_grade": "excellent",
+        "battery_hours": 5.5,
+        "case_hours": 22,
+        "latency_ms": 66,
+        "weight_g": 5.2,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "edifier-neobuds-pro-2"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-apple-airpods-4",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA105",
+      "title": "Apple AirPods 4",
+      "list_price": 1083.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1083.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -65.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1018.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 4250,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/apple-airpods-4",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Apple",
+      "model": "AirPods 4",
+      "attributes": {
+        "anc_grade": "basic",
+        "anc_db": 25,
+        "sound_grade": "good",
+        "battery_hours": 5.0,
+        "case_hours": 30,
+        "latency_ms": 100,
+        "weight_g": 4.3,
+        "wear_style": "semi_in_ear",
+        "waterproof": "IPX4"
+      }
+    },
+    "vendor_group_hint": "apple-airpods-4"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-xiaomi-xiaomi-buds-4",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA106",
+      "title": "Xiaomi Xiaomi Buds 4",
+      "list_price": 492.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 492.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -30.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 462.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 4940,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/xiaomi-xiaomi-buds-4",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Xiaomi",
+      "model": "Xiaomi Buds 4",
+      "attributes": {
+        "anc_grade": "good",
+        "anc_db": 43,
+        "sound_grade": "good",
+        "battery_hours": 6.0,
+        "case_hours": 30,
+        "latency_ms": 88,
+        "weight_g": 4.8,
+        "wear_style": "semi_in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "xiaomi-xiaomi-buds-4"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-earbuds-honor-earbuds-x5-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLEA107",
+      "title": "Honor Earbuds X5 Pro",
+      "list_price": 196.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 196.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -12.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 184.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 5630,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/honor-earbuds-x5-pro",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Honor",
+      "model": "Earbuds X5 Pro",
+      "attributes": {
+        "anc_grade": "basic",
+        "anc_db": 28,
+        "sound_grade": "basic",
+        "battery_hours": 7.0,
+        "case_hours": 28,
+        "latency_ms": 150,
+        "weight_g": 4.5,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "honor-earbuds-x5-pro"
+  }
+]

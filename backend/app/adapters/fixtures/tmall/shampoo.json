@@ -1,0 +1,354 @@
+[
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-海飞丝-去屑洗发露-经典款",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH200",
+      "title": "海飞丝 去屑洗发露 经典款",
+      "list_price": 58.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 58.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -3.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 55.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 600,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/海飞丝-去屑洗发露-经典款",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "海飞丝",
+      "model": "去屑洗发露 经典款",
+      "attributes": {
+        "volume_ml": 750,
+        "scalp_gentleness": "harsh",
+        "hair_type": "oily",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、月桂醇硫酸酯钠(SLS)、吡硫鎓锌(ZPT)、氯化钠、椰油酰胺 MEA、香精、柠檬酸"
+      }
+    },
+    "vendor_group_hint": "海飞丝-去屑洗发露-经典款"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-施巴-温和洗发液",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH201",
+      "title": "施巴 温和洗发液",
+      "list_price": 126.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 126.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -8.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 118.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 1140,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/施巴-温和洗发液",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "施巴",
+      "model": "温和洗发液",
+      "attributes": {
+        "volume_ml": 400,
+        "scalp_gentleness": "gentle",
+        "hair_type": "all",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、椰油酰甘氨酸钾(氨基酸)、烟酰胺、神经酰胺、泛醇、pH5.5 弱酸性配方"
+      }
+    },
+    "vendor_group_hint": "施巴-温和洗发液"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-吕-棕吕-防脱滋养洗发水",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH202",
+      "title": "吕 棕吕 防脱滋养洗发水",
+      "list_price": 88.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 88.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -5.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 83.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 1680,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/吕-棕吕-防脱滋养洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "吕",
+      "model": "棕吕 防脱滋养洗发水",
+      "attributes": {
+        "volume_ml": 500,
+        "scalp_gentleness": "balanced",
+        "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、椰油酰谷氨酸钠(氨基酸表活)、聚二甲基硅氧烷(硅油)、生物素、人参提取物、烟酰胺、香精"
+      }
+    },
+    "vendor_group_hint": "吕-棕吕-防脱滋养洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-滋源-茶籽控油去屑洗发水(无硅油)",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH203",
+      "title": "滋源 茶籽控油去屑洗发水(无硅油)",
+      "list_price": 98.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 98.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -6.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 92.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2220,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/滋源-茶籽控油去屑洗发水(无硅油)",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "滋源",
+      "model": "茶籽控油去屑洗发水(无硅油)",
+      "attributes": {
+        "volume_ml": 535,
+        "scalp_gentleness": "balanced",
+        "hair_type": "oily",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、甲基椰油酰基牛磺酸钠(氨基酸)、无硅油配方、吡硫鎓锌(ZPT)、薄荷醇、茶树精油"
+      }
+    },
+    "vendor_group_hint": "滋源-茶籽控油去屑洗发水(无硅油)"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-馥绿德雅-小绿珠-控油强韧洗发水",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH204",
+      "title": "馥绿德雅 小绿珠 控油强韧洗发水",
+      "list_price": 195.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 195.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -12.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 183.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 2760,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/馥绿德雅-小绿珠-控油强韧洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "馥绿德雅",
+      "model": "小绿珠 控油强韧洗发水",
+      "attributes": {
+        "volume_ml": 600,
+        "scalp_gentleness": "gentle",
+        "hair_type": "oily",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、月桂醇聚醚硫酸酯钠(SLES)、烟酰胺、生物素、薄荷醇、精油颗粒、无硅油配方"
+      }
+    },
+    "vendor_group_hint": "馥绿德雅-小绿珠-控油强韧洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-康王-酮康唑洗剂(药用去屑)",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH205",
+      "title": "康王 酮康唑洗剂(药用去屑)",
+      "list_price": 44.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 44.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -3.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 41.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 3300,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/康王-酮康唑洗剂(药用去屑)",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "康王",
+      "model": "酮康唑洗剂(药用去屑)",
+      "attributes": {
+        "volume_ml": 100,
+        "scalp_gentleness": "balanced",
+        "hair_type": "all",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、酮康唑、椰油酰胺丙基甜菜碱、氯化钠、柠檬酸、香精(药用洗剂,按说明使用)"
+      }
+    },
+    "vendor_group_hint": "康王-酮康唑洗剂(药用去屑)"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-欧莱雅-透明质酸水润洗发露",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH206",
+      "title": "欧莱雅 透明质酸水润洗发露",
+      "list_price": 68.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 68.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -4.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 64.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 3840,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/欧莱雅-透明质酸水润洗发露",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "欧莱雅",
+      "model": "透明质酸水润洗发露",
+      "attributes": {
+        "volume_ml": 700,
+        "scalp_gentleness": "balanced",
+        "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、聚二甲基硅氧烷(硅油)、透明质酸、神经酰胺、椰油酰胺 MEA、香精、氯化钠"
+      }
+    },
+    "vendor_group_hint": "欧莱雅-透明质酸水润洗发露"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-shampoo-珂润-润浸保湿洗发水",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLSH207",
+      "title": "珂润 润浸保湿洗发水",
+      "list_price": 136.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 136.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -8.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 128.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 4380,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/珂润-润浸保湿洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "珂润",
+      "model": "润浸保湿洗发水",
+      "attributes": {
+        "volume_ml": 420,
+        "scalp_gentleness": "gentle",
+        "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、甲基椰油酰基牛磺酸钠(氨基酸)、神经酰胺、桉叶提取物、无香精、无硅油配方"
+      }
+    },
+    "vendor_group_hint": "珂润-润浸保湿洗发水"
+  }
+]

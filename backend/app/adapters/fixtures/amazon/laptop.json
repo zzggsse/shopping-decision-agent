@@ -1,0 +1,366 @@
+[
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-apple-macbook-air-m3-13",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA100",
+      "title": "Apple MacBook Air M3 13",
+      "list_price": 9831.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 9831.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 9870.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 800,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/apple-macbook-air-m3-13",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Apple",
+      "model": "MacBook Air M3 13",
+      "attributes": {
+        "cpu": "Apple M3",
+        "cpu_tier": "high",
+        "gpu": "M3 10-core",
+        "gpu_need": "light",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 13.6,
+        "pixels": 4259840,
+        "refresh_hz": 60,
+        "color_gamut": "P3",
+        "weight_kg": 1.24,
+        "battery_hours": 15.0
+      }
+    },
+    "vendor_group_hint": "apple-macbook-air-m3-13"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-lenovo-thinkpad-x1-carbon-gen12",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA101",
+      "title": "Lenovo ThinkPad X1 Carbon Gen12",
+      "list_price": 13454.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 13454.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 13493.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 1490,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/lenovo-thinkpad-x1-carbon-gen12",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Lenovo",
+      "model": "ThinkPad X1 Carbon Gen12",
+      "attributes": {
+        "cpu": "Core Ultra 7 155H",
+        "cpu_tier": "high",
+        "gpu": "Arc iGPU",
+        "gpu_need": "light",
+        "ram_gb": 32,
+        "storage_gb": 1024,
+        "screen_size": 14.0,
+        "pixels": 5184000,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.09,
+        "battery_hours": 11.5
+      }
+    },
+    "vendor_group_hint": "lenovo-thinkpad-x1-carbon-gen12"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-asus-zenbook-14-oled-ux3405",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA102",
+      "title": "ASUS Zenbook 14 OLED UX3405",
+      "list_price": 6002.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6002.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 6041.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 2180,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/asus-zenbook-14-oled-ux3405",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "ASUS",
+      "model": "Zenbook 14 OLED UX3405",
+      "attributes": {
+        "cpu": "Core Ultra 5 125H",
+        "cpu_tier": "mainstream",
+        "gpu": "Arc iGPU",
+        "gpu_need": "light",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 14.0,
+        "pixels": 5184000,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.28,
+        "battery_hours": 12.0
+      }
+    },
+    "vendor_group_hint": "asus-zenbook-14-oled-ux3405"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-dell-xps-14-9440",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA103",
+      "title": "Dell XPS 14 9440",
+      "list_price": 13971.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 13971.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 14010.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 2870,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/dell-xps-14-9440",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Dell",
+      "model": "XPS 14 9440",
+      "attributes": {
+        "cpu": "Core Ultra 7 155H",
+        "cpu_tier": "high",
+        "gpu": "RTX 4050",
+        "gpu_need": "serious",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 14.5,
+        "pixels": 6400000,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.69,
+        "battery_hours": 9.0
+      }
+    },
+    "vendor_group_hint": "dell-xps-14-9440"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-rog-zephyrus-g14-ga403",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA104",
+      "title": "ROG Zephyrus G14 GA403",
+      "list_price": 12936.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 12936.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 12975.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 3560,
+      "review_score": 4.7,
+      "in_stock": false,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/rog-zephyrus-g14-ga403",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "ROG",
+      "model": "Zephyrus G14 GA403",
+      "attributes": {
+        "cpu": "Ryzen 9 8945HS",
+        "cpu_tier": "flagship",
+        "gpu": "RTX 4060",
+        "gpu_need": "serious",
+        "ram_gb": 32,
+        "storage_gb": 1024,
+        "screen_size": 14.0,
+        "pixels": 5184000,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.5,
+        "battery_hours": 8.0
+      }
+    },
+    "vendor_group_hint": "rog-zephyrus-g14-ga403"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-huawei-matebook-14",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA105",
+      "title": "HUAWEI MateBook 14",
+      "list_price": 6519.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6519.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 6558.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 4250,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/huawei-matebook-14",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "HUAWEI",
+      "model": "MateBook 14",
+      "attributes": {
+        "cpu": "Core Ultra 5 125H",
+        "cpu_tier": "mainstream",
+        "gpu": "Arc iGPU",
+        "gpu_need": "light",
+        "ram_gb": 16,
+        "storage_gb": 1024,
+        "screen_size": 14.2,
+        "pixels": 5529600,
+        "refresh_hz": 120,
+        "color_gamut": "sRGB",
+        "weight_kg": 1.31,
+        "battery_hours": 10.5
+      }
+    },
+    "vendor_group_hint": "huawei-matebook-14"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-laptop-hp-spectre-x360-14",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONLA107",
+      "title": "HP Spectre x360 14",
+      "list_price": 11384.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 11384.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 11423.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 5630,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/hp-spectre-x360-14",
+      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "HP",
+      "model": "Spectre x360 14",
+      "attributes": {
+        "cpu": "Core Ultra 7 155H",
+        "cpu_tier": "high",
+        "gpu": "Arc iGPU",
+        "gpu_need": "light",
+        "ram_gb": 16,
+        "storage_gb": 1024,
+        "screen_size": 14.0,
+        "pixels": 5184000,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.44,
+        "battery_hours": 12.5
+      }
+    },
+    "vendor_group_hint": "hp-spectre-x360-14"
+  }
+]
