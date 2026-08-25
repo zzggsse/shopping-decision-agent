@@ -29,10 +29,11 @@ def detect_category(text: str) -> str | None:
 
 
 def parse_budget(text: str) -> tuple[int | None, int | None] | None:
-    """解析预算表达。
+    """解析预算。
 
-    刻意只设上限、不设下限:用户说"预算 7000"不意味着拒绝 5000 的好东西,
-    更便宜的候选应保留在池中,由打分环节权衡。
+    多数表达只给上限。特别注意:用户说"预算 7000"不意味着拒绝 5000 的好东西,
+    所以取到的候选应允许略高于上限,由打分权衡。
+    但"6000 以上"是明确的下限表达,不能当成上限,否则会把用户的意思反过来。
     """
     span = re.search(r"(\d{2,6})\s*(?:-|~|到|至)\s*(\d{2,6})", text)
     if span:
@@ -41,7 +42,23 @@ def parse_budget(text: str) -> tuple[int | None, int | None] | None:
 
     wan = re.search(r"(\d(?:\.\d)?)\s*万", text)
     if wan:
-        return (None, int(float(wan.group(1)) * 10000))
+        amount = int(float(wan.group(1)) * 10000)
+        # "1万以上"同样是下限
+        if re.search(r"\d(?:\.\d)?\s*万\s*(?:元|块)?\s*(?:以上|往上|起步|起|打上|不低于)", text):
+            return (amount, None)
+        return (None, amount)
+
+    # 下限表达必须先于泛化的"预算 N"判断,否则会被误当成上限
+    floor = re.search(
+        r"(\d{2,6})\s*(?:元|块)?\s*(?:以上|往上|起步|起|开外|不低于|打上)", text
+    )
+    if floor:
+        return (int(floor.group(1)), None)
+
+    # 注意"不超过"含"超过",必须排除否定前缀,否则会把上限读成下限
+    floor2 = re.search(r"(?<!不)(?:不低于|至少|起码|高于|超过)\s*(\d{2,6})", text)
+    if floor2:
+        return (int(floor2.group(1)), None)
 
     around = re.search(r"(\d{2,6})\s*(?:元|块)?\s*(?:左右|上下|前后)", text)
     if around:
@@ -55,10 +72,21 @@ def parse_budget(text: str) -> tuple[int | None, int | None] | None:
     if cap2:
         return (None, int(cap2.group(1)))
 
-    if any(word in text for word in ("预算", "价位", "块", "元")):
+    if any(word in text for word in ("预算", "档位", "块", "元")):
         single = re.search(r"(\d{2,6})", text)
         if single:
             return (None, int(single.group(1)))
+
+    # 兜底:裸数字当上限("扫地机 5000")。必须排除带单位的规格数字,
+    # 否则"16G 内存""5000mAh""11000Pa"会被误当成预算。
+    for match in re.finditer(r"(?<![\d.])(\d{3,6})(?![\d.])", text):
+        tail = text[match.end():match.end() + 4]
+        if re.match(r"\s*(?:g|gb|t|tb|mah|w|pa|hz|db|ml|mp|万|寸|英寸|核|年|款)", tail):
+            continue
+        head = text[max(0, match.start() - 2):match.start()]
+        if re.search(r"(?:第|款|代)$", head):
+            continue
+        return (None, int(match.group(1)))
 
     return None
 

@@ -99,10 +99,16 @@ def test_fixtures_exist_for_every_category(category: str) -> None:
 
 
 def test_adapter_reports_category_coverage() -> None:
-    """亚马逊不供货手机,应如实反映,便于编排层跳过。"""
+    """平台供货缺口必须如实上报,不能假装什么都有。"""
     amazon = MockAdapter("amazon")
-    assert "phone" not in amazon.supported_categories()
-    assert "laptop" in amazon.supported_categories()
+    supported = amazon.supported_categories()
+    # 亚马逊刻意不供扫地机器人(跨境物流不划算),这个缺口要能被如实反映
+    assert "robot_vacuum" not in supported
+    assert "laptop" in supported
+    assert "phone" in supported
+    # 京东作为全品类平台,覆盖数应严格多于有缺口的亚马逊
+    jd = MockAdapter("jd")
+    assert len(jd.supported_categories()) > len(supported)
 
 
 # --------------------------------------------------------------------------

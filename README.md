@@ -123,7 +123,16 @@ cd backend && python demo_health.py # 配料分析与健康档案
 
 对声明了配料字段的品类（洗发水、食品），会把配料表**逐成分**拆开，对照知识库
 给出功效、风险、对症人群，并与用户档案交叉得出「适合你 / 需注意 / 不建议」。
-成分匹配支持括号别名，配料里写"月桂醇聚醚硫酸酯钠(SLS)"能正确归一。
+成分匹配支持括号内外双向归一，"月桂醇硫酸酯钠(SLS)"、"浓缩乳清蛋白(蛋白质)"都能命中。
+
+除了「不能用什么」，还要回答「这瓶到底治不治我的问题」。品类配置里的
+`need_tags` 把槽位取值翻译成成分诉求标签（`hair_issue=dandruff` → 头屑 / 头皮瘙痒 /
+脂溢性皮炎），再与知识库的 `helps_with` 求交集：
+
+- 命中 → 记入 `matched_needs`，加分并给出「含吡硫鎓锌，针对头屑有效」这类具体理由
+- 没命中 → 记入 `unmet_needs`，**如实写进注意事项**而不是假装匹配
+
+这条链路是「选了头屑头痒和选了干枯毛躁，结果必须不一样」的保证。
 
 ### 痛点三：长链路决策，需求是聊出来的
 
@@ -159,7 +168,7 @@ cd backend && python demo_health.py # 配料分析与健康档案
 | 前端 | **React 18** + TypeScript + Vite | 类型安全；品类元信息由后端下发，TS 接口守住形状 |
 | 前端状态 | **Zustand** | 一个 store 就够，不为这个体量引 Redux |
 | LLM 接入 | **OpenAI 兼容协议**（方舟 / OpenAI / 中转） | 一套 tool-calling 接口跨厂商复用 |
-| 测试 | **pytest** + pytest-asyncio | 134 项，含 8 个行为测评用例 |
+| 测试 | **pytest** + pytest-asyncio | 166 项，含 8 个行为测评用例 |
 | 用例集 | **YAML** | 测评用例与基线轨迹声明式管理 |
 
 三个刻意的取舍：
@@ -190,10 +199,12 @@ app/catalog/
 | `attributes` | 商品属性：方向（越大越好/越小越好）、枚举档位、同款判定 |
 | `dimensions` | 打分维度：权重、合成属性、推荐理由模板 |
 | `ingredient_attribute` + `ingredient_knowledge` | 声明配料字段 + 成分知识库（功效/风险/对症/禁忌人群） |
+| `need_tags` | 槽位取值 → 成分诉求标签，让"用户说的问题"参与打分 |
 | `concern_rules` | 用户条件如何影响本品类：avoid / prefer / boost |
 
 目前已内置六个品类：笔记本、手机、无线耳机、扫地机器人（标准规格比价），
-洗发水、食品（额外做配料表分析）。
+洗发水、食品（额外做配料表分析）。离线样本共 410 条报价，覆盖四个平台，
+每个品类都跨满各预算档位（含低价档），避免筛完只剩两三款、不同诉求给出同一批结果。
 
 ## 4.3 Agent 架构：决策层 + 工具层
 
@@ -224,7 +235,36 @@ graph.py     只做三件事：建 Context、驱动循环、把工具结果转�
 
 改业务逻辑只需动 `toolkit.py` 这一个文件。
 
-## 4.4 实时价格的三道保障
+## 4.4 Prompt / Function Calling / RAG 分别用在哪
+
+经常被问到这三样有没有用、怎么用的,一次说清:
+
+| 技术 | 用了没 | 具体落在哪 |
+|---|---|---|
+| **Prompt** | 用了,但刻意克制 | `llm.py` 里唯一的 `SYSTEM_PROMPT` + `context.py` 装配的动态观测段 |
+| **Function Calling** | 用了,是系统主干 | `toolkit.py:tool_schemas()` 生成 17 个工具的 OpenAI tools schema |
+| **RAG** | 用了,但不是向量检索 | 成分知识库精确检索(`categories_health.py` + `analyzer.py`) |
+| **LangChain** | 主动不用 | 核心循环自己写,见 [§4.1](#41-技术栈) 的取舍说明 |
+
+**Prompt 为什么克制。** 追问话术、品类维度、快捷选项全在 `app/catalog/` 的配置里,
+由工具返回值带给模型,而不是堆进 prompt。这样新增品类不用改 prompt,
+也避免"prompt 越写越长、改一句坏三处"。
+
+**Function Calling 是标准协议。** `tool_schemas()` 产出
+`{"type":"function","function":{name, description, parameters}}`,
+`OpenAICompatibleClient` 带 `tools` + `tool_choice:"auto"` 请求,
+解析 `message.tool_calls` 后回填成 `Decision(tool_calls=[...])`。
+离线的 `MockClient` 走**完全相同**的 schema 和核心循环,区别只在「怎么选下一步」。
+
+**RAG 为什么不用向量。** 这里的检索增强是:把配料表按分隔符拆成单条成分 ->
+在成分知识库里精确匹配(支持括号内外双向匹配与别名归一,
+"月桂醇硫酸酯钠(SLS)"和"浓缩乳清蛋白(蛋白质)"都能命中)->
+取出功效/风险/对症人群,与用户档案和诉求交叉后注入上下文。
+没有 embedding、没有向量库、没有分块。原因是硬过滤要求
+「含 SLS 就必须排除」,语义近似在这个场景是风险不是优势 ——
+"月桂醇硫酸酯钠"和"月桂醇聚醚硫酸酯钠"向量上极近,但一个要排除、一个不用。
+
+## 4.5 实时价格的三道保障
 
 Mock 数据仅用于开发。接入真实数据后，用户侧实时性由三道机制保证：
 
@@ -452,7 +492,7 @@ attributes / dimensions / budget_options，再放一份 fixture。注册后 Agen
 # 8. 测试与合规
 
 ```bash
-cd backend && pytest -q                    # 134 项
+cd backend && pytest -q                    # 166 项
 cd backend && python -m evals.runner --no-judge   # 8 个行为测评用例
 ```
 

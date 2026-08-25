@@ -27,7 +27,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/apple-macbook-air-m3-13",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -79,7 +79,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/lenovo-thinkpad-x1-carbon-gen12",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -131,7 +131,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/asus-zenbook-14-oled-ux3405",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -183,7 +183,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/rog-zephyrus-g14-ga403",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -235,7 +235,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/huawei-matebook-14",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -287,7 +287,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/redmi-redmibook-pro-14",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -310,5 +310,525 @@
       }
     },
     "vendor_group_hint": "redmi-redmibook-pro-14"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-lenovo-ideapad-slim-3-15",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA108",
+      "title": "Lenovo IdeaPad Slim 3 15",
+      "list_price": 3127.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3127.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -63.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3064.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 6320,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/lenovo-ideapad-slim-3-15",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Lenovo",
+      "model": "IdeaPad Slim 3 15",
+      "attributes": {
+        "cpu": "Ryzen 5 7530U",
+        "cpu_tier": "entry",
+        "gpu": "Radeon iGPU",
+        "gpu_need": "none",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 15.6,
+        "pixels": 2073600,
+        "refresh_hz": 60,
+        "color_gamut": "sRGB",
+        "weight_kg": 1.62,
+        "battery_hours": 8.0
+      }
+    },
+    "vendor_group_hint": "lenovo-ideapad-slim-3-15"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-acer-aspire-lite-14",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA109",
+      "title": "Acer Aspire Lite 14",
+      "list_price": 2748.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2748.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -55.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 2693.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 7010,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/acer-aspire-lite-14",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Acer",
+      "model": "Aspire Lite 14",
+      "attributes": {
+        "cpu": "Core i5-12450H",
+        "cpu_tier": "entry",
+        "gpu": "UHD iGPU",
+        "gpu_need": "none",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 14.0,
+        "pixels": 2304000,
+        "refresh_hz": 60,
+        "color_gamut": "sRGB",
+        "weight_kg": 1.4,
+        "battery_hours": 7.5
+      }
+    },
+    "vendor_group_hint": "acer-aspire-lite-14"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-honor-magicbook-x14-plus",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA111",
+      "title": "Honor MagicBook X14 Plus",
+      "list_price": 3412.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3412.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -68.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3344.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 8390,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/honor-magicbook-x14-plus",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Honor",
+      "model": "MagicBook X14 Plus",
+      "attributes": {
+        "cpu": "Core i5-13420H",
+        "cpu_tier": "mainstream",
+        "gpu": "UHD iGPU",
+        "gpu_need": "none",
+        "ram_gb": 16,
+        "storage_gb": 1024,
+        "screen_size": 14.0,
+        "pixels": 2304000,
+        "refresh_hz": 60,
+        "color_gamut": "sRGB",
+        "weight_kg": 1.38,
+        "battery_hours": 9.0
+      }
+    },
+    "vendor_group_hint": "honor-magicbook-x14-plus"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-thunderobot-911-x-wild-hunter",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA112",
+      "title": "ThundeRobot 911 X Wild Hunter",
+      "list_price": 5687.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5687.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -114.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 5573.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 9080,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/thunderobot-911-x-wild-hunter",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "ThundeRobot",
+      "model": "911 X Wild Hunter",
+      "attributes": {
+        "cpu": "Core i7-13650HX",
+        "cpu_tier": "high",
+        "gpu": "RTX 4060",
+        "gpu_need": "serious",
+        "ram_gb": 16,
+        "storage_gb": 1024,
+        "screen_size": 15.6,
+        "pixels": 3686400,
+        "refresh_hz": 165,
+        "color_gamut": "sRGB",
+        "weight_kg": 2.25,
+        "battery_hours": 5.0
+      }
+    },
+    "vendor_group_hint": "thunderobot-911-x-wild-hunter"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-mechrevo-jiaolong-16-pro",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA113",
+      "title": "Mechrevo Jiaolong 16 Pro",
+      "list_price": 6445.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6445.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -129.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 6316.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 9770,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/mechrevo-jiaolong-16-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Mechrevo",
+      "model": "Jiaolong 16 Pro",
+      "attributes": {
+        "cpu": "Ryzen 7 8845H",
+        "cpu_tier": "high",
+        "gpu": "RTX 4060",
+        "gpu_need": "serious",
+        "ram_gb": 32,
+        "storage_gb": 1024,
+        "screen_size": 16.0,
+        "pixels": 4096000,
+        "refresh_hz": 240,
+        "color_gamut": "P3",
+        "weight_kg": 2.2,
+        "battery_hours": 6.0
+      }
+    },
+    "vendor_group_hint": "mechrevo-jiaolong-16-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-lenovo-legion-r9000p",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA114",
+      "title": "Lenovo Legion R9000P",
+      "list_price": 7867.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 7867.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -157.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 7710.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 10460,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/lenovo-legion-r9000p",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Lenovo",
+      "model": "Legion R9000P",
+      "attributes": {
+        "cpu": "Ryzen 9 8945HX",
+        "cpu_tier": "flagship",
+        "gpu": "RTX 4060",
+        "gpu_need": "serious",
+        "ram_gb": 16,
+        "storage_gb": 1024,
+        "screen_size": 16.0,
+        "pixels": 4096000,
+        "refresh_hz": 240,
+        "color_gamut": "P3",
+        "weight_kg": 2.35,
+        "battery_hours": 6.5
+      }
+    },
+    "vendor_group_hint": "lenovo-legion-r9000p"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-asus-tuf-gaming-a15",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA115",
+      "title": "ASUS TUF Gaming A15",
+      "list_price": 5213.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5213.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -104.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 5109.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 11150,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/asus-tuf-gaming-a15",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "ASUS",
+      "model": "TUF Gaming A15",
+      "attributes": {
+        "cpu": "Ryzen 7 7435H",
+        "cpu_tier": "mainstream",
+        "gpu": "RTX 4050",
+        "gpu_need": "serious",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 15.6,
+        "pixels": 2073600,
+        "refresh_hz": 144,
+        "color_gamut": "sRGB",
+        "weight_kg": 2.2,
+        "battery_hours": 5.5
+      }
+    },
+    "vendor_group_hint": "asus-tuf-gaming-a15"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-xiaomi-redmibook-16-2024",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA116",
+      "title": "Xiaomi RedmiBook 16 2024",
+      "list_price": 3791.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3791.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -76.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3715.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 11840,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/xiaomi-redmibook-16-2024",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Xiaomi",
+      "model": "RedmiBook 16 2024",
+      "attributes": {
+        "cpu": "Core i5-13500H",
+        "cpu_tier": "mainstream",
+        "gpu": "UHD iGPU",
+        "gpu_need": "none",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 16.0,
+        "pixels": 4096000,
+        "refresh_hz": 120,
+        "color_gamut": "sRGB",
+        "weight_kg": 1.7,
+        "battery_hours": 9.0
+      }
+    },
+    "vendor_group_hint": "xiaomi-redmibook-16-2024"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-apple-macbook-pro-14-m3-pro",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA117",
+      "title": "Apple MacBook Pro 14 M3 Pro",
+      "list_price": 15167.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 15167.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -303.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 14864.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 12530,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/apple-macbook-pro-14-m3-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "Apple",
+      "model": "MacBook Pro 14 M3 Pro",
+      "attributes": {
+        "cpu": "Apple M3 Pro",
+        "cpu_tier": "flagship",
+        "gpu": "M3 Pro 14-core",
+        "gpu_need": "serious",
+        "ram_gb": 18,
+        "storage_gb": 512,
+        "screen_size": 14.2,
+        "pixels": 5939136,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 1.55,
+        "battery_hours": 17.0
+      }
+    },
+    "vendor_group_hint": "apple-macbook-pro-14-m3-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-laptop-huawei-matebook-x-pro-2024",
+      "platform": "pdd",
+      "platform_sku_id": "PDDLA119",
+      "title": "HUAWEI MateBook X Pro 2024",
+      "list_price": 13271.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 13271.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -265.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 13006.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 13910,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/huawei-matebook-x-pro-2024",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "laptop",
+      "brand": "HUAWEI",
+      "model": "MateBook X Pro 2024",
+      "attributes": {
+        "cpu": "Core Ultra 9 185H",
+        "cpu_tier": "flagship",
+        "gpu": "Arc iGPU",
+        "gpu_need": "light",
+        "ram_gb": 32,
+        "storage_gb": 1024,
+        "screen_size": 14.2,
+        "pixels": 6489600,
+        "refresh_hz": 120,
+        "color_gamut": "P3",
+        "weight_kg": 0.98,
+        "battery_hours": 12.0
+      }
+    },
+    "vendor_group_hint": "huawei-matebook-x-pro-2024"
   }
 ]

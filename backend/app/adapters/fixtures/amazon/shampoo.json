@@ -350,5 +350,445 @@
       }
     },
     "vendor_group_hint": "珂润-润浸保湿洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-滋源-无硅油氨基酸洗头水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH210",
+      "title": "滋源 无硅油氨基酸洗头水",
+      "list_price": 43.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 43.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 82.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 6000,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/滋源-无硅油氨基酸洗头水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "滋源",
+      "model": "无硅油氨基酸洗头水",
+      "attributes": {
+        "volume_ml": 480,
+        "scalp_gentleness": "gentle",
+        "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、甲基椰油酰基牛磺酸钠(氨基酸表活)、无硅油配方、神经酰胺、生姜提取物、柠檬酸"
+      }
+    },
+    "vendor_group_hint": "滋源-无硅油氨基酸洗头水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-海飞丝-水润去屑洗发露-小样装",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH211",
+      "title": "海飞丝 水润去屑洗发露 小样装",
+      "list_price": 16.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 16.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 55.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 6540,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/海飞丝-水润去屑洗发露-小样装",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "海飞丝",
+      "model": "水润去屑洗发露 小样装",
+      "attributes": {
+        "volume_ml": 200,
+        "scalp_gentleness": "balanced",
+        "hair_type": "all",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、吡硫鎓锌(ZPT)、二甲基硅油(硅油)、香精、防腐剂"
+      }
+    },
+    "vendor_group_hint": "海飞丝-水润去屑洗发露-小样装"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-阿道夫-精油护理洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH212",
+      "title": "阿道夫 精油护理洗发水",
+      "list_price": 50.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 50.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 89.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 7080,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/阿道夫-精油护理洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "阿道夫",
+      "model": "精油护理洗发水",
+      "attributes": {
+        "volume_ml": 520,
+        "scalp_gentleness": "balanced",
+        "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、聚二甲基硅氧烷(硅油)、透明质酸、生物素、植物精油、香精"
+      }
+    },
+    "vendor_group_hint": "阿道夫-精油护理洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-康王-水杨酸控油去屑洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH213",
+      "title": "康王 水杨酸控油去屑洗发水",
+      "list_price": 39.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 39.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 78.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 7620,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/康王-水杨酸控油去屑洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "康王",
+      "model": "水杨酸控油去屑洗发水",
+      "attributes": {
+        "volume_ml": 300,
+        "scalp_gentleness": "harsh",
+        "hair_type": "oily",
+        "ingredients": "水、月桂醇硫酸酯钠(SLS)、水杨酸、薄荷醇、烟酰胺、氯化钠、香精"
+      }
+    },
+    "vendor_group_hint": "康王-水杨酸控油去屑洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-谜尚-氨基酸敏感头皮洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH214",
+      "title": "谜尚 氨基酸敏感头皮洗发水",
+      "list_price": 34.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 34.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 73.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 8160,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/谜尚-氨基酸敏感头皮洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "谜尚",
+      "model": "氨基酸敏感头皮洗发水",
+      "attributes": {
+        "volume_ml": 400,
+        "scalp_gentleness": "gentle",
+        "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、泛醇、无硅油配方、积雪草提取物、柠檬酸"
+      }
+    },
+    "vendor_group_hint": "谜尚-氨基酸敏感头皮洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-潘婷-3分钟奇迹强韧洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH215",
+      "title": "潘婷 3分钟奇迹强韧洗发水",
+      "list_price": 82.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 82.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 121.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 8700,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/潘婷-3分钟奇迹强韧洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "潘婷",
+      "model": "3分钟奇迹强韧洗发水",
+      "attributes": {
+        "volume_ml": 500,
+        "scalp_gentleness": "balanced",
+        "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、二甲基硅油(硅油)、生物素、泛醇、水解角蛋白、香精"
+      }
+    },
+    "vendor_group_hint": "潘婷-3分钟奇迹强韧洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-卡诗-白金赋活精华洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH216",
+      "title": "卡诗 白金赋活精华洗发水",
+      "list_price": 331.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 331.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 370.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 9240,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/卡诗-白金赋活精华洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "卡诗",
+      "model": "白金赋活精华洗发水",
+      "attributes": {
+        "volume_ml": 250,
+        "scalp_gentleness": "gentle",
+        "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、生物素、烟酰胺、透明质酸、无硅油配方"
+      }
+    },
+    "vendor_group_hint": "卡诗-白金赋活精华洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-馥绿德雅-复合精油净化洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH217",
+      "title": "馥绿德雅 复合精油净化洗发水",
+      "list_price": 277.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 277.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 316.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 9780,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/馥绿德雅-复合精油净化洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "馥绿德雅",
+      "model": "复合精油净化洗发水",
+      "attributes": {
+        "volume_ml": 200,
+        "scalp_gentleness": "gentle",
+        "hair_type": "oily",
+        "ingredients": "水、甲基椰油酰基牛磺酸钠(氨基酸表活)、水杨酸、薄荷醇、烟酰胺、无硅油配方、植物精油"
+      }
+    },
+    "vendor_group_hint": "馥绿德雅-复合精油净化洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-自然之名-神经酰胺修护洗发水",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH218",
+      "title": "自然之名 神经酰胺修护洗发水",
+      "list_price": 91.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 91.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 130.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 10320,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/自然之名-神经酰胺修护洗发水",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "自然之名",
+      "model": "神经酰胺修护洗发水",
+      "attributes": {
+        "volume_ml": 460,
+        "scalp_gentleness": "gentle",
+        "hair_type": "dry",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、二甲基硅油(硅油)、透明质酸、生物素、柠檬酸"
+      }
+    },
+    "vendor_group_hint": "自然之名-神经酰胺修护洗发水"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-shampoo-施华蔻-去屑控油洗发露",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONSH219",
+      "title": "施华蔻 去屑控油洗发露",
+      "list_price": 64.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 64.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 103.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 10860,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/施华蔻-去屑控油洗发露",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "shampoo",
+      "brand": "施华蔻",
+      "model": "去屑控油洗发露",
+      "attributes": {
+        "volume_ml": 750,
+        "scalp_gentleness": "balanced",
+        "hair_type": "oily",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、吡硫鎓锌(ZPT)、水杨酸、烟酰胺、香精"
+      }
+    },
+    "vendor_group_hint": "施华蔻-去屑控油洗发露"
   }
 ]

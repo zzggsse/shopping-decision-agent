@@ -374,5 +374,554 @@
       }
     },
     "vendor_group_hint": "百草味-海盐坚果混合"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-三只松鼠-每日坚果混合装",
+      "platform": "jd",
+      "platform_sku_id": "JDFO208",
+      "title": "三只松鼠 每日坚果混合装",
+      "list_price": 69.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 69.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -3.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 66.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 4920,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/三只松鼠-每日坚果混合装",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "三只松鼠",
+      "model": "每日坚果混合装",
+      "attributes": {
+        "sugar_g": 6,
+        "sodium_mg": 60,
+        "protein_g": 14,
+        "fiber_g": 6,
+        "calories_kcal": 610,
+        "sugar_level": "low",
+        "nutrition": "腰果、核桃(坚果)、扁桃仁(坚果)、蔓越莓干、添加糖、膳食纤维"
+      }
+    },
+    "vendor_group_hint": "三只松鼠-每日坚果混合装"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-王小卤-虎皮鸡爪",
+      "platform": "jd",
+      "platform_sku_id": "JDFO209",
+      "title": "王小卤 虎皮鸡爪",
+      "list_price": 32.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 32.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 31.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 5460,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/王小卤-虎皮鸡爪",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "王小卤",
+      "model": "虎皮鸡爪",
+      "attributes": {
+        "sugar_g": 8,
+        "sodium_mg": 890,
+        "protein_g": 19,
+        "fiber_g": 0,
+        "calories_kcal": 220,
+        "sugar_level": "medium",
+        "nutrition": "鸡爪、酱油、白砂糖(添加糖)、食用盐(钠)、香辛料、防腐剂"
+      }
+    },
+    "vendor_group_hint": "王小卤-虎皮鸡爪"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-元气森林-气泡水-白桃味",
+      "platform": "jd",
+      "platform_sku_id": "JDFO210",
+      "title": "元气森林 气泡水 白桃味",
+      "list_price": 5.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5.0,
+          "evidence": "京东商品页标价"
+        }
+      ],
+      "final_price": 5.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 6000,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/元气森林-气泡水-白桃味",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "元气森林",
+      "model": "气泡水 白桃味",
+      "attributes": {
+        "sugar_g": 0,
+        "sodium_mg": 20,
+        "protein_g": 0,
+        "fiber_g": 0,
+        "calories_kcal": 2,
+        "sugar_level": "free",
+        "nutrition": "水、二氧化碳、赤藓糖醇(代糖/糖醇)、三氯蔗糖(代糖/糖醇)、食用香精"
+      }
+    },
+    "vendor_group_hint": "元气森林-气泡水-白桃味"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-奥利奥-夹心饼干原味",
+      "platform": "jd",
+      "platform_sku_id": "JDFO211",
+      "title": "奥利奥 夹心饼干原味",
+      "list_price": 14.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 14.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 13.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 6540,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/奥利奥-夹心饼干原味",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "奥利奥",
+      "model": "夹心饼干原味",
+      "attributes": {
+        "sugar_g": 38,
+        "sodium_mg": 320,
+        "protein_g": 5,
+        "fiber_g": 2,
+        "calories_kcal": 480,
+        "sugar_level": "high",
+        "nutrition": "小麦粉、白砂糖(添加糖)、植物油、可可粉、食用盐(钠)、起酥油(反式脂肪)、碳酸氢钠"
+      }
+    },
+    "vendor_group_hint": "奥利奥-夹心饼干原味"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-乐事-薯片-黄瓜味",
+      "platform": "jd",
+      "platform_sku_id": "JDFO212",
+      "title": "乐事 薯片 黄瓜味",
+      "list_price": 9.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 9.0,
+          "evidence": "京东商品页标价"
+        }
+      ],
+      "final_price": 9.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 7080,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/乐事-薯片-黄瓜味",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "乐事",
+      "model": "薯片 黄瓜味",
+      "attributes": {
+        "sugar_g": 4,
+        "sodium_mg": 610,
+        "protein_g": 6,
+        "fiber_g": 3,
+        "calories_kcal": 530,
+        "sugar_level": "low",
+        "nutrition": "马铃薯、植物油(饱和脂肪)、食用盐(钠)、白砂糖(添加糖)、食用香精"
+      }
+    },
+    "vendor_group_hint": "乐事-薯片-黄瓜味"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-伊利-安慕希无糖酸奶",
+      "platform": "jd",
+      "platform_sku_id": "JDFO213",
+      "title": "伊利 安慕希无糖酸奶",
+      "list_price": 58.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 58.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -3.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 55.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 7620,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/伊利-安慕希无糖酸奶",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "伊利",
+      "model": "安慕希无糖酸奶",
+      "attributes": {
+        "sugar_g": 3,
+        "sodium_mg": 70,
+        "protein_g": 23,
+        "fiber_g": 0,
+        "calories_kcal": 160,
+        "sugar_level": "free",
+        "nutrition": "生牛乳、乳清蛋白粉(蛋白质)、赤藓糖醇(代糖/糖醇)、乳酸菌"
+      }
+    },
+    "vendor_group_hint": "伊利-安慕希无糖酸奶"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-myprotein-乳清蛋白粉-香草味",
+      "platform": "jd",
+      "platform_sku_id": "JDFO214",
+      "title": "myprotein 乳清蛋白粉 香草味",
+      "list_price": 149.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 149.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -7.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 142.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 8160,
+      "review_score": 4.2,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/myprotein-乳清蛋白粉-香草味",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "myprotein",
+      "model": "乳清蛋白粉 香草味",
+      "attributes": {
+        "sugar_g": 2,
+        "sodium_mg": 140,
+        "protein_g": 82,
+        "fiber_g": 1,
+        "calories_kcal": 400,
+        "sugar_level": "low",
+        "nutrition": "浓缩乳清蛋白(蛋白质)、三氯蔗糖(代糖/糖醇)、食用香精、大豆卵磷脂"
+      }
+    },
+    "vendor_group_hint": "myprotein-乳清蛋白粉-香草味"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-好麦多-高纤麦片-低糖版",
+      "platform": "jd",
+      "platform_sku_id": "JDFO215",
+      "title": "好麦多 高纤麦片 低糖版",
+      "list_price": 45.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 45.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -2.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 43.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 8700,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/好麦多-高纤麦片-低糖版",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "好麦多",
+      "model": "高纤麦片 低糖版",
+      "attributes": {
+        "sugar_g": 5,
+        "sodium_mg": 90,
+        "protein_g": 12,
+        "fiber_g": 11,
+        "calories_kcal": 380,
+        "sugar_level": "low",
+        "nutrition": "燕麦(膳食纤维)、藜麦(膳食纤维)、赤藓糖醇(代糖/糖醇)、冻干草莓、扁桃仁(坚果)"
+      }
+    },
+    "vendor_group_hint": "好麦多-高纤麦片-低糖版"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-康师傅-红烧牛肉面",
+      "platform": "jd",
+      "platform_sku_id": "JDFO216",
+      "title": "康师傅 红烧牛肉面",
+      "list_price": 6.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6.0,
+          "evidence": "京东商品页标价"
+        }
+      ],
+      "final_price": 6.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 9240,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/康师傅-红烧牛肉面",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "康师傅",
+      "model": "红烧牛肉面",
+      "attributes": {
+        "sugar_g": 5,
+        "sodium_mg": 1980,
+        "protein_g": 9,
+        "fiber_g": 2,
+        "calories_kcal": 470,
+        "sugar_level": "low",
+        "nutrition": "小麦粉、棕榈油(饱和脂肪)、食用盐(钠)、味精、白砂糖(添加糖)、脱水牛肉粒"
+      }
+    },
+    "vendor_group_hint": "康师傅-红烧牛肉面"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-无穷-盐焗鸡蛋",
+      "platform": "jd",
+      "platform_sku_id": "JDFO217",
+      "title": "无穷 盐焗鸡蛋",
+      "list_price": 25.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 25.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -1.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 24.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 9780,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/无穷-盐焗鸡蛋",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "无穷",
+      "model": "盐焗鸡蛋",
+      "attributes": {
+        "sugar_g": 0,
+        "sodium_mg": 720,
+        "protein_g": 26,
+        "fiber_g": 0,
+        "calories_kcal": 150,
+        "sugar_level": "free",
+        "nutrition": "鸡蛋(蛋白质)、食用盐(钠)、香辛料、水"
+      }
+    },
+    "vendor_group_hint": "无穷-盐焗鸡蛋"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-百草味-冻干榴莲",
+      "platform": "jd",
+      "platform_sku_id": "JDFO218",
+      "title": "百草味 冻干榴莲",
+      "list_price": 89.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 89.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -4.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 85.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 10320,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/百草味-冻干榴莲",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "百草味",
+      "model": "冻干榴莲",
+      "attributes": {
+        "sugar_g": 24,
+        "sodium_mg": 15,
+        "protein_g": 4,
+        "fiber_g": 8,
+        "calories_kcal": 420,
+        "sugar_level": "medium",
+        "nutrition": "榴莲(膳食纤维)、无添加糖"
+      }
+    },
+    "vendor_group_hint": "百草味-冻干榴莲"
+  },
+  {
+    "offer": {
+      "offer_id": "jd-food-钟薛高-低糖雪糕礼盒",
+      "platform": "jd",
+      "platform_sku_id": "JDFO219",
+      "title": "钟薛高 低糖雪糕礼盒",
+      "list_price": 168.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 168.0,
+          "evidence": "京东商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -8.0,
+          "evidence": "京东优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 160.0,
+      "shop_name": "京东自营旗舰店",
+      "shop_rating": 4.9,
+      "review_count": 10860,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 1,
+      "condition": "new",
+      "url": "https://example-jd.com/item/钟薛高-低糖雪糕礼盒",
+      "fetched_at": "2026-08-25T00:00:00+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "food",
+      "brand": "钟薛高",
+      "model": "低糖雪糕礼盒",
+      "attributes": {
+        "sugar_g": 9,
+        "sodium_mg": 85,
+        "protein_g": 7,
+        "fiber_g": 1,
+        "calories_kcal": 210,
+        "sugar_level": "low",
+        "nutrition": "生牛乳、稀奶油(饱和脂肪)、赤藓糖醇(代糖/糖醇)、可可粉、蛋白质"
+      }
+    },
+    "vendor_group_hint": "钟薛高-低糖雪糕礼盒"
   }
 ]

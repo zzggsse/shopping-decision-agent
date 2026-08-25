@@ -158,6 +158,13 @@ def _shampoo_slots() -> list[SlotDef]:
     return [
         SlotDef(
             key="hair_issue",
+            # 槽位取值 -> 成分知识库 helps_with 标签,让"用户说的问题"参与打分
+            need_tags={
+                "dandruff": ["头屑", "头皮瘙痒", "脂溢性皮炎"],
+                "oily": ["油性头发", "重度油性头发", "扁塌发质", "毛囊堵塞"],
+                "dry": ["干性头发", "受损发质", "毛躁"],
+                "sensitive": ["敏感头皮", "头皮瘙痒"],
+            },
             label="头发/头皮问题",
             question="最想解决什么头发问题?",
             options=["头屑头痒", "出油扁塌", "干枯毛躁", "敏感头皮"],
@@ -182,6 +189,12 @@ def _food_slots() -> list[SlotDef]:
     return [
         SlotDef(
             key="diet_goal",
+            need_tags={
+                "low_sugar": ["控糖", "糖尿病"],
+                "fitness": ["健身增肌"],
+                "low_sodium": ["控糖"],
+                "casual": [],
+            },
             label="饮食目标",
             question="选购零食主要考虑什么?",
             options=["控糖/低糖", "健身高蛋白", "低钠健康", "解馋就行"],

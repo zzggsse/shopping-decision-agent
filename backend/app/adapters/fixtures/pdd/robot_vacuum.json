@@ -27,7 +27,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/roborock-s8-maxv-ultra",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -76,7 +76,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/dreame-x30-pro",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -125,7 +125,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/ecovacs-t30-pro",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -174,7 +174,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/xiaomi-robot-vacuum-x20",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -223,7 +223,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/roborock-q7-max+",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -272,7 +272,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/dreame-l10s-pro",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -321,7 +321,7 @@
       "delivery_days": 3,
       "condition": "new",
       "url": "https://example-pdd.com/item/ecovacs-n10",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -341,5 +341,446 @@
       }
     },
     "vendor_group_hint": "ecovacs-n10"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-xiaomi-robot-vacuum-e10",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO108",
+      "title": "Xiaomi Robot Vacuum E10",
+      "list_price": 757.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 757.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -15.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 742.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 6320,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/xiaomi-robot-vacuum-e10",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum E10",
+      "attributes": {
+        "suction_pa": 4000,
+        "mop_type": "basic",
+        "base_station": "none",
+        "dust_bag_days": 0,
+        "navigation": "gyro",
+        "obstacle_avoid": "碰撞感应",
+        "climb_mm": 15,
+        "noise_db": 70,
+        "height_mm": 81
+      }
+    },
+    "vendor_group_hint": "xiaomi-robot-vacuum-e10"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-ecovacs-t20e",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO109",
+      "title": "Ecovacs T20e",
+      "list_price": 1137.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1137.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -23.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1114.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 7010,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/ecovacs-t20e",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Ecovacs",
+      "model": "T20e",
+      "attributes": {
+        "suction_pa": 6000,
+        "mop_type": "vibrate",
+        "base_station": "none",
+        "dust_bag_days": 0,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光雷达",
+        "climb_mm": 20,
+        "noise_db": 68,
+        "height_mm": 94
+      }
+    },
+    "vendor_group_hint": "ecovacs-t20e"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-xiaomi-robot-vacuum-s20+",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO110",
+      "title": "Xiaomi Robot Vacuum S20+",
+      "list_price": 1611.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1611.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -32.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1579.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 7700,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/xiaomi-robot-vacuum-s20+",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum S20+",
+      "attributes": {
+        "suction_pa": 5000,
+        "mop_type": "spin",
+        "base_station": "dust_only",
+        "dust_bag_days": 45,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光雷达",
+        "climb_mm": 20,
+        "noise_db": 66,
+        "height_mm": 95
+      }
+    },
+    "vendor_group_hint": "xiaomi-robot-vacuum-s20+"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-roborock-q10-s5+",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO111",
+      "title": "Roborock Q10 S5+",
+      "list_price": 2369.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2369.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -47.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 2322.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 8390,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/roborock-q10-s5+",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Roborock",
+      "model": "Q10 S5+",
+      "attributes": {
+        "suction_pa": 7000,
+        "mop_type": "vibrate",
+        "base_station": "wash",
+        "dust_bag_days": 60,
+        "navigation": "lidar",
+        "obstacle_avoid": "激光雷达",
+        "climb_mm": 20,
+        "noise_db": 64,
+        "height_mm": 96
+      }
+    },
+    "vendor_group_hint": "roborock-q10-s5+"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-dreame-l20-ultra",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO112",
+      "title": "Dreame L20 Ultra",
+      "list_price": 3791.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3791.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -76.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3715.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 9080,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/dreame-l20-ultra",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Dreame",
+      "model": "L20 Ultra",
+      "attributes": {
+        "suction_pa": 7000,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 75,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "3D 结构光 + AI",
+        "climb_mm": 60,
+        "noise_db": 62,
+        "height_mm": 97
+      }
+    },
+    "vendor_group_hint": "dreame-l20-ultra"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-roborock-s8-pro-ultra",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO113",
+      "title": "Roborock S8 Pro Ultra",
+      "list_price": 4265.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 4265.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -85.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 4180.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 9770,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/roborock-s8-pro-ultra",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Roborock",
+      "model": "S8 Pro Ultra",
+      "attributes": {
+        "suction_pa": 6000,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 60,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "双线激光",
+        "climb_mm": 30,
+        "noise_db": 61,
+        "height_mm": 96
+      }
+    },
+    "vendor_group_hint": "roborock-s8-pro-ultra"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-roborock-saros-10r",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO115",
+      "title": "Roborock Saros 10R",
+      "list_price": 6919.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6919.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -138.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 6781.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 11150,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/roborock-saros-10r",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Roborock",
+      "model": "Saros 10R",
+      "attributes": {
+        "suction_pa": 20000,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 90,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "固态激光 + AI",
+        "climb_mm": 80,
+        "noise_db": 56,
+        "height_mm": 79
+      }
+    },
+    "vendor_group_hint": "roborock-saros-10r"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-ecovacs-x5-pro-omni",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO116",
+      "title": "Ecovacs X5 Pro Omni",
+      "list_price": 5213.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5213.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -104.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 5109.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 11840,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/ecovacs-x5-pro-omni",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Ecovacs",
+      "model": "X5 Pro Omni",
+      "attributes": {
+        "suction_pa": 12800,
+        "mop_type": "spin_lift",
+        "base_station": "wash_dry",
+        "dust_bag_days": 75,
+        "navigation": "lidar_ai",
+        "obstacle_avoid": "AI 视觉",
+        "climb_mm": 40,
+        "noise_db": 59,
+        "height_mm": 81
+      }
+    },
+    "vendor_group_hint": "ecovacs-x5-pro-omni"
+  },
+  {
+    "offer": {
+      "offer_id": "pdd-robot_vacuum-haier-sweeping-robot-hb1",
+      "platform": "pdd",
+      "platform_sku_id": "PDDRO117",
+      "title": "Haier Sweeping Robot HB1",
+      "list_price": 947.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 947.0,
+          "evidence": "拼多多商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -19.0,
+          "evidence": "拼多多优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 928.0,
+      "shop_name": "拼多多自营旗舰店",
+      "shop_rating": 4.6,
+      "review_count": 12530,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 3,
+      "condition": "new",
+      "url": "https://example-pdd.com/item/haier-sweeping-robot-hb1",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "robot_vacuum",
+      "brand": "Haier",
+      "model": "Sweeping Robot HB1",
+      "attributes": {
+        "suction_pa": 4500,
+        "mop_type": "basic",
+        "base_station": "none",
+        "dust_bag_days": 0,
+        "navigation": "gyro",
+        "obstacle_avoid": "碰撞感应",
+        "climb_mm": 15,
+        "noise_db": 71,
+        "height_mm": 85
+      }
+    },
+    "vendor_group_hint": "haier-sweeping-robot-hb1"
   }
 ]

@@ -130,26 +130,30 @@ def test_shampoo_sensitive_scalp_recommends_amino_acid() -> None:
     assert report["picks"]
 
     titles = [pick["title"] for pick in report["picks"]]
-    # 1) 含 SLS 的海飞丝应被档案硬过滤掉,绝不该出现
-    assert not any("海飞丝" in title for title in titles)
-    # 2) 温和氨基酸配方应进入候选表现前列(Top3)
-    assert any("施巴" in title or "珂润" in title for title in titles[:3])
-    # 3) 每个推荐的禁忌/注意点应体现敏感头皮保护
-    all_cons = [con for pick in report["picks"] for con in pick["cons"]]
-    assert any("敏感" in con or "SLES" in con for con in all_cons)
+    # 1) 含 SLS 的强刺激款应被硬过滤。注意同品牌可能另有温和配方,
+    #    所以按具体型号断言,不按品牌名。
+    assert not any("经典款" in title for title in titles)
+    assert not any("拉芳" in title for title in titles)
+    # 2) 氨基酸/神经酰胺等温和配方应排在最前(Top3)
+    gentle = ("氨基酸", "神经酰胺", "施巴", "珂润", "谜尚", "滋源", "自然之名")
+    assert any(word in title for title in titles[:3] for word in gentle)
+    # 3) 推荐理由应给出"为什么适合敏感头皮"的成分依据
+    all_pros = [pro for pick in report["picks"] for pro in pick["pros"]]
+    assert any("温和" in pro or "敏感" in pro or "针对" in pro for pro in all_pros)
 
 
 def test_shampoo_sensitive_scalp_hard_filters_sls() -> None:
-    """不加档案且不提敏感头皮时 SLS 产品在池中；有敏感头皮画像后被彻底排除。"""
-    _, events_plain = run_agent("预算 150 以内，头发容易出油", "shampoo", None)
+    """无档案时含 SLS 的商品在池中，声明敏感头皮后必须被彻底排除。"""
+    _, events_plain = run_agent("预算 150 以内，头发有点出油", "shampoo", None)
     plain = next(e for e in events_plain if e["type"] == "candidates_update")
     plain_titles = {c["title"] for c in plain["candidates"]}
-    assert any("海飞丝" in t for t in plain_titles)
+    assert any("经典款" in t or "拉芳" in t for t in plain_titles)
 
     task, events = run_agent("预算 150 以内,敏感头皮", "shampoo",
                              UserProfile(conditions=["sensitive_scalp"]))
     titles = {g.title for g in task.candidates}
-    assert not any("海飞丝" in t for t in titles)
+    assert not any("经典款" in t for t in titles)
+    assert not any("拉芳" in t for t in titles)
 
 
 def test_food_diabetes_prefers_sugar_free() -> None:

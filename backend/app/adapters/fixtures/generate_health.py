@@ -62,6 +62,78 @@ SHAMPOOS = [
         "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、甲基椰油酰基牛磺酸钠(氨基酸)、"
                        "神经酰胺、桉叶提取物、无香精、无硅油配方",
     },
+    {
+        "brand": "蜂花", "model": "无硅油护发精华素洗发水", "base": 26,
+        "volume_ml": 500, "scalp_gentleness": "balanced", "hair_type": "oily",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、椰油酰胺丙基甜菜碱(两性表活)、"
+                       "无硅油配方、烟酰胺、柠檬酸、香精",
+    },
+    {
+        "brand": "拉芳", "model": "去屑止痒洗发露", "base": 19,
+        "volume_ml": 400, "scalp_gentleness": "harsh", "hair_type": "oily",
+        "ingredients": "水、月桂醇硫酸酯钠(SLS)、吡硫鎓锌(ZPT)、薄荷醇、"
+                       "氯化钠、香精、防腐剂",
+    },
+    {
+        "brand": "滋源", "model": "无硅油氨基酸洗头水", "base": 42,
+        "volume_ml": 480, "scalp_gentleness": "gentle", "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、甲基椰油酰基牛磺酸钠(氨基酸表活)、"
+                       "无硅油配方、神经酰胺、生姜提取物、柠檬酸",
+    },
+    {
+        "brand": "海飞丝", "model": "水润去屑洗发露 小样装", "base": 15,
+        "volume_ml": 200, "scalp_gentleness": "balanced", "hair_type": "all",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、吡硫鎓锌(ZPT)、"
+                       "二甲基硅油(硅油)、香精、防腐剂",
+    },
+    {
+        "brand": "阿道夫", "model": "精油护理洗发水", "base": 48,
+        "volume_ml": 520, "scalp_gentleness": "balanced", "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、聚二甲基硅氧烷(硅油)、"
+                       "透明质酸、生物素、植物精油、香精",
+    },
+    {
+        "brand": "康王", "model": "水杨酸控油去屑洗发水", "base": 38,
+        "volume_ml": 300, "scalp_gentleness": "harsh", "hair_type": "oily",
+        "ingredients": "水、月桂醇硫酸酯钠(SLS)、水杨酸、薄荷醇、"
+                       "烟酰胺、氯化钠、香精",
+    },
+    {
+        "brand": "谜尚", "model": "氨基酸敏感头皮洗发水", "base": 33,
+        "volume_ml": 400, "scalp_gentleness": "gentle", "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、泛醇、"
+                       "无硅油配方、积雪草提取物、柠檬酸",
+    },
+    {
+        "brand": "潘婷", "model": "3分钟奇迹强韧洗发水", "base": 79,
+        "volume_ml": 500, "scalp_gentleness": "balanced", "hair_type": "dry",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、二甲基硅油(硅油)、"
+                       "生物素、泛醇、水解角蛋白、香精",
+    },
+    {
+        "brand": "卡诗", "model": "白金赋活精华洗发水", "base": 320,
+        "volume_ml": 250, "scalp_gentleness": "gentle", "hair_type": "sensitive",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、生物素、"
+                       "烟酰胺、透明质酸、无硅油配方",
+    },
+    {
+        "brand": "馥绿德雅", "model": "复合精油净化洗发水", "base": 268,
+        "volume_ml": 200, "scalp_gentleness": "gentle", "hair_type": "oily",
+        "ingredients": "水、甲基椰油酰基牛磺酸钠(氨基酸表活)、水杨酸、薄荷醇、"
+                       "烟酰胺、无硅油配方、植物精油",
+    },
+    {
+        "brand": "自然之名", "model": "神经酰胺修护洗发水", "base": 88,
+        "volume_ml": 460, "scalp_gentleness": "gentle", "hair_type": "dry",
+        "ingredients": "水、椰油酰谷氨酸钠(氨基酸表活)、神经酰胺、二甲基硅油(硅油)、"
+                       "透明质酸、生物素、柠檬酸",
+    },
+    {
+        "brand": "施华蔻", "model": "去屑控油洗发露", "base": 62,
+        "volume_ml": 750, "scalp_gentleness": "balanced", "hair_type": "oily",
+        "ingredients": "水、月桂醇聚醚硫酸酯钠(SLES)、吡硫鎓锌(ZPT)、"
+                       "水杨酸、烟酰胺、香精",
+    },
 ]
 
 # 营养字段同时写入结构化属性(便于打分)和文本成分(便于成分分析)
@@ -116,6 +188,80 @@ FOODS = [
         "sugar_g": 2, "sodium_mg": 320, "protein_g": 16, "fiber_g": 7, "calories_kcal": 580,
         "sugar_level": "low",
         "nutrition": "坚果(杏仁、腰果、开心果)、海盐(钠)、植物油",
+    },
+    {
+        "brand": "三只松鼠", "model": "每日坚果混合装", "base": 69,
+        "sugar_g": 6, "sodium_mg": 60, "protein_g": 14, "fiber_g": 6, "calories_kcal": 610,
+        "sugar_level": "low",
+        "nutrition": "腰果、核桃(坚果)、扁桃仁(坚果)、蔓越莓干、添加糖、膳食纤维",
+    },
+    {
+        "brand": "王小卤", "model": "虎皮鸡爪", "base": 32,
+        "sugar_g": 8, "sodium_mg": 890, "protein_g": 19, "fiber_g": 0, "calories_kcal": 220,
+        "sugar_level": "medium",
+        "nutrition": "鸡爪、酱油、白砂糖(添加糖)、食用盐(钠)、香辛料、防腐剂",
+    },
+    {
+        "brand": "元气森林", "model": "气泡水 白桃味", "base": 5,
+        "sugar_g": 0, "sodium_mg": 20, "protein_g": 0, "fiber_g": 0, "calories_kcal": 2,
+        "sugar_level": "free",
+        "nutrition": "水、二氧化碳、赤藓糖醇(代糖/糖醇)、三氯蔗糖(代糖/糖醇)、食用香精",
+    },
+    {
+        "brand": "奥利奥", "model": "夹心饼干原味", "base": 14,
+        "sugar_g": 38, "sodium_mg": 320, "protein_g": 5, "fiber_g": 2, "calories_kcal": 480,
+        "sugar_level": "high",
+        "nutrition": "小麦粉、白砂糖(添加糖)、植物油、可可粉、食用盐(钠)、"
+                     "起酥油(反式脂肪)、碳酸氢钠",
+    },
+    {
+        "brand": "乐事", "model": "薯片 黄瓜味", "base": 9,
+        "sugar_g": 4, "sodium_mg": 610, "protein_g": 6, "fiber_g": 3, "calories_kcal": 530,
+        "sugar_level": "low",
+        "nutrition": "马铃薯、植物油(饱和脂肪)、食用盐(钠)、白砂糖(添加糖)、食用香精",
+    },
+    {
+        "brand": "伊利", "model": "安慕希无糖酸奶", "base": 58,
+        "sugar_g": 3, "sodium_mg": 70, "protein_g": 23, "fiber_g": 0, "calories_kcal": 160,
+        "sugar_level": "free",
+        "nutrition": "生牛乳、乳清蛋白粉(蛋白质)、赤藓糖醇(代糖/糖醇)、乳酸菌",
+    },
+    {
+        "brand": "myprotein", "model": "乳清蛋白粉 香草味", "base": 149,
+        "sugar_g": 2, "sodium_mg": 140, "protein_g": 82, "fiber_g": 1, "calories_kcal": 400,
+        "sugar_level": "low",
+        "nutrition": "浓缩乳清蛋白(蛋白质)、三氯蔗糖(代糖/糖醇)、食用香精、大豆卵磷脂",
+    },
+    {
+        "brand": "好麦多", "model": "高纤麦片 低糖版", "base": 45,
+        "sugar_g": 5, "sodium_mg": 90, "protein_g": 12, "fiber_g": 11, "calories_kcal": 380,
+        "sugar_level": "low",
+        "nutrition": "燕麦(膳食纤维)、藜麦(膳食纤维)、赤藓糖醇(代糖/糖醇)、"
+                     "冻干草莓、扁桃仁(坚果)",
+    },
+    {
+        "brand": "康师傅", "model": "红烧牛肉面", "base": 6,
+        "sugar_g": 5, "sodium_mg": 1980, "protein_g": 9, "fiber_g": 2, "calories_kcal": 470,
+        "sugar_level": "low",
+        "nutrition": "小麦粉、棕榈油(饱和脂肪)、食用盐(钠)、味精、白砂糖(添加糖)、脱水牛肉粒",
+    },
+    {
+        "brand": "无穷", "model": "盐焗鸡蛋", "base": 25,
+        "sugar_g": 0, "sodium_mg": 720, "protein_g": 26, "fiber_g": 0, "calories_kcal": 150,
+        "sugar_level": "free",
+        "nutrition": "鸡蛋(蛋白质)、食用盐(钠)、香辛料、水",
+    },
+    {
+        "brand": "百草味", "model": "冻干榴莲", "base": 89,
+        "sugar_g": 24, "sodium_mg": 15, "protein_g": 4, "fiber_g": 8, "calories_kcal": 420,
+        "sugar_level": "medium",
+        "nutrition": "榴莲(膳食纤维)、无添加糖",
+    },
+    {
+        "brand": "钟薛高", "model": "低糖雪糕礼盒", "base": 168,
+        "sugar_g": 9, "sodium_mg": 85, "protein_g": 7, "fiber_g": 1, "calories_kcal": 210,
+        "sugar_level": "low",
+        "nutrition": "生牛乳、稀奶油(饱和脂肪)、赤藓糖醇(代糖/糖醇)、可可粉、蛋白质",
     },
 ]
 

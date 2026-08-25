@@ -1,32 +1,32 @@
 [
   {
     "offer": {
-      "offer_id": "tmall-food-旺旺-仙贝-咸味米饼",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO200",
+      "offer_id": "amazon-food-旺旺-仙贝-咸味米饼",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO200",
       "title": "旺旺 仙贝 咸味米饼",
-      "list_price": 19.0,
+      "list_price": 20.0,
       "components": [
         {
           "label": "标价",
-          "amount": 19.0,
-          "evidence": "天猫商品页标价"
+          "amount": 20.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -1.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 18.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 59.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 600,
       "review_score": 4.2,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/旺旺-仙贝-咸味米饼",
+      "url": "https://example-amazon.com/item/旺旺-仙贝-咸味米饼",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -48,32 +48,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-乐事-原味薯片",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO201",
+      "offer_id": "amazon-food-乐事-原味薯片",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO201",
       "title": "乐事 原味薯片",
       "list_price": 12.0,
       "components": [
         {
           "label": "标价",
           "amount": 12.0,
-          "evidence": "天猫商品页标价"
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -1.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 11.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 51.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 1140,
       "review_score": 4.3,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/乐事-原味薯片",
+      "url": "https://example-amazon.com/item/乐事-原味薯片",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -95,32 +95,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-三只松鼠-每日坚果-750g",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO202",
+      "offer_id": "amazon-food-三只松鼠-每日坚果-750g",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO202",
       "title": "三只松鼠 每日坚果 750g",
-      "list_price": 98.0,
+      "list_price": 102.0,
       "components": [
         {
           "label": "标价",
-          "amount": 98.0,
-          "evidence": "天猫商品页标价"
+          "amount": 102.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -6.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 92.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 141.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 1680,
       "review_score": 4.4,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/三只松鼠-每日坚果-750g",
+      "url": "https://example-amazon.com/item/三只松鼠-每日坚果-750g",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -142,32 +142,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-ffit8-乳清蛋白棒-巧克力味",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO203",
+      "offer_id": "amazon-food-ffit8-乳清蛋白棒-巧克力味",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO203",
       "title": "ffit8 乳清蛋白棒 巧克力味",
-      "list_price": 68.0,
+      "list_price": 71.0,
       "components": [
         {
           "label": "标价",
-          "amount": 68.0,
-          "evidence": "天猫商品页标价"
+          "amount": 71.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -4.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 64.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 110.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 2220,
       "review_score": 4.5,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/ffit8-乳清蛋白棒-巧克力味",
+      "url": "https://example-amazon.com/item/ffit8-乳清蛋白棒-巧克力味",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -189,32 +189,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-趣园-无糖粗粮饼干",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO204",
+      "offer_id": "amazon-food-趣园-无糖粗粮饼干",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO204",
       "title": "趣园 无糖粗粮饼干",
-      "list_price": 29.0,
+      "list_price": 30.0,
       "components": [
         {
           "label": "标价",
-          "amount": 29.0,
-          "evidence": "天猫商品页标价"
+          "amount": 30.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -2.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 27.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 69.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 2760,
       "review_score": 4.6,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/趣园-无糖粗粮饼干",
+      "url": "https://example-amazon.com/item/趣园-无糖粗粮饼干",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -236,32 +236,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-士力架-花生夹心巧克力",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO205",
+      "offer_id": "amazon-food-士力架-花生夹心巧克力",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO205",
       "title": "士力架 花生夹心巧克力",
-      "list_price": 38.0,
+      "list_price": 40.0,
       "components": [
         {
           "label": "标价",
-          "amount": 38.0,
-          "evidence": "天猫商品页标价"
+          "amount": 40.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -2.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 36.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 79.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 3300,
       "review_score": 4.7,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/士力架-花生夹心巧克力",
+      "url": "https://example-amazon.com/item/士力架-花生夹心巧克力",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -283,32 +283,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-良品铺子-低脂鸡胸肉肠",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO206",
+      "offer_id": "amazon-food-良品铺子-低脂鸡胸肉肠",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO206",
       "title": "良品铺子 低脂鸡胸肉肠",
-      "list_price": 34.0,
+      "list_price": 36.0,
       "components": [
         {
           "label": "标价",
-          "amount": 34.0,
-          "evidence": "天猫商品页标价"
+          "amount": 36.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -2.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 32.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 75.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 3840,
       "review_score": 4.8,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/良品铺子-低脂鸡胸肉肠",
+      "url": "https://example-amazon.com/item/良品铺子-低脂鸡胸肉肠",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -330,32 +330,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-百草味-海盐坚果混合",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO207",
+      "offer_id": "amazon-food-百草味-海盐坚果混合",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO207",
       "title": "百草味 海盐坚果混合",
-      "list_price": 78.0,
+      "list_price": 82.0,
       "components": [
         {
           "label": "标价",
-          "amount": 78.0,
-          "evidence": "天猫商品页标价"
+          "amount": 82.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -5.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 73.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 121.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 4380,
       "review_score": 4.2,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/百草味-海盐坚果混合",
+      "url": "https://example-amazon.com/item/百草味-海盐坚果混合",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -377,32 +377,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-三只松鼠-每日坚果混合装",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO208",
+      "offer_id": "amazon-food-三只松鼠-每日坚果混合装",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO208",
       "title": "三只松鼠 每日坚果混合装",
-      "list_price": 68.0,
+      "list_price": 71.0,
       "components": [
         {
           "label": "标价",
-          "amount": 68.0,
-          "evidence": "天猫商品页标价"
+          "amount": 71.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -4.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 64.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 110.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 4920,
       "review_score": 4.3,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/三只松鼠-每日坚果混合装",
+      "url": "https://example-amazon.com/item/三只松鼠-每日坚果混合装",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -424,74 +424,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-王小卤-虎皮鸡爪",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO209",
-      "title": "王小卤 虎皮鸡爪",
-      "list_price": 32.0,
-      "components": [
-        {
-          "label": "标价",
-          "amount": 32.0,
-          "evidence": "天猫商品页标价"
-        },
-        {
-          "label": "平台/店铺券",
-          "amount": -2.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
-        }
-      ],
-      "final_price": 30.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
-      "review_count": 5460,
-      "review_score": 4.4,
-      "in_stock": true,
-      "delivery_days": 2,
-      "condition": "new",
-      "url": "https://example-tmall.com/item/王小卤-虎皮鸡爪",
-      "fetched_at": "2026-08-25T00:00:00+00:00",
-      "stale": false
-    },
-    "spec": {
-      "category": "food",
-      "brand": "王小卤",
-      "model": "虎皮鸡爪",
-      "attributes": {
-        "sugar_g": 8,
-        "sodium_mg": 890,
-        "protein_g": 19,
-        "fiber_g": 0,
-        "calories_kcal": 220,
-        "sugar_level": "medium",
-        "nutrition": "鸡爪、酱油、白砂糖(添加糖)、食用盐(钠)、香辛料、防腐剂"
-      }
-    },
-    "vendor_group_hint": "王小卤-虎皮鸡爪"
-  },
-  {
-    "offer": {
-      "offer_id": "tmall-food-元气森林-气泡水-白桃味",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO210",
+      "offer_id": "amazon-food-元气森林-气泡水-白桃味",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO210",
       "title": "元气森林 气泡水 白桃味",
       "list_price": 5.0,
       "components": [
         {
           "label": "标价",
           "amount": 5.0,
-          "evidence": "天猫商品页标价"
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 5.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 44.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 6000,
       "review_score": 4.5,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/元气森林-气泡水-白桃味",
+      "url": "https://example-amazon.com/item/元气森林-气泡水-白桃味",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -513,32 +471,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-奥利奥-夹心饼干原味",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO211",
+      "offer_id": "amazon-food-奥利奥-夹心饼干原味",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO211",
       "title": "奥利奥 夹心饼干原味",
       "list_price": 14.0,
       "components": [
         {
           "label": "标价",
           "amount": 14.0,
-          "evidence": "天猫商品页标价"
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -1.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 13.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 53.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 6540,
       "review_score": 4.6,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/奥利奥-夹心饼干原味",
+      "url": "https://example-amazon.com/item/奥利奥-夹心饼干原味",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -560,32 +518,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-乐事-薯片-黄瓜味",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO212",
+      "offer_id": "amazon-food-乐事-薯片-黄瓜味",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO212",
       "title": "乐事 薯片 黄瓜味",
       "list_price": 9.0,
       "components": [
         {
           "label": "标价",
           "amount": 9.0,
-          "evidence": "天猫商品页标价"
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -1.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 8.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 48.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 7080,
       "review_score": 4.7,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/乐事-薯片-黄瓜味",
+      "url": "https://example-amazon.com/item/乐事-薯片-黄瓜味",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -607,32 +565,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-伊利-安慕希无糖酸奶",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO213",
+      "offer_id": "amazon-food-伊利-安慕希无糖酸奶",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO213",
       "title": "伊利 安慕希无糖酸奶",
-      "list_price": 57.0,
+      "list_price": 60.0,
       "components": [
         {
           "label": "标价",
-          "amount": 57.0,
-          "evidence": "天猫商品页标价"
+          "amount": 60.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -3.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 54.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 99.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 7620,
       "review_score": 4.8,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/伊利-安慕希无糖酸奶",
+      "url": "https://example-amazon.com/item/伊利-安慕希无糖酸奶",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -654,32 +612,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-myprotein-乳清蛋白粉-香草味",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO214",
+      "offer_id": "amazon-food-myprotein-乳清蛋白粉-香草味",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO214",
       "title": "myprotein 乳清蛋白粉 香草味",
-      "list_price": 147.0,
+      "list_price": 154.0,
       "components": [
         {
           "label": "标价",
-          "amount": 147.0,
-          "evidence": "天猫商品页标价"
+          "amount": 154.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -9.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 138.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 193.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 8160,
       "review_score": 4.2,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/myprotein-乳清蛋白粉-香草味",
+      "url": "https://example-amazon.com/item/myprotein-乳清蛋白粉-香草味",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -701,32 +659,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-好麦多-高纤麦片-低糖版",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO215",
+      "offer_id": "amazon-food-好麦多-高纤麦片-低糖版",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO215",
       "title": "好麦多 高纤麦片 低糖版",
-      "list_price": 44.0,
+      "list_price": 47.0,
       "components": [
         {
           "label": "标价",
-          "amount": 44.0,
-          "evidence": "天猫商品页标价"
+          "amount": 47.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -3.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 41.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 86.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 8700,
       "review_score": 4.3,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/好麦多-高纤麦片-低糖版",
+      "url": "https://example-amazon.com/item/好麦多-高纤麦片-低糖版",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -748,121 +706,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-康师傅-红烧牛肉面",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO216",
-      "title": "康师傅 红烧牛肉面",
-      "list_price": 6.0,
-      "components": [
-        {
-          "label": "标价",
-          "amount": 6.0,
-          "evidence": "天猫商品页标价"
-        }
-      ],
-      "final_price": 6.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
-      "review_count": 9240,
-      "review_score": 4.4,
-      "in_stock": true,
-      "delivery_days": 2,
-      "condition": "new",
-      "url": "https://example-tmall.com/item/康师傅-红烧牛肉面",
-      "fetched_at": "2026-08-25T00:00:00+00:00",
-      "stale": false
-    },
-    "spec": {
-      "category": "food",
-      "brand": "康师傅",
-      "model": "红烧牛肉面",
-      "attributes": {
-        "sugar_g": 5,
-        "sodium_mg": 1980,
-        "protein_g": 9,
-        "fiber_g": 2,
-        "calories_kcal": 470,
-        "sugar_level": "low",
-        "nutrition": "小麦粉、棕榈油(饱和脂肪)、食用盐(钠)、味精、白砂糖(添加糖)、脱水牛肉粒"
-      }
-    },
-    "vendor_group_hint": "康师傅-红烧牛肉面"
-  },
-  {
-    "offer": {
-      "offer_id": "tmall-food-无穷-盐焗鸡蛋",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO217",
-      "title": "无穷 盐焗鸡蛋",
-      "list_price": 25.0,
-      "components": [
-        {
-          "label": "标价",
-          "amount": 25.0,
-          "evidence": "天猫商品页标价"
-        },
-        {
-          "label": "平台/店铺券",
-          "amount": -2.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
-        }
-      ],
-      "final_price": 23.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
-      "review_count": 9780,
-      "review_score": 4.5,
-      "in_stock": true,
-      "delivery_days": 2,
-      "condition": "new",
-      "url": "https://example-tmall.com/item/无穷-盐焗鸡蛋",
-      "fetched_at": "2026-08-25T00:00:00+00:00",
-      "stale": false
-    },
-    "spec": {
-      "category": "food",
-      "brand": "无穷",
-      "model": "盐焗鸡蛋",
-      "attributes": {
-        "sugar_g": 0,
-        "sodium_mg": 720,
-        "protein_g": 26,
-        "fiber_g": 0,
-        "calories_kcal": 150,
-        "sugar_level": "free",
-        "nutrition": "鸡蛋(蛋白质)、食用盐(钠)、香辛料、水"
-      }
-    },
-    "vendor_group_hint": "无穷-盐焗鸡蛋"
-  },
-  {
-    "offer": {
-      "offer_id": "tmall-food-百草味-冻干榴莲",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO218",
+      "offer_id": "amazon-food-百草味-冻干榴莲",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO218",
       "title": "百草味 冻干榴莲",
-      "list_price": 88.0,
+      "list_price": 92.0,
       "components": [
         {
           "label": "标价",
-          "amount": 88.0,
-          "evidence": "天猫商品页标价"
+          "amount": 92.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -5.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 83.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 131.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 10320,
       "review_score": 4.6,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/百草味-冻干榴莲",
+      "url": "https://example-amazon.com/item/百草味-冻干榴莲",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },
@@ -884,32 +753,32 @@
   },
   {
     "offer": {
-      "offer_id": "tmall-food-钟薛高-低糖雪糕礼盒",
-      "platform": "tmall",
-      "platform_sku_id": "TMALLFO219",
+      "offer_id": "amazon-food-钟薛高-低糖雪糕礼盒",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONFO219",
       "title": "钟薛高 低糖雪糕礼盒",
-      "list_price": 165.0,
+      "list_price": 174.0,
       "components": [
         {
           "label": "标价",
-          "amount": 165.0,
-          "evidence": "天猫商品页标价"
+          "amount": 174.0,
+          "evidence": "亚马逊商品页标价"
         },
         {
-          "label": "平台/店铺券",
-          "amount": -10.0,
-          "evidence": "天猫优惠券,领取后自动抵扣"
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
         }
       ],
-      "final_price": 155.0,
-      "shop_name": "天猫自营旗舰店",
-      "shop_rating": 4.8,
+      "final_price": 213.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
       "review_count": 10860,
       "review_score": 4.7,
       "in_stock": true,
-      "delivery_days": 2,
+      "delivery_days": 6,
       "condition": "new",
-      "url": "https://example-tmall.com/item/钟薛高-低糖雪糕礼盒",
+      "url": "https://example-amazon.com/item/钟薛高-低糖雪糕礼盒",
       "fetched_at": "2026-08-25T00:00:00+00:00",
       "stale": false
     },

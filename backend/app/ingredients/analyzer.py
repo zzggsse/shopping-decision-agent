@@ -27,6 +27,12 @@ class IngredientAnalysis:
     cautions: list[str] = field(default_factory=list)
     avoids: list[str] = field(default_factory=list)
     matched_concerns: list[str] = field(default_factory=list)
+    #: 命中用户诉求的标签(如"头屑"),即这瓶真的对症
+    matched_needs: list[str] = field(default_factory=list)
+    #: 用户提出但配料表里没有对应有效成分的诉求
+    unmet_needs: list[str] = field(default_factory=list)
+    #: 对症成分的名字,用于生成"因为含 X 所以对症"的理由
+    effective_for_needs: list[str] = field(default_factory=list)
     score: float = 0.5  # 0-1,供打分使用
 
     @property
@@ -51,18 +57,47 @@ def split_ingredients(text: str, separator: str) -> list[str]:
 
 
 def _match(name: str, knowledge: IngredientKnowledge) -> bool:
-    targets = [name, name.split("(", 1)[0], name.split("（", 1)[0]]
-    normalized = {t.lower().replace(" ", "").strip("()（）") for t in targets if t.strip()}
+    """判断一条配料是否命中某个知识库条目。
+
+    配料表有两种常见写法都要支持:
+      "月桂醇硫酸酯钠(SLS)"  -> 括号外是全称,括号内是简称
+      "浓缩乳清蛋白(蛋白质)" -> 括号外是具体成分,括号内是归类
+    所以括号内外都要参与匹配,并且允许子串包含。
+    """
+    targets = [name]
+    # 括号外
+    for sep in ("(", "（"):
+        if sep in name:
+            targets.append(name.split(sep, 1)[0])
+    # 括号内(可能是简称,也可能是归类名)
+    for inner in re.findall(r"[(（]([^)）]*)[)）]", name):
+        targets.extend(re.split(r"[/、,，]", inner))
+
+    def norm(text: str) -> str:
+        return text.lower().replace(" ", "").strip("()（）")
+
+    normalized = {norm(t) for t in targets if t.strip()}
     knowledge_names = [knowledge.name, *knowledge.aliases]
-    kb = {n.lower().replace(" ", "").strip("()（）") for n in knowledge_names}
-    return bool(normalized & kb)
+    kb = {norm(n) for n in knowledge_names if n.strip()}
+
+    if normalized & kb:
+        return True
+    # 允许包含关系:配料"浓缩乳清蛋白"应命中别名"乳清蛋白"
+    return any(
+        key and target and (key in target or target in key)
+        for target in normalized
+        for key in kb
+        if len(key) >= 2 and len(target) >= 2
+    )
 
 
 def analyze(
     ingredient_text: str,
     schema: CategorySchema,
     profile: UserProfile | None,
+    need_tags: list[str] | None = None,
 ) -> IngredientAnalysis:
+    """分析配料表。need_tags 为用户诉求标签(来自槽位),决定是否对症。"""
     result = IngredientAnalysis(raw=ingredient_text)
     if not ingredient_text:
         return result
@@ -96,6 +131,9 @@ def analyze(
     # 与用户档案交叉
     if profile is not None:
         _apply_profile(result, schema, profile)
+
+    # 与用户诉求交叉:这瓶到底解不解决他说的问题
+    _apply_needs(result, need_tags or [])
 
     result.score = _score(result)
     return result
@@ -150,7 +188,41 @@ def _score(result: IngredientAnalysis) -> float:
     if not result.recognized:
         return 0.5
     score = 0.5 + 0.04 * len(result.benefits) - 0.12 * len(result.avoids) - 0.04 * len(result.cautions)
+    # 对症与否是这类品类的主导因素,权重高于泛泛的"成分不错"
+    score += 0.18 * len(result.matched_needs)
+    score -= 0.15 * len(result.unmet_needs)
     return max(0.0, min(1.0, score))
+
+
+def _apply_needs(result: IngredientAnalysis, need_tags: list[str]) -> None:
+    """把用户诉求与成分的 helps_with 求交集,区分对症与未覆盖。
+
+    这是"用户说的头发问题"真正影响排序的地方:含对症成分加分,
+    诉求完全没被覆盖则明确写进 cautions,而不是假装匹配。
+    """
+    if not need_tags:
+        return
+    for tag in need_tags:
+        hitting = [
+            item.name
+            for item in result.recognized
+            if any(tag in help_tag or help_tag in tag for help_tag in item.helps_with)
+        ]
+        if hitting:
+            if tag not in result.matched_needs:
+                result.matched_needs.append(tag)
+            for name in hitting:
+                if name not in result.effective_for_needs:
+                    result.effective_for_needs.append(name)
+            note = f"含{'、'.join(hitting[:2])},针对{tag}有效"
+            if note not in result.benefits:
+                result.benefits.append(note)
+        elif tag not in result.unmet_needs:
+            result.unmet_needs.append(tag)
+    for tag in result.unmet_needs:
+        note = f"配料表中未见针对{tag}的有效成分"
+        if note not in result.cautions:
+            result.cautions.append(note)
 
 
 def rules_for_profile(schema: CategorySchema, profile: UserProfile | None) -> list[ConcernRule]:

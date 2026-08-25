@@ -202,6 +202,12 @@ def _constrain(task, groups, profile):
             reason = "全平台无有效报价"
         elif requirement.budget_max and group.best_price > requirement.budget_max * 1.1:
             reason = f"到手价 {group.best_price:.0f} 明显超预算"
+        elif (
+            requirement.budget_min
+            and not requirement.budget_max
+            and group.best_price < requirement.budget_min * 0.85
+        ):
+            reason = f"到手价 {group.best_price:.0f} 低于用户要求的下限"
         else:
             for key, minimum in requirement.min_specs.items():
                 value = group.spec.get(key)

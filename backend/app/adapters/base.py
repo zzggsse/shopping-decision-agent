@@ -87,6 +87,9 @@ class MockAdapter(PlatformAdapter):
             # 只按上限过滤;更便宜的候选保留,由打分环节权衡
             if query.budget_max is not None and price > query.budget_max * 1.15:
                 continue
+            # 下限同样留一档余量:用户说"6000 以上"时,5900 的旗舰不该被一刀切掉
+            if query.budget_min is not None and price < query.budget_min * 0.85:
+                continue
             results.append(_clone(item))
 
         return results[: query.limit]

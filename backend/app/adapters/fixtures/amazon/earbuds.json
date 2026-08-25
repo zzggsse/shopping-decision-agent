@@ -27,7 +27,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/apple-airpods-pro-2",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -76,7 +76,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/sony-wf-1000xm5",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -125,7 +125,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/huawei-freebuds-pro-3",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -174,7 +174,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/edifier-neobuds-pro-2",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -223,7 +223,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/apple-airpods-4",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -272,7 +272,7 @@
       "delivery_days": 6,
       "condition": "new",
       "url": "https://example-amazon.com/item/xiaomi-xiaomi-buds-4",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -292,5 +292,348 @@
       }
     },
     "vendor_group_hint": "xiaomi-xiaomi-buds-4"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-oladance-ows-pro",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA111",
+      "title": "Oladance OWS Pro",
+      "list_price": 1137.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1137.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 1176.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 8390,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/oladance-ows-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Oladance",
+      "model": "OWS Pro",
+      "attributes": {
+        "anc_grade": "none",
+        "anc_db": 0,
+        "sound_grade": "excellent",
+        "battery_hours": 16.0,
+        "case_hours": 58,
+        "latency_ms": 140,
+        "weight_g": 10.5,
+        "wear_style": "over_ear",
+        "waterproof": "IPX4"
+      }
+    },
+    "vendor_group_hint": "oladance-ows-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-shokz-openfit",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA112",
+      "title": "Shokz OpenFit",
+      "list_price": 1240.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1240.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 1279.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 9080,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/shokz-openfit",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Shokz",
+      "model": "OpenFit",
+      "attributes": {
+        "anc_grade": "none",
+        "anc_db": 0,
+        "sound_grade": "good",
+        "battery_hours": 7.0,
+        "case_hours": 28,
+        "latency_ms": 130,
+        "weight_g": 8.3,
+        "wear_style": "over_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "shokz-openfit"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-huawei-freeclip",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA113",
+      "title": "Huawei FreeClip",
+      "list_price": 1344.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1344.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 1383.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 9770,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/huawei-freeclip",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Huawei",
+      "model": "FreeClip",
+      "attributes": {
+        "anc_grade": "none",
+        "anc_db": 0,
+        "sound_grade": "good",
+        "battery_hours": 8.0,
+        "case_hours": 36,
+        "latency_ms": 95,
+        "weight_g": 5.6,
+        "wear_style": "over_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "huawei-freeclip"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-bose-quietcomfort-ultra-earbuds",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA114",
+      "title": "Bose QuietComfort Ultra Earbuds",
+      "list_price": 2379.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2379.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 2418.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 10460,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/bose-quietcomfort-ultra-earbuds",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Bose",
+      "model": "QuietComfort Ultra Earbuds",
+      "attributes": {
+        "anc_grade": "flagship",
+        "anc_db": 52,
+        "sound_grade": "audiophile",
+        "battery_hours": 6.0,
+        "case_hours": 24,
+        "latency_ms": 110,
+        "weight_g": 6.2,
+        "wear_style": "in_ear",
+        "waterproof": "IPX4"
+      }
+    },
+    "vendor_group_hint": "bose-quietcomfort-ultra-earbuds"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-sennheiser-momentum-true-wireless-4",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA115",
+      "title": "Sennheiser Momentum True Wireless 4",
+      "list_price": 2069.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2069.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 2108.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 11150,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/sennheiser-momentum-true-wireless-4",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Sennheiser",
+      "model": "Momentum True Wireless 4",
+      "attributes": {
+        "anc_grade": "excellent",
+        "anc_db": 44,
+        "sound_grade": "audiophile",
+        "battery_hours": 7.5,
+        "case_hours": 30,
+        "latency_ms": 100,
+        "weight_g": 6.0,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "sennheiser-momentum-true-wireless-4"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-oppo-enco-x3",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA117",
+      "title": "OPPO Enco X3",
+      "list_price": 827.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 827.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 866.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 12530,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/oppo-enco-x3",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "OPPO",
+      "model": "Enco X3",
+      "attributes": {
+        "anc_grade": "excellent",
+        "anc_db": 47,
+        "sound_grade": "excellent",
+        "battery_hours": 6.0,
+        "case_hours": 28,
+        "latency_ms": 47,
+        "weight_g": 5.1,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "oppo-enco-x3"
+  },
+  {
+    "offer": {
+      "offer_id": "amazon-earbuds-xiaomi-xiaomi-buds-5-pro",
+      "platform": "amazon",
+      "platform_sku_id": "AMAZONEA118",
+      "title": "Xiaomi Xiaomi Buds 5 Pro",
+      "list_price": 1344.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1344.0,
+          "evidence": "亚马逊商品页标价"
+        },
+        {
+          "label": "运费",
+          "amount": 39,
+          "evidence": "非包邮地区标准运费"
+        }
+      ],
+      "final_price": 1383.0,
+      "shop_name": "亚马逊自营旗舰店",
+      "shop_rating": 4.7,
+      "review_count": 13220,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 6,
+      "condition": "new",
+      "url": "https://example-amazon.com/item/xiaomi-xiaomi-buds-5-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "earbuds",
+      "brand": "Xiaomi",
+      "model": "Xiaomi Buds 5 Pro",
+      "attributes": {
+        "anc_grade": "flagship",
+        "anc_db": 55,
+        "sound_grade": "excellent",
+        "battery_hours": 7.5,
+        "case_hours": 40,
+        "latency_ms": 50,
+        "weight_g": 5.4,
+        "wear_style": "in_ear",
+        "waterproof": "IP54"
+      }
+    },
+    "vendor_group_hint": "xiaomi-xiaomi-buds-5-pro"
   }
 ]

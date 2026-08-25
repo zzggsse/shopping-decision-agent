@@ -53,6 +53,8 @@ class SlotDef:
     required: bool = False
     #: 关键词 -> 值,用于自由文本解析
     keywords: dict[str, list[str]] = field(default_factory=dict)
+    #: 槽位取值 -> 成分知识库 helps_with 标签,让"用户诉求"能参与成分匹配打分
+    need_tags: dict[object, list[str]] = field(default_factory=dict)
 
     def value_label(self, value: object) -> str:
         """把槽位取值转为中文,复用快捷选项的措辞。"""
@@ -142,6 +144,24 @@ class CategorySchema:
 
     def dimension(self, key: str) -> DimensionDef | None:
         return next((d for d in self.dimensions if d.key == key), None)
+
+    def need_tags(self, slots: dict[str, object] | None) -> list[str]:
+        """把用户已填的槽位翻译成成分诉求标签,供成分匹配打分使用。
+
+        这是"用户说的问题"与"成分能解决什么"之间唯一的桥:
+        槽位值 hair_issue=dandruff -> ["头屑", "头皮瘙痒"],
+        再与 IngredientKnowledge.helps_with 求交集。
+        """
+        if not slots:
+            return []
+        tags: list[str] = []
+        for slot in self.slots:
+            if slot.key not in slots:
+                continue
+            for tag in slot.need_tags.get(slots[slot.key], []):
+                if tag not in tags:
+                    tags.append(tag)
+        return tags
 
 
 @dataclass(slots=True)

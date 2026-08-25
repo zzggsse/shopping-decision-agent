@@ -27,7 +27,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/apple-iphone-15",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -78,7 +78,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/xiaomi-xiaomi-14",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -129,7 +129,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/redmi-redmi-k70",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -180,7 +180,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/huawei-mate-60",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -231,7 +231,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/vivo-vivo-x100",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -282,7 +282,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/oppo-oppo-reno11",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -333,7 +333,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/realme-realme-gt5",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -384,7 +384,7 @@
       "delivery_days": 2,
       "condition": "new",
       "url": "https://example-tmall.com/item/honor-honor-100",
-      "fetched_at": "2026-08-25T03:09:30.334973+00:00",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
       "stale": false
     },
     "spec": {
@@ -406,5 +406,566 @@
       }
     },
     "vendor_group_hint": "honor-honor-100"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-redmi-redmi-13c",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH108",
+      "title": "Redmi Redmi 13C",
+      "list_price": 689.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 689.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -41.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 648.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 6320,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/redmi-redmi-13c",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Redmi",
+      "model": "Redmi 13C",
+      "attributes": {
+        "chipset": "Helio G85",
+        "chip_tier": "entry",
+        "ram_gb": 6,
+        "storage_gb": 128,
+        "screen_size": 6.74,
+        "refresh_hz": 90,
+        "battery_mah": 5000,
+        "charge_w": 18,
+        "main_camera_mp": 50,
+        "camera_grade": "basic",
+        "weight_g": 192
+      }
+    },
+    "vendor_group_hint": "redmi-redmi-13c"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-realme-realme-v50",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH109",
+      "title": "Realme realme V50",
+      "list_price": 1083.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1083.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -65.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1018.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 7010,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/realme-realme-v50",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Realme",
+      "model": "realme V50",
+      "attributes": {
+        "chipset": "Snapdragon 4 Gen2",
+        "chip_tier": "entry",
+        "ram_gb": 8,
+        "storage_gb": 128,
+        "screen_size": 6.72,
+        "refresh_hz": 120,
+        "battery_mah": 5000,
+        "charge_w": 45,
+        "main_camera_mp": 50,
+        "camera_grade": "basic",
+        "weight_g": 188
+      }
+    },
+    "vendor_group_hint": "realme-realme-v50"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-honor-honor-x50",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH110",
+      "title": "Honor Honor X50",
+      "list_price": 1477.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1477.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -89.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1388.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 7700,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/honor-honor-x50",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Honor",
+      "model": "Honor X50",
+      "attributes": {
+        "chipset": "Snapdragon 6 Gen1",
+        "chip_tier": "mainstream",
+        "ram_gb": 8,
+        "storage_gb": 256,
+        "screen_size": 6.78,
+        "refresh_hz": 120,
+        "battery_mah": 5800,
+        "charge_w": 35,
+        "main_camera_mp": 108,
+        "camera_grade": "good",
+        "weight_g": 191
+      }
+    },
+    "vendor_group_hint": "honor-honor-x50"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-oppo-oppo-k12",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH111",
+      "title": "OPPO OPPO K12",
+      "list_price": 1772.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 1772.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -106.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 1666.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 8390,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/oppo-oppo-k12",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "OPPO",
+      "model": "OPPO K12",
+      "attributes": {
+        "chipset": "Snapdragon 7 Gen3",
+        "chip_tier": "mainstream",
+        "ram_gb": 12,
+        "storage_gb": 256,
+        "screen_size": 6.7,
+        "refresh_hz": 120,
+        "battery_mah": 5500,
+        "charge_w": 100,
+        "main_camera_mp": 50,
+        "camera_grade": "good",
+        "weight_g": 193
+      }
+    },
+    "vendor_group_hint": "oppo-oppo-k12"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-iqoo-iqoo-neo9",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH112",
+      "title": "iQOO iQOO Neo9",
+      "list_price": 2659.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 2659.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -160.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 2499.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 9080,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/iqoo-iqoo-neo9",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "iQOO",
+      "model": "iQOO Neo9",
+      "attributes": {
+        "chipset": "Snapdragon 8 Gen2",
+        "chip_tier": "high",
+        "ram_gb": 12,
+        "storage_gb": 256,
+        "screen_size": 6.78,
+        "refresh_hz": 144,
+        "battery_mah": 5160,
+        "charge_w": 120,
+        "main_camera_mp": 50,
+        "camera_grade": "good",
+        "weight_g": 190
+      }
+    },
+    "vendor_group_hint": "iqoo-iqoo-neo9"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-xiaomi-redmi-k70-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH113",
+      "title": "Xiaomi Redmi K70 Pro",
+      "list_price": 3250.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3250.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -195.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3055.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 9770,
+      "review_score": 4.4,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/xiaomi-redmi-k70-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Xiaomi",
+      "model": "Redmi K70 Pro",
+      "attributes": {
+        "chipset": "Snapdragon 8 Gen3",
+        "chip_tier": "flagship",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 6.67,
+        "refresh_hz": 120,
+        "battery_mah": 5000,
+        "charge_w": 120,
+        "main_camera_mp": 50,
+        "camera_grade": "excellent",
+        "weight_g": 209
+      }
+    },
+    "vendor_group_hint": "xiaomi-redmi-k70-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-apple-iphone-15-pro-max",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH114",
+      "title": "Apple iPhone 15 Pro Max",
+      "list_price": 9849.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 9849.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -591.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 9258.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 10460,
+      "review_score": 4.5,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/apple-iphone-15-pro-max",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "attributes": {
+        "chipset": "A17 Pro",
+        "chip_tier": "flagship",
+        "ram_gb": 8,
+        "storage_gb": 256,
+        "screen_size": 6.7,
+        "refresh_hz": 120,
+        "battery_mah": 4441,
+        "charge_w": 27,
+        "main_camera_mp": 48,
+        "camera_grade": "flagship",
+        "weight_g": 221
+      }
+    },
+    "vendor_group_hint": "apple-iphone-15-pro-max"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-huawei-pura-70-pro",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH115",
+      "title": "HUAWEI Pura 70 Pro",
+      "list_price": 6894.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6894.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -414.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 6480.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 11150,
+      "review_score": 4.6,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/huawei-pura-70-pro",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "HUAWEI",
+      "model": "Pura 70 Pro",
+      "attributes": {
+        "chipset": "Kirin 9010",
+        "chip_tier": "flagship",
+        "ram_gb": 12,
+        "storage_gb": 512,
+        "screen_size": 6.8,
+        "refresh_hz": 120,
+        "battery_mah": 5050,
+        "charge_w": 100,
+        "main_camera_mp": 50,
+        "camera_grade": "flagship",
+        "weight_g": 220
+      }
+    },
+    "vendor_group_hint": "huawei-pura-70-pro"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-vivo-vivo-x100-ultra",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH116",
+      "title": "vivo vivo X100 Ultra",
+      "list_price": 6402.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 6402.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -384.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 6018.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 11840,
+      "review_score": 4.7,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/vivo-vivo-x100-ultra",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "vivo",
+      "model": "vivo X100 Ultra",
+      "attributes": {
+        "chipset": "Snapdragon 8 Gen3",
+        "chip_tier": "flagship",
+        "ram_gb": 16,
+        "storage_gb": 512,
+        "screen_size": 6.78,
+        "refresh_hz": 120,
+        "battery_mah": 5500,
+        "charge_w": 80,
+        "main_camera_mp": 50,
+        "camera_grade": "flagship",
+        "weight_g": 226
+      }
+    },
+    "vendor_group_hint": "vivo-vivo-x100-ultra"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-samsung-galaxy-s24",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH117",
+      "title": "Samsung Galaxy S24",
+      "list_price": 5417.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 5417.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -325.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 5092.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 12530,
+      "review_score": 4.8,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/samsung-galaxy-s24",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Samsung",
+      "model": "Galaxy S24",
+      "attributes": {
+        "chipset": "Snapdragon 8 Gen3",
+        "chip_tier": "flagship",
+        "ram_gb": 12,
+        "storage_gb": 256,
+        "screen_size": 6.2,
+        "refresh_hz": 120,
+        "battery_mah": 4000,
+        "charge_w": 25,
+        "main_camera_mp": 50,
+        "camera_grade": "excellent",
+        "weight_g": 167
+      }
+    },
+    "vendor_group_hint": "samsung-galaxy-s24"
+  },
+  {
+    "offer": {
+      "offer_id": "tmall-phone-meizu-meizu-21",
+      "platform": "tmall",
+      "platform_sku_id": "TMALLPH118",
+      "title": "Meizu Meizu 21",
+      "list_price": 3348.0,
+      "components": [
+        {
+          "label": "标价",
+          "amount": 3348.0,
+          "evidence": "天猫商品页标价"
+        },
+        {
+          "label": "平台/店铺券",
+          "amount": -201.0,
+          "evidence": "天猫优惠券,领取后自动抵扣"
+        }
+      ],
+      "final_price": 3147.0,
+      "shop_name": "天猫自营旗舰店",
+      "shop_rating": 4.8,
+      "review_count": 13220,
+      "review_score": 4.3,
+      "in_stock": true,
+      "delivery_days": 2,
+      "condition": "new",
+      "url": "https://example-tmall.com/item/meizu-meizu-21",
+      "fetched_at": "2026-08-25T07:37:08.403371+00:00",
+      "stale": false
+    },
+    "spec": {
+      "category": "phone",
+      "brand": "Meizu",
+      "model": "Meizu 21",
+      "attributes": {
+        "chipset": "Snapdragon 8 Gen3",
+        "chip_tier": "flagship",
+        "ram_gb": 12,
+        "storage_gb": 256,
+        "screen_size": 6.55,
+        "refresh_hz": 120,
+        "battery_mah": 4800,
+        "charge_w": 80,
+        "main_camera_mp": 50,
+        "camera_grade": "good",
+        "weight_g": 189
+      }
+    },
+    "vendor_group_hint": "meizu-meizu-21"
   }
 ]

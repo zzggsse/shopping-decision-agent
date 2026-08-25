@@ -99,7 +99,7 @@ def score_candidates(
                 continue
             if dimension.key == "ingredient_fit" and schema.ingredient_attribute:
                 text = str(group.spec.get(schema.ingredient_attribute) or "")
-                analysis = analyze(text, schema, profile)
+                analysis = analyze(text, schema, profile, schema.need_tags(requirement.slots))
                 dimensions["ingredient_fit"] = analysis.score
                 # 把成分结论挂到 group 上,供 _explain 使用
                 group.__dict__["_analysis"] = analysis
