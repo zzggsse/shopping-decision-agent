@@ -140,8 +140,8 @@ def test_shampoo_sensitive_scalp_recommends_amino_acid() -> None:
 
 
 def test_shampoo_sensitive_scalp_hard_filters_sls() -> None:
-    """不加档案时 SLS 产品在池中;加敏感头皮档案后被彻底排除。"""
-    _, events_plain = run_agent("预算 150 以内,敏感头皮", "shampoo", None)
+    """不加档案且不提敏感头皮时 SLS 产品在池中；有敏感头皮画像后被彻底排除。"""
+    _, events_plain = run_agent("预算 150 以内，头发容易出油", "shampoo", None)
     plain = next(e for e in events_plain if e["type"] == "candidates_update")
     plain_titles = {c["title"] for c in plain["candidates"]}
     assert any("海飞丝" in t for t in plain_titles)

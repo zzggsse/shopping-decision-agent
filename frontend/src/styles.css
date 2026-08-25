@@ -265,3 +265,111 @@ a.btn.primary:hover {
 .ing-item .helps { color: var(--accent); margin-left: 8px; font-size: 11px; }
 .ing-item .pro, .ing-item .con { margin: 2px 0; }
 .ing-unknown { color: var(--muted); font-size: 11px; margin-top: 4px; }
+
+/* ---------- 长期记忆与运行轨迹面板 ---------- */
+
+.chip.ghost {
+  background: transparent;
+  border: 1px dashed #c8cdd6;
+  color: #5a6472;
+}
+
+.memory-panel,
+.trace-panel {
+  grid-column: 1 / -1;
+  margin: 8px 0;
+  padding: 12px 14px;
+  border: 1px solid #e3e7ee;
+  border-radius: 10px;
+  background: #fbfcfe;
+  font-size: 13px;
+}
+
+.memory-panel header,
+.trace-panel header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #3b6cd6;
+  cursor: pointer;
+  padding: 0;
+  font-size: 12px;
+}
+
+.link.danger { color: #c0392b; }
+
+.memory-digest {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  background: #eef3fb;
+  border-radius: 6px;
+  white-space: pre-line;
+  color: #33415c;
+}
+
+.memory-group { margin-bottom: 10px; }
+
+.memory-kind {
+  display: inline-block;
+  font-size: 11px;
+  color: #7a8494;
+  margin-bottom: 4px;
+}
+
+.memory-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  border-left: 3px solid #a9c2ef;
+  background: #fff;
+  margin-bottom: 6px;
+}
+
+.memory-main { display: flex; gap: 6px; align-items: center; }
+
+.memory-guess {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 8px;
+  background: #f2e6c9;
+  color: #8a6d1f;
+}
+
+.memory-evidence { color: #808a99; font-size: 12px; }
+
+.trace-meta { display: flex; gap: 12px; color: #5a6472; margin-bottom: 6px; }
+.trace-meta .bad, .trace-steps li.bad { color: #c0392b; }
+
+.trace-steps {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trace-kind {
+  display: inline-block;
+  min-width: 46px;
+  margin-right: 6px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 1px 4px;
+  background: #e8ecf3;
+  color: #56607a;
+}
+
+.trace-kind.tool { background: #dfeede; color: #3d6b3a; }
+.trace-kind.final { background: #dde8f8; color: #2f5aa8; }
+.trace-kind.error { background: #f7dcda; color: #b5372b; }
+
+.trace-ms { margin-left: 6px; color: #98a1af; font-size: 11px; }
+.trace-detail { color: #6d7684; margin: 2px 0 0 52px; word-break: break-all; }

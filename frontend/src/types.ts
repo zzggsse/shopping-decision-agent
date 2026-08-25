@@ -179,3 +179,44 @@ export interface Profile {
   conditions: string[];
   notes: string;
 }
+
+
+/** 长期记忆条目。记忆必须可感知、可撤销，所以带上原话依据。 */
+export interface MemoryItem {
+  kind: string;
+  value: string;
+  label: string;
+  confidence: number;
+  evidence: string;
+  created_at: string;
+}
+
+export interface TraceStep {
+  index: number;
+  kind: "decide" | "tool" | "final" | "error" | string;
+  name: string;
+  arguments: Record<string, unknown>;
+  ok: boolean;
+  detail: string;
+  elapsed_ms: number;
+  tokens: number;
+}
+
+/** 一次运行的轨迹，用于调试面板。 */
+export interface RunTrace {
+  steps: TraceStep[];
+  tool_calls: string[];
+  tokens_used: number;
+  elapsed_seconds: number;
+  stop_reason: string;
+  failure_count: number;
+  summary?: string;
+}
+
+export const MEMORY_KIND_LABEL: Record<string, string> = {
+  condition: "健康/生活",
+  brand_deny: "不要的品牌",
+  brand_prefer: "偏好的品牌",
+  price_attitude: "价格态度",
+  note: "其他",
+};

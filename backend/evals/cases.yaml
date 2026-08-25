@@ -1,0 +1,173 @@
+cases:
+- id: laptop_basic_gaming
+  category: laptop
+  messages:
+  - 预算 9000 左右，主要打游戏，要独显
+  - 基本放家里
+  expect:
+    tool_used:
+    - understand_requirement
+    - search_candidates
+    - compose_answer
+    event_type:
+    - report
+  note: 常规路径：解析需求 -> 追问一轮 -> 检索 -> 给结论
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - refresh_prices_now
+  - compose_answer
+- id: laptop_budget_too_low_must_disclose
+  category: laptop
+  messages:
+  - 预算 1000 元买一台游戏本
+  - 基本放家里
+  expect:
+    tool_used:
+    - relax_constraints
+    text_contains:
+    - 预算
+    event_type:
+    - report
+  note: 预算远不够时必须逐级放宽，并如实告知超出预算
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - relax_constraints
+  - search_candidates
+  - relax_constraints
+  - search_candidates
+  - relax_constraints
+  - search_candidates
+  - refresh_prices_now
+  - compose_answer
+- id: category_unknown_should_ask
+  category: null
+  messages:
+  - 帮我看看
+  expect:
+    tool_not_used:
+    - search_candidates
+    tool_used:
+    - ask_category_choice
+    event_type:
+    - select_category
+  note: 品类不明时先请用户选品类，绝不能盲搜
+  baseline_tool_calls:
+  - detect_category
+  - ask_category_choice
+- id: shampoo_switch_category_no_laptop_question
+  category: null
+  messages:
+  - 我想买洗发水
+  expect:
+    text_excludes:
+    - 笔记本
+    tool_used:
+    - detect_category
+    - set_category
+  note: 输入洗发水不能反问笔记本预算（已修的回归点）
+  baseline_tool_calls:
+  - detect_category
+  - set_category
+  - understand_requirement
+  - ask_clarifying_question
+- id: shampoo_sensitive_scalp_ingredients
+  category: shampoo
+  messages:
+  - 预算 150 以内，我敏感头皮，容易发痒
+  expect:
+    tool_used:
+    - analyze_ingredients
+    - search_candidates
+    - get_user_profile
+    event_type:
+    - report
+    - memory_updated
+  note: 有配料表的品类必须做成分分析，并记住敏感头皮
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - get_user_profile
+  - analyze_ingredients
+  - refresh_prices_now
+  - compose_answer
+- id: food_diabetes_hard_filter
+  category: food
+  messages:
+  - 预算 50 元，我有糖尿病，想买点饮料
+  - 控糖/低糖
+  expect:
+    tool_used:
+    - analyze_ingredients
+    - get_user_profile
+    event_type:
+    - report
+    - memory_updated
+  note: 糖尿病应被记住并影响食品推荐
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - get_user_profile
+  - analyze_ingredients
+  - refresh_prices_now
+  - compose_answer
+- id: memory_brand_deny_persists
+  category: phone
+  messages:
+  - 我想买手机，预算 3000，不要小米
+  - 日常够用
+  - 无所谓
+  expect:
+    event_type:
+    - memory_updated
+    - report
+    text_excludes:
+    - 小米
+  note: 品牌黑名单要被记住并生效，结论里不得推荐该品牌
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - refresh_prices_now
+  - compose_answer
+- id: multi_turn_context_retained
+  category: laptop
+  messages:
+  - 我想买笔记本
+  - 预算 7000，主要写代码，要轻一点
+  expect:
+    tool_used:
+    - search_candidates
+    - compose_answer
+    event_type:
+    - report
+  note: 多轮对话不能失忆（上下文装配回归点）
+  baseline_tool_calls:
+  - detect_category
+  - understand_requirement
+  - ask_clarifying_question
+  - detect_category
+  - understand_requirement
+  - search_candidates
+  - refresh_prices_now
+  - compose_answer

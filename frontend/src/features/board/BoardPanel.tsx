@@ -6,6 +6,8 @@ import { DecisionReport } from "../task/DecisionReport";
 import { TaskTimeline } from "../task/TaskTimeline";
 import { ProfileBar } from "./Ingredients";
 import { ProfileDialog } from "./ProfileDialog";
+import { MemoryPanel } from "./MemoryPanel";
+import { TracePanel } from "./TracePanel";
 
 const STATE_LABEL: Record<string, string> = {
   intent_clarify: "了解需求",
@@ -37,6 +39,8 @@ export function BoardPanel() {
           ))}
         </div>
         <div className="board-tools">
+          <MemoryPanel />
+          <TracePanel />
           <button onClick={() => void refresh()} disabled={busy || !candidates.length}>
             实时刷新价格
           </button>

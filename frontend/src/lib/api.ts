@@ -3,8 +3,10 @@ import type {
   ConditionMeta,
   CategorySchema,
   LogEntry,
+  MemoryItem,
   Report,
   Profile,
+  RunTrace,
   Weights,
 } from "../types";
 
@@ -130,4 +132,30 @@ export async function updateProfile(conditions: string[]): Promise<Profile> {
   });
   if (!response.ok) throw new Error("档案保存失败");
   return (await response.json()).profile as Profile;
+}
+
+
+/** 长期记忆：可查看、可逐条忘掉。 */
+export async function listMemory(): Promise<{
+  backend: string;
+  digest: string;
+  items: MemoryItem[];
+}> {
+  const response = await fetch("/api/memory");
+  if (!response.ok) throw new Error("记忆读取失败");
+  return response.json();
+}
+
+export async function forgetMemory(kind: string, value: string): Promise<void> {
+  const query = `kind=${encodeURIComponent(kind)}&value=${encodeURIComponent(value)}`;
+  const response = await fetch(`/api/memory?${query}`, { method: "DELETE" });
+  if (!response.ok) throw new Error("忘记失败");
+}
+
+/** 最近一次运行轨迹，给调试面板用。 */
+export async function getTrace(): Promise<RunTrace | null> {
+  const response = await fetch("/api/trace");
+  if (!response.ok) return null;
+  const data = await response.json();
+  return data.available ? (data as RunTrace) : null;
 }

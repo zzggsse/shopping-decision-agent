@@ -6,7 +6,8 @@ import sys
 import httpx
 
 sys.stdout.reconfigure(encoding="utf-8")
-BASE = "http://127.0.0.1:8000"
+import os
+BASE = os.getenv("DEMO_BASE", "http://127.0.0.1:8000")
 
 
 def stream(client, payload):

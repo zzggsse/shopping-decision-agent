@@ -20,6 +20,9 @@ from ..agent.serialize import (
 from ..catalog import registry
 from ..config import settings
 from ..domain.models import ChatMessage, Weights
+from ..harness.memory import describe_memory
+from ..harness.orchestrator import summarize_trace
+from ..harness.repository import backend_name
 from ..profile import UserProfile, profile_store
 from ..services import freshness, ranking
 from ..services.store import store
@@ -58,6 +61,8 @@ async def health() -> dict[str, Any]:
         "realtime": settings.is_live,
         "platforms": sorted(adapters),
         "categories": registry.keys(),
+        # 如实告知：降级到内存时也要让调用方看得见，避免误以为已持久化
+        "memory_backend": backend_name(),
     }
 
 
@@ -271,3 +276,63 @@ async def redirect_check(task_id: str, offer_id: str) -> dict[str, Any]:
             return result
 
     raise HTTPException(404, "报价不存在")
+
+
+# --------------------------------------------------------------------------
+# 长期记忆：可查看、可删除。记忆不可感知、不可撤销就是黑盒子。
+# --------------------------------------------------------------------------
+
+
+class ForgetRequest(BaseModel):
+    kind: str
+    value: str
+
+
+@router.get("/memory")
+async def list_memory(user_id: str = "default") -> dict[str, Any]:
+    """列出已记住的长期偏好，带中文说明与原话依据。"""
+    memory = agent.long_term(user_id)
+    return {
+        "user_id": user_id,
+        "backend": backend_name(),
+        "digest": memory.digest(),
+        "items": [
+            {
+                "kind": item.kind,
+                "value": item.value,
+                "label": describe_memory(item),
+                "confidence": item.confidence,
+                "evidence": item.evidence,
+                "created_at": item.created_at.isoformat(),
+            }
+            for item in memory.all()
+        ],
+    }
+
+
+@router.delete("/memory")
+async def forget_memory(
+    kind: str, value: str, user_id: str = "default"
+) -> dict[str, Any]:
+    """忘掉一条记忆。健康类条件同时从档案里注销，否则硬过滤会继续生效。"""
+    memory = agent.long_term(user_id)
+    removed = memory.forget(kind, value)
+    if not removed:
+        raise HTTPException(404, "没有这条记忆")
+
+    if kind == "condition":
+        profile = profile_store.get()
+        if value in profile.conditions:
+            profile.conditions = [c for c in profile.conditions if c != value]
+            profile_store.save(profile)
+
+    return {"removed": True, "digest": memory.digest()}
+
+
+@router.get("/trace")
+async def last_trace() -> dict[str, Any]:
+    """最近一次运行的完整轨迹，供前端调试面板与人工排查使用。"""
+    trace = agent.last_trace
+    if trace is None:
+        return {"available": False, "reason": "本进程还没跑过对话"}
+    return {"available": True, "summary": summarize_trace(trace), **trace.to_dict()}

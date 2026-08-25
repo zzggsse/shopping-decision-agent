@@ -344,7 +344,115 @@ class YourClient(LLMClient):
 | 决策层(mock 策略 / ark / openai) | `app/agent/llm.py` |
 | 工具层(17 个工具,单文件) | `app/agent/toolkit.py` |
 | 序列化/报告辅助 | `app/agent/serialize.py` |
+| 编排：预算/轨迹/重试/收敛 | `app/harness/orchestrator.py` |
+| 上下文装配与裁剪 | `app/harness/context.py` |
+| 三层记忆与自动沉淀 | `app/harness/memory.py` |
+| 持久化（Postgres，可降级） | `app/harness/repository.py` |
+| 测评（断言/轨迹/judge） | `backend/evals/` |
 | 需求抽取与追问 | `app/agent/extract.py` |
+
+
+## Harness 层：编排 / 上下文 / 记忆 / 测评
+
+光有「模型 + 工具」不算 agent，还得有一层把它养活的基础设施。
+这四块全在 `backend/app/harness/`，**不含任何购物逻辑**——它不知道什么是预算、
+什么是洗发水，只知道「决策者、工具、预算、追踪」。
+
+### 1. 编排（`orchestrator.py`）
+
+三重预算上限，任一触顶即收敛，**永远保证产出结果**，不让前端卡在 loading：
+
+| 预算项 | 默认 | 作用 |
+|---|---|---|
+| `max_steps` | 14 | 防死循环 |
+| `max_tokens` | 60000 | 防上下文失控花钱 |
+| `max_seconds` | 90 | 防卡死 |
+| `max_tool_retries` | 2 | 同一工具连续失败则放弃它，告知决策层换路 |
+
+每一步（决策 / 工具 / 结论 / 报错）都落成 `TraceStep`：名字、参数、成败、
+耗时、token。这份轨迹同时服务于三个场景：前端调试面板、日志、以及测评的轨迹对比。
+
+### 2. 上下文（`context.py`）
+
+装配顺序：系统指令 → 长期记忆摘要 → 历史对话 → 当前观测 → 本轮输入 → 工具结果。
+
+超出预算时的裁剪策略是有优先级的，**永不丢**系统指令 / 当前输入 / 最近的工具结果：
+
+1. 先丢早期工具结果（只留最近 3 条）
+2. 再把较早的对话压成摘要（保留最近 6 轮原文）
+3. 候选列表只留 5 条、每条只留关键字段
+
+> 顺手修了一个严重 bug：旧的循环每轮从零重建消息列表，只放当前一句输入，
+> 历史存了却从没读过——多轮对话完全失忆。现已由 `test_evals.py` 的
+> `multi_turn_context_retained` 用例守住。
+
+### 3. 记忆（`memory.py` + `repository.py`）
+
+三层记忆，生命周期不同：
+
+| 层 | 范围 | 内容 |
+|---|---|---|
+| `SessionMemory` | 单会话 | 逐轮对话原文 |
+| `TaskMemory` | 单任务 | 看过哪些候选、拒了哪些、放宽过几轮 |
+| `LongTermMemory` | 跨会话永久 | 健康条件、品牌黑白名单、价格态度 |
+
+长期记忆会从对话里**自动沉淀**：你说「我有糖尿病，平时打游戏，不要小米」，
+系统会抽出 3 条记忆，并弹一条「已记住…」的提示。健康类条件会同步进档案，
+让已有的 `concern_rules` 硬过滤直接生效。
+
+**记忆必须可感知、可撤销**——右上角「记忆」面板列出每条记忆、为什么记住的（原话依据），
+并给一个「忘掉它」按钮。否则就是黑盒子。
+
+对应接口：`GET /api/memory`、`DELETE /api/memory?kind=&value=`。
+
+#### 持久化：Postgres（可降级）
+
+配了 `DATABASE_URL` 就存 Postgres，三张表：`user_memory` / `shopping_task` / `conversation_turn`。
+
+```powershell
+$env:DATABASE_URL="postgresql://用户:密码@localhost:5432/库名"
+```
+
+读走进程内缓存，写异步回写，请求路径不阻塞；持久化失败只记警告，不影响用户当前请求。
+
+**没配或连不上也能跑**，会降级到内存（重启丢失）。降级事实会**如实暴露**在
+`GET /api/health` 的 `memory_backend` 字段：`postgres` / `memory` /
+`memory (postgres unavailable)`——避免你以为存住了其实没存。
+
+### 4. 测评（`backend/evals/`）
+
+```bash
+cd backend
+python -m evals.runner                    # 控制台报告
+python -m evals.runner --no-judge         # 强制走离线双轨
+python -m evals.runner --json report.json # 写 JSON 报告
+python -m evals.runner --case laptop_basic_gaming
+python -m evals.runner --update-baseline  # 行为变更合理后重录基线
+```
+
+测评走双轨：
+
+- **接入了 LLM 凭据** → LLM-as-judge 为主，按 relevance / honesty / grounding
+  三项打分（各 0-2），行为断言作为硬底线
+- **未接入** → 行为断言 + 轨迹对比，完全离线、确定、不花钱
+
+判官宁可不跑也不用 `MockClient` 凑数：用离线策略当自己的判官只会自己给自己发奖状。
+判官凭据可用 `JUDGE_PROVIDER` / `JUDGE_MODEL` 单独指定，默认跟随 `LLM_PROVIDER`。
+
+用例写在 `evals/cases.yaml`，断言有五类：
+
+| 断言 | 含义 |
+|---|---|
+| `tool_used` / `tool_not_used` | 必须（不）调用某工具 |
+| `event_type` | 必须产出某类事件（`report` / `clarify` / `memory_updated`…） |
+| `text_contains` | 结论必须提到关键信息（如超预算要如实告知） |
+| `text_excludes` | 结论不得出现某内容（如被拉黑的品牌） |
+| `max_steps` | 工具调用次数上限 |
+
+**轨迹对比**用序列相似度而不是集合比较，因为调用顺序本身就是行为的一部分：
+先检索再刷价与先刷价再检索是两种策略。基线变了会把「缺少/新增了哪些工具」指出来。
+
+测评集已接入 pytest（`tests/test_evals.py`），行为回归跟单测一起守，这部分永远离线跑。
 
 ## 新增一个品类
 
@@ -364,6 +472,6 @@ triggers / slots / attributes / dimensions / budget_options,再放一份 fixture
 cd backend && pytest -q
 ```
 
-123 项测试覆盖六品类决策链路、工具编排顺序、候选不足自我修复、超预算如实告知、SKU 对齐、权重重排、品类切换、实时价格校验、
+131 项测试覆盖六品类决策链路、工具编排顺序、候选不足自我修复、超预算如实告知、SKU 对齐、权重重排、品类切换、实时价格校验、
 以及配料分析、健康档案硬过滤/加权。新品类只需把 key 加入 `ALL_CATEGORIES`
 即自动纳入全量参数化验证。

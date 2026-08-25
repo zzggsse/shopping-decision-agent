@@ -1,13 +1,15 @@
 import { create } from "zustand";
-import { api, getProfile, streamChat, updateProfile } from "./api";
+import { api, forgetMemory, getProfile, getTrace, listMemory, streamChat, updateProfile } from "./api";
 import type {
   Candidate,
   CategorySchema,
   ConditionMeta,
   LogEntry,
+  MemoryItem,
   Message,
   Profile,
   Report,
+  RunTrace,
   Weights,
 } from "../types";
 
@@ -29,6 +31,11 @@ interface State {
   profile: Profile | null;
   conditionsMeta: Record<string, ConditionMeta>;
   profileOpen: boolean;
+  memories: MemoryItem[];
+  memoryDigest: string;
+  trace: RunTrace | null;
+  traceOpen: boolean;
+  memoryOpen: boolean;
 }
 
 interface Actions {
@@ -44,6 +51,11 @@ interface Actions {
   loadProfile: () => Promise<void>;
   toggleCondition: (condition: string) => Promise<void>;
   setProfileOpen: (open: boolean) => void;
+  loadMemories: () => Promise<void>;
+  forgetMemory: (kind: string, value: string) => Promise<void>;
+  loadTrace: () => Promise<void>;
+  setTraceOpen: (open: boolean) => void;
+  setMemoryOpen: (open: boolean) => void;
 }
 
 let weightTimer: ReturnType<typeof setTimeout> | undefined;
@@ -73,6 +85,11 @@ export const useStore = create<State & Actions>((set, get) => ({
   profile: null,
   conditionsMeta: {},
   profileOpen: false,
+  memories: [],
+  memoryDigest: "",
+  trace: null,
+  traceOpen: false,
+  memoryOpen: false,
 
   init: async () => {
     const [categories, profileData] = await Promise.all([
@@ -83,6 +100,7 @@ export const useStore = create<State & Actions>((set, get) => ({
       profile: profileData.profile,
       conditionsMeta: profileData.conditions_meta,
     });
+    void get().loadMemories();
   },
 
   /** 从品类选择器进入:显式指定品类,不依赖关键词猜测。 */
@@ -161,6 +179,15 @@ export const useStore = create<State & Actions>((set, get) => ({
             case "warning":
               set({ warning: event.message as string });
               break;
+            case "memory_updated": {
+              const learned = (event.learned as string[]) ?? [];
+              if (learned.length) {
+                const msg = "已记住：" + learned.join("、") + "（可在档案里修改）";
+                push(set, msg);
+              }
+              void get().loadMemories();
+              break;
+            }
             case "understood": {
               const signals = (event.signals as string[]) ?? [];
               const notes = (event.weight_notes as string[]) ?? [];
@@ -184,6 +211,9 @@ export const useStore = create<State & Actions>((set, get) => ({
               push(set, report.summary);
               break;
             }
+            case "trace":
+              set({ trace: event.trace as RunTrace });
+              break;
             case "error":
               push(set, `抱歉,${event.message as string}`);
               break;
@@ -285,7 +315,38 @@ export const useStore = create<State & Actions>((set, get) => ({
     set({ profile });
   },
 
-  setProfileOpen: (profileOpen: boolean) => set({ profileOpen }),
+    loadMemories: async () => {
+    try {
+      const data = await listMemory();
+      set({ memories: data.items, memoryDigest: data.digest });
+    } catch { /* 静默失败 */ }
+  },
+
+  forgetMemory: async (kind: string, value: string) => {
+    try {
+      await forgetMemory(kind, value);
+      await get().loadMemories();
+    } catch { /* 静默失败 */ }
+  },
+
+  loadTrace: async () => {
+    try {
+      const trace = await getTrace();
+      set({ trace });
+    } catch { /* 静默失败 */ }
+  },
+
+  setTraceOpen: (traceOpen: boolean) => {
+    set({ traceOpen });
+    if (traceOpen) void get().loadTrace();
+  },
+
+  setMemoryOpen: (memoryOpen: boolean) => {
+    set({ memoryOpen });
+    if (memoryOpen) void get().loadMemories();
+  },
+
+setProfileOpen: (profileOpen: boolean) => set({ profileOpen }),
 }));
 
 function push(

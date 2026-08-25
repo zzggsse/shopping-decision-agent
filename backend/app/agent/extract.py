@@ -116,6 +116,14 @@ def parse_slots(text: str, category: str) -> dict[str, Any]:
     found: dict[str, Any] = {}
 
     for slot in schema.slots:
+        # 用户经常直接把选项文字敲进输入框（而不是点按钮），
+        # 这类回答比关键词更明确，所以优先按选项原文匹配。
+        for label, value in slot.option_values.items():
+            if label and label in text:
+                found[slot.key] = value
+                break
+        if slot.key in found:
+            continue
         for value, keywords in slot.keywords.items():
             if any(keyword in text for keyword in keywords):
                 found[slot.key] = value
