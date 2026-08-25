@@ -1,10 +1,41 @@
+# 依赖与构建产物
 node_modules/
 dist/
+.venv/
+venv/
+
+# Python 缓存与测试产物
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
 pytest-cache-files-*/
-.venv/
-.env
-*.tsbuildinfo
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# 本地凭据（永不入库）
 local.env
+.env
+*.local.env
+
+# 前端增量构建缓存
+*.tsbuildinfo
+.vite/
+
+# 编辑器与系统文件
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 测评报告输出
+*.eval.json
+eval-report*.json
+
+# 临时调试脚本（注意不能写 _*.py，那会误伤 __init__.py）
+_[a-zA-Z0-9]*.py
+_[a-zA-Z0-9]*.txt
