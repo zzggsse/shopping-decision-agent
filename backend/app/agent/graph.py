@@ -33,10 +33,11 @@ from ..harness.memory import (
 from ..harness.orchestrator import BudgetGuard, RunBudget, RunTrace, TraceStep
 from ..harness.repository import repository
 from ..profile import profile_store
-from .llm import SYSTEM_PROMPT, build_llm
+from .llm import SYSTEM_PROMPT, active_system_prompt, build_llm
 from .serialize import build_report, serialize as _serialize
 from .toolkit import Context as AgentContext
 from .toolkit import execute_tool, tool_schemas
+from ..harness.flags import flags
 
 #: 这些工具在等用户回话,执行后必须结束本轮
 _AWAITING_TOOLS = {"ask_category_choice", "ask_clarifying_question"}
@@ -50,8 +51,17 @@ class ShoppingAgent:
         llm=None,
         budget: RunBudget | None = None,
         memory_repository=None,
+        allow_multi_agent: bool = True,
+        no_clarify: bool = False,
+        lock_category: bool = False,
     ) -> None:
         self.adapters = adapters
+        #: 多智能体的 worker 必须置 False,否则 worker 会再次派发,无限递归
+        self._allow_multi_agent = allow_multi_agent
+        #: 跨品类对比时跳过追问(用户问的是买哪一类,不是某类的细节)
+        self._no_clarify = no_clarify
+        #: 品类锁定:worker 模式下不允许决策层改品类(原文含多个品类触发词会串台)
+        self._lock_category = lock_category
         self.profiles = profiles if profiles is not None else profile_store
         self.budget = budget or RunBudget()
         self._memory_repository = memory_repository
@@ -63,6 +73,26 @@ class ShoppingAgent:
         self._task_memories: dict[str, TaskMemory] = {}
         #: 最近一次运行轨迹,供 API 与测评读取
         self.last_trace: RunTrace | None = None
+        #: MCP 对照实现:打开后工具表与调用都走 MCP 数据结构
+        self._mcp = None
+        if flags().use_mcp:
+            from ..mcp import InProcessMCPBridge
+
+            self._mcp = InProcessMCPBridge()
+
+    # ------------------------------------------------------------------
+    # 工具接入层:默认进程内直调,USE_MCP 打开则走 MCP 契约
+    # ------------------------------------------------------------------
+
+    def _tool_schemas(self):
+        if self._mcp is not None:
+            return self._mcp.openai_tools()
+        return tool_schemas()
+
+    async def _call_tool(self, ctx, name: str, arguments: dict):
+        if self._mcp is not None:
+            return await self._mcp.call_tool(ctx, name, arguments)
+        return await execute_tool(ctx, name, arguments)
 
     def _current_context(self) -> AgentContext | None:
         return self._ctx
@@ -86,6 +116,11 @@ class ShoppingAgent:
     ) -> AsyncIterator[dict[str, Any]]:
         ctx = AgentContext(task=task, profiles=self.profiles, adapters=self.adapters)
         ctx.flow["last_text"] = text
+        # 跨品类对比模式下跳过追问(见 toolkit._ask_clarifying_question)
+        if self._no_clarify:
+            ctx.flow["no_clarify"] = True
+        if self._lock_category:
+            ctx.flow["lock_category"] = True
         self._ctx = ctx
 
         session = self.session(task.task_id)
@@ -95,7 +130,79 @@ class ShoppingAgent:
         async for event in self._absorb_memories(text, memory, task):
             yield event
 
-        async for event in self._loop(ctx, text, session, memory):
+        # 多智能体对照实现:仅当一句话里涉及多个品类时才启用(否则纯亏)
+        if flags().use_multi_agent and self._allow_multi_agent:
+            from ..harness.multi_agent import detect_multi_categories
+
+            categories = detect_multi_categories(text)
+            if len(categories) >= 2:
+                async for event in self._compare_categories(text, categories):
+                    yield event
+                return
+
+        # 默认走自写循环;打开 USE_LANGGRAPH 则切换到 LangGraph 对照实现
+        if flags().use_langgraph:
+            async for event in self._loop_langgraph(ctx, text, session, memory):
+                yield event
+        else:
+            async for event in self._loop(ctx, text, session, memory):
+                yield event
+
+    async def _compare_categories(
+        self, text: str, categories: list[str]
+    ) -> AsyncIterator[dict[str, Any]]:
+        """多智能体路径:并行比较多个品类。"""
+        from ..harness.multi_agent import MultiAgentComparator, summarize
+
+        yield {
+            "type": "progress",
+            "message": f"识别到 {len(categories)} 个品类,并行比较中……",
+        }
+
+        comparator = MultiAgentComparator(
+            adapters=self.adapters,
+            profiles=self.profiles,
+            memory_repository=self._memory_repository,
+        )
+        verdicts = await comparator.compare(text, categories)
+        report = summarize(verdicts)
+
+        yield {"type": "message", "text": report["summary"]}
+        yield report
+
+    async def _loop_langgraph(
+        self,
+        ctx: AgentContext,
+        text: str,
+        session: SessionMemory,
+        memory: LongTermMemory,
+    ) -> AsyncIterator[dict[str, Any]]:
+        """LangGraph 对照实现。与 _loop 共用决策层、工具、预算与上下文装配。"""
+        from ..harness.langgraph_loop import LangGraphLoop
+
+        trace = RunTrace()
+        self.last_trace = trace
+
+        loop = LangGraphLoop(
+            llm=self.llm,
+            tool_schemas=self._tool_schemas,
+            execute_tool=self._call_tool,
+            observe=_observation,
+            emit=self._emit,
+            finish=self._finish,
+            remember=self._remember_progress,
+            system_prompt=active_system_prompt(),
+            budget=self.budget,
+        )
+        async for event in loop.run(
+            ctx=ctx,
+            text=text,
+            session=session,
+            history=session.recent()[:-1],
+            digest=memory.digest(),
+            awaiting_tools=_AWAITING_TOOLS,
+            trace=trace,
+        ):
             yield event
 
     async def _absorb_memories(
@@ -146,7 +253,7 @@ class ShoppingAgent:
         guard = BudgetGuard(self.budget, trace)
 
         assembler = ContextAssembler(
-            system_prompt=SYSTEM_PROMPT, budget=ContextBudget()
+            system_prompt=active_system_prompt(), budget=ContextBudget()
         )
         # 历史里排掉刚写入的本轮输入,避免与 current_input 重复
         history = session.recent()[:-1]
@@ -172,7 +279,7 @@ class ShoppingAgent:
             started = time.monotonic()
             try:
                 decision = await self.llm.decide(
-                    messages, tool_schemas(), observation
+                    messages, self._tool_schemas(), observation
                 )
             except Exception as error:
                 trace.add(TraceStep(index=step, kind="error", name="decide",
@@ -210,7 +317,7 @@ class ShoppingAgent:
                     continue
 
                 started = time.monotonic()
-                result = await execute_tool(ctx, name, arguments)
+                result = await self._call_tool(ctx, name, arguments)
                 ok = result["type"] != "tool_error"
                 guard.record_tool_result(name, ok)
 

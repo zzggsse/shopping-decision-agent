@@ -104,6 +104,9 @@ async def _search_candidates(ctx: Context, args: dict) -> dict:
 
     task = ctx.task
     category = args.get("category") or task.category
+    if ctx.flow.get("lock_category"):
+        # 品类锁定时忽略参数里的品类,避免 worker 检索到别的品类
+        category = task.category
     requirement = task.requirement
 
     # 需求解析主要由 understand_requirement 负责;此处不覆盖已有约束,
@@ -323,6 +326,10 @@ def _detect_category(ctx: Context, args: dict) -> dict:
     from ..catalog import registry
     text = args.get("text", "")
     detected = detect_category(text)
+    if ctx.flow.get("lock_category"):
+        # 多品类对比的 worker 里品类是外部指定的:原文含多个品类触发词,
+        # 若让识别结果覆盖,几个 worker 会全部塌到同一个品类上。
+        detected = ctx.task.category
     return _ok({
         "detected": detected,
         "current": ctx.task.category,
@@ -340,6 +347,18 @@ def _set_category(ctx: Context, args: dict) -> dict:
         return {"type": "tool_error", "result": f"未知品类:{category}"}
     task = ctx.task
     previous = task.category
+    if ctx.flow.get("lock_category") and category != previous:
+        # 品类被锁定(worker 模式),不切换,如实告知决策层
+        task.category_set = True
+        return _ok({
+            "category": previous,
+            "label": registry.get(previous).label,
+            "switched_from": None,
+            "switched": False,
+            "locked": True,
+            "note": f"当前会话品类已锁定为 {registry.get(previous).label},忽略切换到 {category} 的请求",
+            "schema": describe_category(previous),
+        })
     switched = category != previous
     if switched:
         task.switch_category(category)
@@ -411,6 +430,20 @@ def _ask_clarifying_question(ctx: Context, args: dict) -> dict:
             return _ok({"asked": False, "reason": "槽位已齐全,无需追问"})
         slot_key, question, options = nxt
         question = args.get("question") or question
+
+    # 跨品类横向对比时不追问:用户问的是"买哪一类",不是某一类的细节。
+    # 这时缺失槽位应当留空由打分兜底,而不是把用户拦在追问上。
+    if ctx.flow.get("no_clarify"):
+        # 登记为已放弃,否则 missing_slots 一直报缺失,决策层会反复调本工具
+        if slot_key not in requirement.waived_slots:
+            requirement.waived_slots.append(slot_key)
+        task.log("clarify", f"跳过追问 {slot_key}(跨品类对比模式)")
+        return _ok({
+            "asked": False,
+            "reason": "跨品类对比模式下不追问,缺失槽位交给打分兜底",
+            "slot": slot_key,
+            "missing_slots": requirement.missing_slots(),
+        })
 
     task.clarify_rounds += 1
     task.log("clarify", f"追问 {slot_key}(第 {task.clarify_rounds} 轮)")

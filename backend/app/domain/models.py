@@ -46,6 +46,8 @@ class Requirement(BaseModel):
     brand_allow: list[str] = Field(default_factory=list)
     brand_deny: list[str] = Field(default_factory=list)
     condition: list[Condition] = Field(default_factory=lambda: ["new"])
+    #: 已明确放弃追问的槽位(如跨品类对比模式),不再计入缺失,避免决策层反复追问
+    waived_slots: list[str] = Field(default_factory=list)
 
     def missing_slots(self) -> list[str]:
         """按品类配置判断哪些必答槽位未填。预算始终必答。"""
@@ -53,7 +55,10 @@ class Requirement(BaseModel):
         if self.budget_max is None and self.budget_min is None:
             missing.append("budget")
         schema = registry.get(self.category)
-        missing.extend(key for key in schema.required_slots if key not in self.slots)
+        missing.extend(
+            key for key in schema.required_slots
+            if key not in self.slots and key not in self.waived_slots
+        )
         return missing
 
     def coverage(self) -> float:

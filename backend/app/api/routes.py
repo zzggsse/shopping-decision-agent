@@ -18,6 +18,7 @@ from ..agent.serialize import (
     serialize as _serialize,
 )
 from ..catalog import registry
+from ..harness.flags import flags
 from ..config import settings
 from ..domain.models import ChatMessage, Weights
 from ..harness.memory import describe_memory
@@ -63,6 +64,8 @@ async def health() -> dict[str, Any]:
         "categories": registry.keys(),
         # 如实告知：降级到内存时也要让调用方看得见，避免误以为已持久化
         "memory_backend": backend_name(),
+        # 对照实现开关:默认全部关闭,打开了要如实上报,否则排查问题时会看错路径
+        "alt_implementations": flags().enabled(),
     }
 
 

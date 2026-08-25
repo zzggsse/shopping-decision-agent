@@ -1,6 +1,12 @@
-﻿fastapi>=0.115
+fastapi>=0.115
 uvicorn[standard]>=0.32
 pydantic>=2.9
 httpx>=0.27
 pytest>=8.3
 pytest-asyncio>=0.24
+
+# ---- 以下为对照实现的可选依赖 ----
+# 默认路径（四个开关全关）不需要它们，不装也能跑全部功能与测试。
+# 只有打开 USE_LANGGRAPH / USE_MCP 时才需要，缺失会明确报错而非静默退回。
+langgraph>=0.6      # USE_LANGGRAPH=1 时需要
+mcp>=2.1            # USE_MCP=1 时需要

@@ -306,6 +306,21 @@ class OpenAICompatibleClient(LLMClient):
             return Decision(final=content)
 
 
+def active_system_prompt() -> str:
+    """当前生效的系统提示。USE_FEW_SHOT 打开时追加示例。
+
+    单独抽成函数,让 graph.py 与 langgraph_loop.py 共用同一份逻辑,
+    避免两条路径的提示词悄悄分叉。
+    """
+    from ..harness.flags import flags
+
+    if flags().use_few_shot:
+        from .few_shot import augment_prompt
+
+        return augment_prompt(SYSTEM_PROMPT)
+    return SYSTEM_PROMPT
+
+
 def build_llm(ctx_getter) -> LLMClient:
     """根据环境变量构建客户端。默认 mock(不联网、不需 key)。"""
     provider = os.getenv("LLM_PROVIDER", "mock").lower()
