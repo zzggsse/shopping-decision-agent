@@ -1,10 +1,26 @@
 # 购物决策助手
 
-对话式购物 Agent,解决**多平台比价**、**个性化偏好**、**长链路决策**三层问题,
-并支持**配料表/营养成分精准分析**与**跨会话用户健康档案**。
-定位:「只做决策 + 跳转」——不代下单、不碰支付、不存平台凭证。
+对话式购物 Agent，解决**多平台比价**、**个性化偏好**、**长链路决策**三层问题，
+并支持**配料表/营养成分精准分析**与**跨会话记忆**。
 
-## 先看这里：配置改哪里
+定位：**只做决策 + 跳转** —— 不代下单、不碰支付、不存平台凭证。
+
+---
+
+## 目录
+
+1. [需要的配置](#1-需要的配置) —— 两处，都不配也能跑
+2. [快速开始](#2-快速开始)
+3. [为什么做这个](#3-为什么做这个) —— 要解决的三层真实痛点
+4. [技术点](#4-技术点) —— 技术栈与关键设计
+5. [Harness 层](#5-harness-层编排--上下文--记忆--测评)
+6. [接入真实数据与真实模型](#6-接入真实数据与真实模型)
+7. [代码地图与扩展](#7-代码地图与扩展)
+8. [测试与合规](#8-测试与合规)
+
+---
+
+# 1. 需要的配置
 
 只有两处需要你自己配，**两处都不配也能双击 `start.bat` 直接跑起来**：
 
@@ -21,31 +37,123 @@ notepad local.env                             # 2. 填你的 key / 数据库连�
 psql -U postgres -f docs/postgres_init.sql    # 3. 要用 Postgres 才需要，先改脚本里的密码
 ```
 
-- **完整配置说明：[`docs/CONFIG.md`](docs/CONFIG.md)**
+- **完整配置说明：[`docs/CONFIG.md`](docs/CONFIG.md)**（含全部环境变量清单）
 - **Postgres 建账号脚本：[`docs/postgres_init.sql`](docs/postgres_init.sql)**
-- 代码层面：LLM 客户端在 `backend/app/agent/llm.py`，持久化在 `backend/app/harness/repository.py`
+
+### 配没配对，一眼就能看出来
+
+```powershell
+curl http://127.0.0.1:8000/api/health
+```
+
+`memory_backend` 字段会**如实告知**当前状态：
+
+| 值 | 含义 |
+|---|---|
+| `postgres` | 配对了，记忆真的写进数据库 |
+| `memory` | 没配 `DATABASE_URL`，只存内存（重启丢） |
+| `memory (postgres unavailable)` | **配了但连不上**，已降级，去看后端控制台警告 |
 
 > **凭据只写 `local.env`**（已 gitignore，永不入库）。不要写进 `config.py`、
-> `start.bat` 或任何会被提交的文件。配对没有，看
-> `GET /api/health` 的 `memory_backend` 字段就知道。
+> `start.bat` 或任何会被提交的文件。缺 key 时程序会直接抛错而非静默降级 ——
+> 避免你以为在用真模型、其实跑的是离线策略。
 
 ---
 
-目前已内置六个品类,架构按全品类设计:
+# 2. 快速开始
 
-| 品类 | 数据特点 |
+**Windows 一键**：双击 `start.bat`，脚本自动检查环境、装依赖、起前后端并打开浏览器。
+停止双击 `stop.bat`。前置要求：Python 3.11+、Node.js 18+，都已加入 PATH。
+
+**手动启动**：
+
+```bash
+# 后端
+cd backend && pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+
+# 前端（另开终端）
+cd frontend && npm install && npm run dev
+```
+
+| 用途 | 地址 |
 |---|---|
-| 笔记本电脑 / 智能手机 / 无线耳机 / 扫地机器人 | 标准规格参数比价 |
-| 洗发水 | **配料表逐成分分析**,匹配头发问题与敏感体质 |
-| 食品(零食) | **营养成分分析**,按糖尿病/高血压/过敏等条件过滤 |
+| 对话界面 | http://localhost:5173 |
+| 接口文档（Swagger 自动生成） | http://127.0.0.1:8000/docs |
 
+**端到端演示**（需先起后端）：
 
-## 技术栈
+```bash
+cd backend && python demo.py        # 六品类比价
+cd backend && python demo_health.py # 配料分析与健康档案
+```
+
+---
+
+# 3. 为什么做这个
+
+购物决策里有三件事是搜索框和商品详情页解决不了的，这个项目就是冲着这三件事做的。
+
+### 痛点一：多平台比价，比的不是标价而是到手价
+
+同一台笔记本在四个平台标价可能差 200，但叠加优惠券、满减、运费、会员折扣之后
+排序完全反过来。手动比价的麻烦在于：
+
+- 各平台的**同款判定**很难 —— 标题噪音多（"2024款""旗舰""国行"），
+  而 16G/512G 和 32G/1T 根本不是同一件商品，混着比价毫无意义
+- 到手价要**拆开算**才可信，不能只看一个数字
+
+做法：`matching.py` 用「品牌 + 归一化型号 + 品类声明的 identity 属性 + 成色」
+做同款键，配置差异不合并；`pricing.py` 输出到手价的**每一项构成与依据**，
+不是给个结果让你猜。
+
+### 痛点二：个性化偏好，尤其是有硬禁忌的时候
+
+"帮我推荐个洗发水"对不同的人是完全不同的问题。糖尿病患者不该被推荐高糖零食，
+敏感头皮不该被推荐含 SLS 的洗发水 —— 这类需求**不是排序靠后的问题，是必须排除**。
+
+做法：用户档案里的条件（糖尿病 / 高血压 / 坚果过敏 / 孕期 / 敏感头皮 / 硫酸盐过敏
+/ 健身 / 游戏重度）通过品类配置里的 `concern_rules` 生效，分三档：
+
+| 级别 | 效果 |
+|---|---|
+| `avoid` | **硬过滤**，含该成分的商品直接不出现在候选池 |
+| `prefer` | 加分 |
+| `boost` | 提升相关打分维度的权重（如游戏重度 → 性能维度加权） |
+
+对声明了配料字段的品类（洗发水、食品），会把配料表**逐成分**拆开，对照知识库
+给出功效、风险、对症人群，并与用户档案交叉得出「适合你 / 需注意 / 不建议」。
+成分匹配支持括号别名，配料里写"月桂醇聚醚硫酸酯钠(SLS)"能正确归一。
+
+### 痛点三：长链路决策，需求是聊出来的
+
+真实购物很少一句话说清。用户说"想买个笔记本"，缺预算、缺用途、缺便携性要求；
+说"预算 1000 买游戏本"，则是预算根本不够 —— 这时候**装作找到了**才是最坏的结果。
+
+做法：做成真正的 tool-calling agent，让决策层按观测自主决定下一步：
+
+- **品类不明先问**，绝不拿默认品类瞎追问
+- **槽位缺失才追问**，最多 3 轮，之后停止纠缠直接给结果
+- **候选不足自我修复**：逐级放宽最低规格 → 预算（1.35/1.6/2.0 倍）→ 品牌黑名单，每次重新检索
+- **放宽后如实告知**：说明原预算多少、超出多少，不悄悄换掉用户的条件
+- **决策前复核价格**，拿不到实时价就标注需要核对，绝不用旧价冒充
+- **工具报错降级继续**，单点失败不中断整轮
+
+### 边界：为什么只做决策 + 跳转
+
+不代下单、不碰支付、不存平台登录凭证。决策做完给带参链接，用户在平台自己完成交易。
+这样既不触碰支付合规红线，也不需要拿用户的平台账号。
+
+---
+
+# 4. 技术点
+
+## 4.1 技术栈
 
 | 层 | 选型 | 为什么选它 |
 |---|---|---|
 | 后端框架 | **FastAPI** + Uvicorn | 原生 async（多平台并发拉价必需）、自带 OpenAPI 文档 |
-| 推送 | **SSE**（`StreamingResponse`） | agent 逐步产出需要流式；单向推送用 SSE 比 WebSocket 轻 |
+| 流式推送 | **SSE**（`StreamingResponse`） | agent 逐步产出需要流式；单向推送用 SSE 比 WebSocket 轻 |
 | 数据校验 | **Pydantic v2** | 领域模型与接口契约共用一套定义 |
 | 持久化 | **PostgreSQL** + asyncpg | JSONB 存任务快照；未配置时自动降级内存 |
 | 前端 | **React 18** + TypeScript + Vite | 类型安全；品类元信息由后端下发，TS 接口守住形状 |
@@ -54,119 +162,57 @@ psql -U postgres -f docs/postgres_init.sql    # 3. 要用 Postgres 才需要，�
 | 测试 | **pytest** + pytest-asyncio | 134 项，含 8 个行为测评用例 |
 | 用例集 | **YAML** | 测评用例与基线轨迹声明式管理 |
 
-几个刻意的选择：
+三个刻意的取舍：
 
 - **零前端硬编码品类**。维度、属性、追问话术、快捷选项全由 `/api/categories`
   下发，前端据此动态渲染。新增品类不需要动前端一行代码。
 - **不引 LangChain / LlamaIndex**。核心循环就一个 while，自己写反而能把预算、
   轨迹、降级控得更紧，也不用为了改一行行为去读框架源码。
-- **离线可跑是硬约束**。`MockClient` 不是演示桩，而是与真模型走同一套工具接口
-  和同一个核心循环的策略决策器。这让测试确定、不花钱、不依赖网络。
+- **离线可跑是硬约束**。`MockClient` 不是演示桩，而是与真模型走**同一套工具接口
+  和同一个核心循环**的策略决策器，区别只在「怎么选下一步」。这让测试确定、
+  不花钱、不依赖网络。
 
-## 全品类架构
+## 4.2 全品类配置驱动
 
-新增一个品类 = 写一份配置 + 一份数据,**不需要改 agent / ranking / matching / api 代码**。
+新增一个品类 = 写一份配置 + 一份数据，**不需要改 agent / ranking / matching / api 代码**。
 
 ```
 app/catalog/
-  schema.py        CategorySchema / AttributeDef / SlotDef / DimensionDef
-  definitions.py   通用品类(笔记本/手机/耳机/扫地机)
-  categories_health.py  健康品类(洗发水/食品)+ 成分知识库
-  __init__.py      全局注册表
+  schema.py             CategorySchema / AttributeDef / SlotDef / DimensionDef
+  definitions.py        通用品类（笔记本 / 手机 / 耳机 / 扫地机）
+  categories_health.py  健康品类（洗发水 / 食品）+ 成分知识库
+  __init__.py           全局注册表
 ```
-
-每个品类配置三块内容,健康品类额外有两块:
 
 | 配置项 | 作用 |
 |---|---|
-| `slots` | 需求槽位:必答项、追问话术、快捷选项、关键词 |
-| `attributes` | 商品属性:方向(越大越好/越小越好)、枚举档位、同款判定 |
-| `dimensions` | 打分维度:权重、合成属性、推荐理由模板 |
-| `ingredient_attribute` + `ingredient_knowledge` | 声明配料字段 + 成分知识库(功效/风险/对症/禁忌人群) |
-| `concern_rules` | 用户条件如何影响本品类:avoid(硬过滤)/ prefer(加分)/ boost(维度加权) |
+| `slots` | 需求槽位：必答项、追问话术、快捷选项、关键词 |
+| `attributes` | 商品属性：方向（越大越好/越小越好）、枚举档位、同款判定 |
+| `dimensions` | 打分维度：权重、合成属性、推荐理由模板 |
+| `ingredient_attribute` + `ingredient_knowledge` | 声明配料字段 + 成分知识库（功效/风险/对症/禁忌人群） |
+| `concern_rules` | 用户条件如何影响本品类：avoid / prefer / boost |
 
-## 配料表 / 营养成分精准分析
+目前已内置六个品类：笔记本、手机、无线耳机、扫地机器人（标准规格比价），
+洗发水、食品（额外做配料表分析）。
 
-对声明了 `ingredient_attribute` 的品类,系统会把配料文本按分隔符拆分,
-对照成分知识库识别每个成分,并输出:
+## 4.3 Agent 架构：决策层 + 工具层
 
-- **功效与风险**:每个成分的 benefits / risks / helps_with
-- **适配问题**:洗发水匹配"头屑/脂溢性皮炎/干枯毛躁"等头发问题
-- **针对用户禁忌**:与健康档案交叉,给出"适合你/需注意/不建议"
-- **硬过滤**:`avoid` 级规则直接剔除不合适商品(见下)
-
-成分匹配支持**括号别名**,如配料里写"月桂醇硫酸酯钠(SLS)"、"聚葡萄糖(膳食纤维)",
-会正确归一化到知识库中的同一成分。
-
-## 用户健康与偏好档案(跨会话)
-
-右上角"我的档案"可编辑,跨会话生效。勾选后推荐会自动考虑:
-
-| 条件 | 影响 |
-|---|---|
-| 糖尿病 | 食品避开添加糖/反式脂肪,优先代糖、膳食纤维 |
-| 高血压 | 食品标注高钠与饱和脂肪 |
-| 坚果过敏 | 含坚果食品被直接排除(硬过滤) |
-| 孕期/备孕 | 洗发水标注水杨酸等慎用成分 |
-| 敏感头皮 | 洗发水硬过滤 SLS,优先氨基酸温和配方 |
-| 硫酸盐过敏 | 含硫酸盐表活的洗发水被排除 |
-| 健身/高蛋白 | 食品偏好高蛋白、高纤维 |
-| 游戏重度 | 电脑/手机提升性能维度权重 |
-
-实现位置:`app/profile/`(档案模型与存储)+ `app/ingredients/analyzer.py`(成分分析)。
-
-## 快速开始(Windows)
-
-双击 **`start.bat`** 即可,脚本自动检查环境、装依赖、起后端、起前端并打开浏览器。
-停止服务双击 **`stop.bat`**。
-
-前置要求:Python 3.11+、Node.js 18+,都已加入 PATH。
-
-## 手动启动 / 访问地址
-
-```bash
-# 后端
-cd backend && pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-
-# 前端(另开终端)
-cd frontend && npm install && npm run dev
-```
-
-| 用途 | 地址 |
-|---|---|
-| 对话界面 | http://localhost:5173 |
-| 接口文档(Swagger,本项目对前端的 HTTP 接口) | http://127.0.0.1:8000/docs |
-| 品类元信息 | http://127.0.0.1:8000/api/categories |
-| 用户档案 | http://127.0.0.1:8000/api/profile |
-
-端到端演示:
-
-```bash
-cd backend && python demo.py        # 六品类比价
-cd backend && python demo_health.py # 配料分析与健康档案
-```
-
-## Agent 架构:决策层 + 工具层
-
-系统是一个真正的 **tool-calling agent**,不是包了壳的规则流水线。
+系统是一个真正的 tool-calling agent，不是包了壳的规则流水线。
 
 ```
 用户输入
   ↓
-graph.py  只做三件事:建 Context、驱动循环、把工具结果转成 SSE 事件
+graph.py     只做三件事：建 Context、驱动循环、把工具结果转成 SSE 事件
   ↓
-决策层(llm.py)  每一步读任务观测,决定下一个调哪个工具
+决策层        每一步读任务观测，决定下一个调哪个工具（llm.py）
   ↓
-工具层(toolkit.py)  17 个工具,全部业务能力都在这一个文件里
+工具层        17 个工具，全部业务能力都在这一个文件里（toolkit.py）
   ↓
 结果回填进消息历史 → 再决策 …… 直到 compose_answer 收尾
 ```
 
-**关键点:`graph.py` 里没有任何购物决策。** "要不要追问、追问什么、
-是否换品类、候选太少怎么办、结论怎么说"全部由决策层调工具决定。
-
-### 工具清单(`app/agent/toolkit.py`)
+**关键点：`graph.py` 里没有任何购物决策。**「要不要追问、追问什么、是否换品类、
+候选太少怎么办、结论怎么说」全部由决策层调工具决定。
 
 | 类别 | 工具 |
 |---|---|
@@ -176,258 +222,40 @@ graph.py  只做三件事:建 Context、驱动循环、把工具结果转成 SSE
 | 个性化 | `get_user_profile`、`update_user_profile`、`analyze_ingredients`、`rerank_with_weights`、`drop_candidates` |
 | 收尾 | `compose_answer` |
 
-改业务逻辑只需动这一个文件,`graph.py` 不用碰。
+改业务逻辑只需动 `toolkit.py` 这一个文件。
 
-### 决策层可切换
+## 4.4 实时价格的三道保障
 
-> 填凭据请用根目录 `local.env`（详见 [`docs/CONFIG.md`](docs/CONFIG.md)）；
-> 下面的 `$env:` 写法仅当前终端有效，适合临时试一下。
+Mock 数据仅用于开发。接入真实数据后，用户侧实时性由三道机制保证：
 
-两种决策者走**完全相同**的工具接口与循环,区别只是"怎么选下一步":
-
-| Provider | 说明 |
-|---|---|
-| `mock`(默认) | 离线策略决策器。读观测按条件选工具,不需要 key、可离线跑完整流程 |
-| `ark` | 火山方舟(OpenAI 兼容),由模型自己选工具 |
-| `openai` | OpenAI 兼容接口 |
-
-```powershell
-# 默认离线,无需任何配置
-python demo.py
-
-# 换成真实模型决策(凭据只走环境变量,禁止写入文件)
-$env:LLM_PROVIDER="ark"
-$env:ARK_API_KEY="<你的key>"
-$env:ARK_MODEL="<接入点/模型名>"
-python demo.py
-```
-
-| 变量 | 说明 |
-|---|---|
-| `LLM_PROVIDER` | `mock`(默认)/ `ark` / `openai` |
-| `ARK_API_KEY` / `ARK_BASE_URL` / `ARK_MODEL` | 方舟凭据,`ARK_MODEL` 必填 |
-| `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL` | OpenAI 兼容同理 |
-
-### 决策层具备的自主行为
-
-这些都不是写死的分支,而是按观测触发的:
-
-- **品类不明先问**,绝不拿默认品类瞎追问
-- **槽位缺失才追问**,最多 3 轮,之后停止纠缠直接给结果
-- **候选不足自我修复**:逐级放宽最低规格 → 预算(1.35/1.6/2.0 倍)→ 品牌黑名单,每次重新检索
-- **放宽后如实告知**:说明原预算是多少、超出多少,不悄悄换掉用户的条件
-- **有配料表的品类**先读健康档案再分析成分,然后才下结论
-- **决策前复核价格**,拿不到实时价就标注需要核对
-- **工具报错降级继续**,单点失败不中断整轮
-- **步数上限兜底**(14 步),决策层失控也不会挂死前端
-
-## API 说明:三种别搞混
-
-项目里有三处叫"API"的东西,用途完全不同:
-
-| # | 是什么 | 在哪看 / 在哪改 | 要不要 key |
-|---|---|---|---|
-| 1 | **本项目对前端暴露的 HTTP 接口** | 运行后访问 http://127.0.0.1:8000/docs (FastAPI 自动生成的 Swagger 文档);代码在 `backend/app/api/routes.py` | 不需要 |
-| 2 | **电商平台数据接口**(京东/淘宝联盟等,用来拿真实商品和价格) | `backend/app/adapters/base.py` 的 `LiveAdapter` | 需要各平台联盟凭据 |
-| 3 | **大模型接口**(给 agent 做决策) | `backend/app/agent/llm.py` | 需要模型厂商 key |
-
-下面分别说 2 和 3 怎么接。
-
-### 本项目自己的 HTTP 接口一览
-
-起服务后在 http://127.0.0.1:8000/docs 可交互调试。代码全在 `backend/app/api/routes.py`。
-
-| 方法 | 路径 | 作用 |
-|---|---|---|
-| GET | `/api/health` | 健康检查,返回当前数据源模式与已注册品类 |
-| GET | `/api/categories` | 品类元信息,前端选择器与动态渲染的数据来源 |
-| POST | `/api/chat/stream` | **主接口**,SSE 流式返回 agent 的决策过程与结论 |
-| GET | `/api/tasks` | 任务列表 |
-| GET | `/api/tasks/{task_id}` | 任务详情:候选、报告、权重、决策日志 |
-| POST | `/api/tasks/{task_id}/weights` | 调整打分权重并重排 |
-| POST | `/api/tasks/{task_id}/drop` | 排除指定候选 |
-| POST | `/api/tasks/{task_id}/refresh` | 实时复核候选价格 |
-| POST | `/api/tasks/{task_id}/redirect/{offer_id}` | 跳转前价格二次校验,返回带参链接 |
-| GET / PUT | `/api/profile` | 读取 / 更新用户健康与偏好档案 |
+1. 决策前对 Top-5 候选强制实时复核（`refresh_prices_now`）
+2. 拿不到实时价就标记 `stale` 置灰，**绝不用旧价冒充**
+3. 跳转前二次校验，价格变动超 2% 提示用户核对
 
 ---
 
-## 接入电商平台 API(换掉本地样本,拿真实价格)
-
-### 改哪里
-
-只改 **`backend/app/adapters/base.py`** 里的 `LiveAdapter` 一个类。
-agent、比价、打分、前端都只依赖 `PlatformAdapter` 抽象协议,不关心数据来自
-API、爬虫还是本地样本,所以**其他文件一行都不用动**。
-
-当前 `LiveAdapter` 是骨架,三个方法都会抛 `NotImplementedError`:
-
-```python
-class LiveAdapter(PlatformAdapter):
-    realtime = True
-
-    def supported_categories(self) -> list[str]:
-        # 【改这里】返回该平台能供货的品类,如 ["laptop", "phone"]
-        return list(self._categories)
-
-    async def search(self, query: SearchQuery) -> list[RawOffer]:
-        # 【改这里】调平台搜索接口,把返回结果转成 list[RawOffer]
-        raise NotImplementedError(...)
-
-    async def refresh_offer(self, offer: Offer) -> Offer:
-        # 【改这里】查单个商品的实时价,用于决策前和跳转前校验
-        raise NotImplementedError(...)
-```
-
-### 要返回什么
-
-`search` 的返回类型是 `list[RawOffer]`,每个 `RawOffer` 由两部分组成:
-
-- `offer`:报价信息(`Offer`,见 `app/domain/models.py`)——标价、券、到手价、
-  平台、商品链接、库存、抓取时间
-- `spec`:商品规格(`ProductSpec`)——品牌、型号、品类,以及 `attributes` 字典
-  (键必须用 `app/catalog/` 里该品类声明的 attribute key,比如笔记本的 `ram`、`weight`)
-
-照抄 `app/adapters/fixtures/jd/laptop.json` 的结构最直观,那就是这两个对象序列化后的样子。
-
-### 凭据放哪
-
-**不要写进代码或配置文件**,一律走环境变量,和大模型 key 同样处理:
-
-```powershell
-$env:DATA_SOURCE_MODE="live"
-$env:JD_APP_KEY="..."
-$env:JD_APP_SECRET="..."
-```
-
-然后在 `LiveAdapter.__init__` 里用 `os.getenv` 读取。
-
-### 切换开关
-
-```bash
-DATA_SOURCE_MODE=mock   # 默认,读本地 fixture,开发/CI 用,不发外部请求
-DATA_SOURCE_MODE=live   # 走 LiveAdapter,真实 API + 爬虫补齐
-```
-
-切换逻辑在 `base.py` 末尾的 `create_adapters()`,要加平台就改 `PLATFORMS` 常量。
-
-### 实时价格的三道保障
-
-Mock 仅用于开发。接入真实数据后,用户侧实时性由三道机制保证:
-
-1. 决策前对 Top-5 候选强制实时复核(`refresh_prices_now` 工具)
-2. 拿不到实时价就标记 `stale` 置灰,绝不用旧价冒充
-3. 跳转前二次校验,价格变动超 2% 提示用户核对
-
----
-
-## 接入大模型 API(换掉离线策略决策器)
-
-### 改哪里
-
-**通常不用改代码**,配好环境变量就能切换。实现在
-**`backend/app/agent/llm.py`**,是有意收敛到单文件的:
-
-| 位置 | 作用 |
-|---|---|
-| `build_llm()` | 按 `LLM_PROVIDER` 选择决策者,新增厂商在这里加分支 |
-| `OpenAICompatibleClient` | OpenAI 兼容协议的实现(方舟、OpenAI、多数国内厂商都兼容) |
-| `MockClient` | 离线策略决策器,不需要 key |
-| `SYSTEM_PROMPT` | 给模型的系统指令,想调决策风格改这里 |
-
-### 怎么配
-
-```powershell
-# 默认:离线策略决策器,不需要任何 key
-python demo.py
-
-# 切换到火山方舟
-$env:LLM_PROVIDER="ark"
-$env:ARK_API_KEY="<你的key>"
-$env:ARK_MODEL="<接入点ID或模型名>"      # 必填,方舟控制台"在线推理"里获取
-
-# 切换到 OpenAI 或其他兼容接口
-$env:LLM_PROVIDER="openai"
-$env:OPENAI_API_KEY="<你的key>"
-$env:OPENAI_MODEL="gpt-4o-mini"
-$env:OPENAI_BASE_URL="https://api.openai.com/v1"   # 第三方中转改这里
-```
-
-| 变量 | 默认值 | 说明 |
-|---|---|---|
-| `LLM_PROVIDER` | `mock` | `mock` / `ark` / `openai` |
-| `ARK_API_KEY` | — | 方舟 Key |
-| `ARK_BASE_URL` | `https://ark.cn-beijing.volces.com/api/v3` | 换区域改这里 |
-| `ARK_MODEL` | — | **必填**,缺失会直接报错提醒 |
-| `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL` | — | 同理 |
-
-### 新增一个厂商
-
-如果对方不兼容 OpenAI 协议,在 `llm.py` 里继承 `LLMClient` 实现一个 `decide` 即可:
-
-```python
-class YourClient(LLMClient):
-    async def decide(self, messages, tools, state) -> Decision:
-        # 调你的接口,把结果包成 Decision
-        # 模型要求调工具:Decision(tool_calls=[{"name": ..., "arguments": {...}}])
-        # 模型给出最终答复:Decision(final="...")
-        ...
-```
-
-再在 `build_llm()` 里加一个分支。`graph.py` 和 `toolkit.py` 都不用改。
-
-### 安全约定
-
-**API key 一律只走环境变量,禁止写入任何文件**(含 `.env`、`config.py`、`start.bat`)。
-`OpenAICompatibleClient` 在缺 key 时会直接抛错,不会静默降级到 mock——避免你以为
-在用真模型、其实跑的是离线策略。
-
-## 三层能力实现位置
-
-| 能力 | 位置 |
-|---|---|
-| 品类注册表 | `app/catalog/` |
-| 平台适配 / 本地样本 | `app/adapters/base.py`、`app/adapters/fixtures/` |
-| SKU 同款对齐 | `app/services/matching.py` |
-| 到手价引擎 | `app/services/pricing.py` |
-| 配置驱动打分 | `app/services/ranking.py` |
-| 成分分析 | `app/ingredients/analyzer.py` |
-| 健康档案 | `app/profile/` |
-| 新鲜度与实时校验 | `app/services/freshness.py` |
-| Agent 核心循环(决策→工具→反馈) | `app/agent/graph.py` |
-| 决策层(mock 策略 / ark / openai) | `app/agent/llm.py` |
-| 工具层(17 个工具,单文件) | `app/agent/toolkit.py` |
-| 序列化/报告辅助 | `app/agent/serialize.py` |
-| 编排：预算/轨迹/重试/收敛 | `app/harness/orchestrator.py` |
-| 上下文装配与裁剪 | `app/harness/context.py` |
-| 三层记忆与自动沉淀 | `app/harness/memory.py` |
-| 持久化（Postgres，可降级） | `app/harness/repository.py` |
-| 测评（断言/轨迹/judge） | `backend/evals/` |
-| 需求抽取与追问 | `app/agent/extract.py` |
-
-
-## Harness 层：编排 / 上下文 / 记忆 / 测评
+# 5. Harness 层：编排 / 上下文 / 记忆 / 测评
 
 光有「模型 + 工具」不算 agent，还得有一层把它养活的基础设施。
-这四块全在 `backend/app/harness/`，**不含任何购物逻辑**——它不知道什么是预算、
+这四块全在 `backend/app/harness/`，**不含任何购物逻辑** —— 它不知道什么是预算、
 什么是洗发水，只知道「决策者、工具、预算、追踪」。
 
-### 关键设计点（也是跟「调一下模型」的区别）
+## 关键设计点（也是跟「调一下模型」的区别）
 
 | 点 | 具体做法 | 不这么做会怎样 |
 |---|---|---|
 | **预算硬上限** | 步数/token/耗时三重，触顶即收敛并告知原因 | 模型打环就无限循环，前端永远 loading |
 | **工具可放弃** | 同一工具连续失败 2 次就拉黑，并在观测里告知决策层「这个已不可用」 | 模型反复撞同一面墙直到耗尽预算 |
-| **上下文有优先级地裁** | 先丢早期工具结果，再摘要旧对话；系统指令/当前输入/最近工具结果永不丢 | 简单截断会把“你是谁”和“用户刚说什么”剔掉 |
+| **上下文有优先级地裁** | 先丢早期工具结果，再摘要旧对话；系统指令/当前输入/最近工具结果永不丢 | 简单截断会把"你是谁"和"用户刚说什么"剔掉 |
 | **观测而非口令** | 每步把任务真实状态（候选数、缺失槽位、已做过什么、已拉黑工具）喂回去 | 模型靠猜，重复调已完成的工具 |
 | **记忆可撤销** | 每条记忆带原话依据与置信度，前端一键「忘掉它」 | 黑盒子，用户不知道系统背着它记了什么 |
 | **降级如实暴露** | 连不上 Postgres 就在 `/api/health` 写 `memory (postgres unavailable)` | 以为存住了，其实一重启全没 |
 | **行为可回归** | 轨迹录基线，改动后自动报「缺少/新增了哪些工具」 | 改一行 prompt 默默弄坏三个场景，没人发现 |
-| **离线可测评** | 无 key 时走行为断言 + 轨迹对比，确定且不花钱 | 测评只能手测，或者每次 CI 都燃钱 |
+| **离线可测评** | 无 key 时走行为断言 + 轨迹对比，确定且不花钱 | 测评只能手测，或者每次 CI 都烧钱 |
 
 一句话概括：**模型负责「下一步做什么」，harness 负责「别失控、别失忆、别让你不知道出了什么事」。**
 
-### 1. 编排（`orchestrator.py`）
+## 5.1 编排（`orchestrator.py`）
 
 三重预算上限，任一触顶即收敛，**永远保证产出结果**，不让前端卡在 loading：
 
@@ -438,24 +266,24 @@ class YourClient(LLMClient):
 | `max_seconds` | 90 | 防卡死 |
 | `max_tool_retries` | 2 | 同一工具连续失败则放弃它，告知决策层换路 |
 
-每一步（决策 / 工具 / 结论 / 报错）都落成 `TraceStep`：名字、参数、成败、
-耗时、token。这份轨迹同时服务于三个场景：前端调试面板、日志、以及测评的轨迹对比。
+每一步（决策 / 工具 / 结论 / 报错）都落成 `TraceStep`：名字、参数、成败、耗时、token。
+这份轨迹同时服务三个场景：前端调试面板、日志、测评的轨迹对比。
 
-### 2. 上下文（`context.py`）
+## 5.2 上下文（`context.py`）
 
 装配顺序：系统指令 → 长期记忆摘要 → 历史对话 → 当前观测 → 本轮输入 → 工具结果。
 
-超出预算时的裁剪策略是有优先级的，**永不丢**系统指令 / 当前输入 / 最近的工具结果：
+超出预算时的裁剪**有优先级**，永不丢系统指令 / 当前输入 / 最近的工具结果：
 
 1. 先丢早期工具结果（只留最近 3 条）
 2. 再把较早的对话压成摘要（保留最近 6 轮原文）
 3. 候选列表只留 5 条、每条只留关键字段
 
 > 顺手修了一个严重 bug：旧的循环每轮从零重建消息列表，只放当前一句输入，
-> 历史存了却从没读过——多轮对话完全失忆。现已由 `test_evals.py` 的
+> 历史存了却从没读过 —— 多轮对话完全失忆。现已由 `test_evals.py` 的
 > `multi_turn_context_retained` 用例守住。
 
-### 3. 记忆（`memory.py` + `repository.py`）
+## 5.3 记忆（`memory.py` + `repository.py`）
 
 三层记忆，生命周期不同：
 
@@ -465,30 +293,20 @@ class YourClient(LLMClient):
 | `TaskMemory` | 单任务 | 看过哪些候选、拒了哪些、放宽过几轮 |
 | `LongTermMemory` | 跨会话永久 | 健康条件、品牌黑白名单、价格态度 |
 
-长期记忆会从对话里**自动沉淀**：你说「我有糖尿病，平时打游戏，不要小米」，
-系统会抽出 3 条记忆，并弹一条「已记住…」的提示。健康类条件会同步进档案，
-让已有的 `concern_rules` 硬过滤直接生效。
+长期记忆从对话里**自动沉淀**：你说「我有糖尿病，平时打游戏，不要小米」，
+系统会抽出 3 条记忆并弹出「已记住…」提示。健康类条件会同步进档案，
+让 `concern_rules` 硬过滤直接生效。
 
-**记忆必须可感知、可撤销**——右上角「记忆」面板列出每条记忆、为什么记住的（原话依据），
-并给一个「忘掉它」按钮。否则就是黑盒子。
-
+**记忆必须可感知、可撤销** —— 右上角「记忆」面板列出每条记忆、为什么记住的
+（原话依据），并给一个「忘掉它」按钮。否则就是黑盒子。
 对应接口：`GET /api/memory`、`DELETE /api/memory?kind=&value=`。
 
-#### 持久化：Postgres（可降级）
+**持久化**：配了 `DATABASE_URL` 就存 Postgres，三张表
+`user_memory` / `shopping_task` / `conversation_turn`（应用首次启动自动建表）。
+读走进程内缓存、写异步回写，请求路径不阻塞；持久化失败只记警告，不影响用户当前请求。
+没配或连不上会降级内存，并在 `/api/health` 如实标注（见 [§1](#1-需要的配置)）。
 
-配了 `DATABASE_URL` 就存 Postgres，三张表：`user_memory` / `shopping_task` / `conversation_turn`。
-
-```powershell
-$env:DATABASE_URL="postgresql://用户:密码@localhost:5432/库名"
-```
-
-读走进程内缓存，写异步回写，请求路径不阻塞；持久化失败只记警告，不影响用户当前请求。
-
-**没配或连不上也能跑**，会降级到内存（重启丢失）。降级事实会**如实暴露**在
-`GET /api/health` 的 `memory_backend` 字段：`postgres` / `memory` /
-`memory (postgres unavailable)`——避免你以为存住了其实没存。
-
-### 4. 测评（`backend/evals/`）
+## 5.4 测评（`backend/evals/`）
 
 ```bash
 cd backend
@@ -499,7 +317,7 @@ python -m evals.runner --case laptop_basic_gaming
 python -m evals.runner --update-baseline  # 行为变更合理后重录基线
 ```
 
-测评走双轨：
+双轨评判：
 
 - **接入了 LLM 凭据** → LLM-as-judge 为主，按 relevance / honesty / grounding
   三项打分（各 0-2），行为断言作为硬底线
@@ -508,7 +326,7 @@ python -m evals.runner --update-baseline  # 行为变更合理后重录基线
 判官宁可不跑也不用 `MockClient` 凑数：用离线策略当自己的判官只会自己给自己发奖状。
 判官凭据可用 `JUDGE_PROVIDER` / `JUDGE_MODEL` 单独指定，默认跟随 `LLM_PROVIDER`。
 
-用例写在 `evals/cases.yaml`，断言有五类：
+用例写在 `evals/cases.yaml`，断言五类：
 
 | 断言 | 含义 |
 |---|---|
@@ -518,29 +336,130 @@ python -m evals.runner --update-baseline  # 行为变更合理后重录基线
 | `text_excludes` | 结论不得出现某内容（如被拉黑的品牌） |
 | `max_steps` | 工具调用次数上限 |
 
-**轨迹对比**用序列相似度而不是集合比较，因为调用顺序本身就是行为的一部分：
-先检索再刷价与先刷价再检索是两种策略。基线变了会把「缺少/新增了哪些工具」指出来。
+**轨迹对比**用序列相似度而非集合比较，因为调用顺序本身就是行为的一部分：
+先检索再刷价与先刷价再检索是两种策略。基线变了会指出「缺少/新增了哪些工具」。
 
 测评集已接入 pytest（`tests/test_evals.py`），行为回归跟单测一起守，这部分永远离线跑。
 
-## 新增一个品类
+---
 
-以"机械键盘"为例,在 `app/catalog/definitions.py`(健康类放 `categories_health.py`)注册 `CategorySchema`:
-triggers / slots / attributes / dimensions / budget_options,再放一份 fixture。
-注册后 Agent、比价、打分、追问、前端全部自动可用。若要做配料分析,
-额外声明 `ingredient_attribute`、填充 `ingredient_knowledge` 和 `concern_rules`。
+# 6. 接入真实数据与真实模型
 
-## 合规边界
+> 项目里有三处叫 "API" 的东西，先分清：
 
-混合数据层,优先联盟/开放 API(自带带参跳转)。爬虫只做低频补齐遵守 robots.txt、
-低并发、短 TTL、不绕过登录/风控、不搬运隐私数据。
+| # | 是什么 | 在哪看 / 在哪改 | 要不要 key |
+|---|---|---|---|
+| 1 | **本项目对前端暴露的 HTTP 接口** | http://127.0.0.1:8000/docs ；代码在 `app/api/routes.py` | 不需要 |
+| 2 | **电商平台数据接口**（拿真实商品和价格） | `app/adapters/base.py` 的 `LiveAdapter` | 需要平台联盟凭据 |
+| 3 | **大模型接口**（给 agent 做决策） | `app/agent/llm.py` | 需要模型厂商 key |
 
-## 测试
+## 6.1 本项目的 HTTP 接口一览
 
-```bash
-cd backend && pytest -q
+| 方法 | 路径 | 作用 |
+|---|---|---|
+| GET | `/api/health` | 健康检查：数据源模式、已注册品类、记忆后端 |
+| GET | `/api/categories` | 品类元信息，前端动态渲染的数据来源 |
+| POST | `/api/chat/stream` | **主接口**，SSE 流式返回决策过程与结论 |
+| GET | `/api/tasks` · `/api/tasks/{id}` | 任务列表 / 详情（候选、报告、权重、决策日志） |
+| POST | `/api/tasks/{id}/weights` | 调整打分权重并重排 |
+| POST | `/api/tasks/{id}/drop` | 排除指定候选 |
+| POST | `/api/tasks/{id}/refresh` | 实时复核候选价格 |
+| POST | `/api/tasks/{id}/redirect/{offer_id}` | 跳转前价格二次校验，返回带参链接 |
+| GET / PUT | `/api/profile` | 读取 / 更新用户健康与偏好档案 |
+| GET / DELETE | `/api/memory` | 查看 / 删除长期记忆 |
+| GET | `/api/trace` | 最近一次运行轨迹（调试用） |
+
+## 6.2 接入电商平台（换掉本地样本）
+
+只改 `app/adapters/base.py` 里的 `LiveAdapter` 一个类。agent、比价、打分、前端
+都只依赖 `PlatformAdapter` 抽象协议，不关心数据来自 API、爬虫还是本地样本，
+所以**其他文件一行都不用动**。当前三个方法都是抛 `NotImplementedError` 的骨架：
+
+```python
+class LiveAdapter(PlatformAdapter):
+    realtime = True
+
+    def supported_categories(self) -> list[str]: ...   # 该平台供货的品类
+    async def search(self, query) -> list[RawOffer]: ...  # 平台搜索 → RawOffer
+    async def refresh_offer(self, offer) -> Offer: ...    # 查单品实时价
 ```
 
-134 项测试覆盖六品类决策链路、工具编排顺序、候选不足自我修复、超预算如实告知、SKU 对齐、权重重排、品类切换、实时价格校验、
-以及配料分析、健康档案硬过滤/加权。新品类只需把 key 加入 `ALL_CATEGORIES`
-即自动纳入全量参数化验证。
+`RawOffer` 由两部分组成：`offer`（标价、券、到手价、链接、库存、抓取时间）与
+`spec`（品牌、型号、品类、`attributes` 字典 —— 键必须用 `app/catalog/` 里该品类
+声明的 attribute key）。照抄 `app/adapters/fixtures/jd/laptop.json` 的结构最直观，
+那就是这两个对象序列化后的样子。
+
+切换开关在 `create_adapters()`：`DATA_SOURCE_MODE=mock`（默认，读本地 fixture，
+不发外部请求）/ `live`（走 `LiveAdapter`）。平台凭据同样只走环境变量。
+
+## 6.3 接入大模型
+
+**通常不用改代码**，配好 `local.env` 就能切换（见 [§1](#1-需要的配置)）。
+实现有意收敛到 `app/agent/llm.py` 单文件：
+
+| 位置 | 作用 |
+|---|---|
+| `build_llm()` | 按 `LLM_PROVIDER` 选择决策者，新增厂商在这里加分支 |
+| `OpenAICompatibleClient` | OpenAI 兼容协议实现（方舟、OpenAI、多数国内厂商都兼容） |
+| `MockClient` | 离线策略决策器，不需要 key |
+| `SYSTEM_PROMPT` | 给模型的系统指令，想调决策风格改这里 |
+
+如果对方不兼容 OpenAI 协议，继承 `LLMClient` 实现一个 `decide` 即可，
+再在 `build_llm()` 加分支，`graph.py` 和 `toolkit.py` 都不用改：
+
+```python
+class YourClient(LLMClient):
+    async def decide(self, messages, tools, state) -> Decision:
+        # 要求调工具：Decision(tool_calls=[{"name": ..., "arguments": {...}}])
+        # 给出最终答复：Decision(final="...")
+        ...
+```
+
+---
+
+# 7. 代码地图与扩展
+
+| 能力 | 位置 |
+|---|---|
+| 品类注册表 | `app/catalog/` |
+| 平台适配 / 本地样本 | `app/adapters/base.py`、`app/adapters/fixtures/` |
+| SKU 同款对齐 | `app/services/matching.py` |
+| 到手价引擎 | `app/services/pricing.py` |
+| 配置驱动打分 | `app/services/ranking.py` |
+| 新鲜度与实时校验 | `app/services/freshness.py` |
+| 成分分析 | `app/ingredients/analyzer.py` |
+| 健康档案 | `app/profile/` |
+| Agent 核心循环 | `app/agent/graph.py` |
+| 决策层（mock / ark / openai） | `app/agent/llm.py` |
+| 工具层（17 个工具，单文件） | `app/agent/toolkit.py` |
+| 需求抽取与追问 | `app/agent/extract.py` |
+| 序列化 / 报告辅助 | `app/agent/serialize.py` |
+| 编排：预算 / 轨迹 / 重试 / 收敛 | `app/harness/orchestrator.py` |
+| 上下文装配与裁剪 | `app/harness/context.py` |
+| 三层记忆与自动沉淀 | `app/harness/memory.py` |
+| 持久化（Postgres，可降级） | `app/harness/repository.py` |
+| 测评（断言 / 轨迹 / judge） | `backend/evals/` |
+| 本地配置加载 | `app/env.py` |
+
+**新增一个品类**：以"机械键盘"为例，在 `app/catalog/definitions.py`
+（健康类放 `categories_health.py`）注册 `CategorySchema` —— triggers / slots /
+attributes / dimensions / budget_options，再放一份 fixture。注册后 Agent、比价、
+打分、追问、前端全部自动可用。若要做配料分析，额外声明 `ingredient_attribute`、
+填充 `ingredient_knowledge` 和 `concern_rules`。
+
+---
+
+# 8. 测试与合规
+
+```bash
+cd backend && pytest -q                    # 134 项
+cd backend && python -m evals.runner --no-judge   # 8 个行为测评用例
+```
+
+覆盖六品类决策链路、工具编排顺序、候选不足自我修复、超预算如实告知、SKU 对齐、
+权重重排、品类切换、实时价格校验、配料分析、健康档案硬过滤/加权、上下文多轮不失忆、
+`local.env` 加载优先级。新品类只需把 key 加入 `ALL_CATEGORIES` 即自动纳入全量参数化验证。
+
+**合规边界**：混合数据层，优先联盟/开放 API（自带带参跳转）。爬虫只做低频补齐，
+遵守 robots.txt、低并发、短 TTL、不绕过登录/风控、不搬运隐私数据。
+不代下单、不碰支付、不存平台凭证。
