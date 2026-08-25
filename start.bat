@@ -17,6 +17,13 @@ for /f %%v in ('node --version 2^>^&1') do set "NODEVER=%%v"
 echo [检查] Python %PYVER%  /  Node %NODEVER%
 echo.
 
+if exist "local.env" (
+  echo [配置] 已找到 local.env，将加载其中的 LLM / Postgres 配置
+) else (
+  echo [配置] 未找到 local.env，将走离线策略决策 + 内存记忆（功能完整）
+  echo        要接 API Key 或 Postgres：copy local.env.example local.env，详见 docs\CONFIG.md
+)
+echo.
 echo [1/4] 检查后端依赖 ...
 python -c "import fastapi, uvicorn, httpx" >nul 2>&1
 if errorlevel 1 goto :install_backend

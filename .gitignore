@@ -7,3 +7,4 @@ pytest-cache-files-*/
 .venv/
 .env
 *.tsbuildinfo
+local.env

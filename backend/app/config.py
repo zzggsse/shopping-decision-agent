@@ -5,6 +5,11 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 
+from .env import load_local_env
+
+# 必须在读任何 os.getenv 之前加载，否则 local.env 里的值不生效
+load_local_env()
+
 
 @dataclass(slots=True)
 class Settings:
